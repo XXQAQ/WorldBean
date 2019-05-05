@@ -24,11 +24,11 @@ public interface CoordinateBehavior extends ParentBehavior{
         return null;
     }
 
-    public void getX();
+    public double getX();
 
-    public void getY();
+    public double getY();
 
-    public void getZ();
+    public double getZ();
 
     //上述内容在属性值中扮演的角色，不需要处理判断逻辑可直接返回null
     default String getCoordinateRole(){
