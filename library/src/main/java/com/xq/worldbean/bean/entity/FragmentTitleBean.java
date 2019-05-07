@@ -28,11 +28,6 @@ public class FragmentTitleBean extends TitleBean implements FragmentTitleBehavio
         this.fragment = fragment;
     }
 
-    public FragmentTitleBean(int id, CharSequence title, Fragment fragment, Object tag) {
-        super(id,title,tag);
-        this.fragment = fragment;
-    }
-
     @Override
     public String toString() {
         return "FragmentTitleBean{" +
@@ -67,8 +62,27 @@ public class FragmentTitleBean extends TitleBean implements FragmentTitleBehavio
         return fragment;
     }
 
-    public void setFragment(Fragment fragment) {
+    public FragmentTitleBean setFragment(Fragment fragment) {
         this.fragment = fragment;
+        return this;
+    }
+
+    @Override
+    public FragmentTitleBean setId(int id) {
+        super.setId(id);
+        return this;
+    }
+
+    @Override
+    public FragmentTitleBean setIdRole(String idRole) {
+        super.setIdRole(idRole);
+        return this;
+    }
+
+    @Override
+    public FragmentTitleBean setTag(Object tag) {
+        super.setTag(tag);
+        return this;
     }
 
     @Override

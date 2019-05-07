@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface NumberContentTitleBehavior extends TitleBehavior,ContentBehavior,NumberBehavior{
+public interface LenthBehavior extends ParentBehavior{
 
     @Override
     default int describeContents() {
@@ -21,6 +21,13 @@ public interface NumberContentTitleBehavior extends TitleBehavior,ContentBehavio
 
     @Override
     default Object getTag() {
+        return null;
+    }
+
+    public int getLenth();
+
+    //上述内容在属性值中扮演的角色，不需要处理判断逻辑可直接返回null
+    default String getLenthRole(){
         return null;
     }
 

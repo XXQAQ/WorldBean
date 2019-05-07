@@ -19,11 +19,6 @@ public class ParentBean implements ParentBehavior {
         this.id = id;
     }
 
-    public ParentBean(int id, Object tag) {
-        this.tag = tag;
-        this.id = id;
-    }
-
     @Override
     public String toString() {
         return "ParentBean{" +
@@ -58,8 +53,9 @@ public class ParentBean implements ParentBehavior {
         return tag;
     }
 
-    public void setTag(Object tag) {
+    public ParentBean setTag(Object tag) {
         this.tag = tag;
+        return this;
     }
 
     @Override
@@ -67,8 +63,9 @@ public class ParentBean implements ParentBehavior {
         return id;
     }
 
-    public void setId(int id) {
+    public ParentBean setId(int id) {
         this.id = id;
+        return this;
     }
 
     @Override
@@ -76,8 +73,9 @@ public class ParentBean implements ParentBehavior {
         return idRole;
     }
 
-    public void setIdRole(String idRole) {
+    public ParentBean setIdRole(String idRole) {
         this.idRole = idRole;
+        return this;
     }
 
     @Override

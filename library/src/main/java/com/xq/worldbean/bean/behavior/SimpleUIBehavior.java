@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface BaseUIBehavior extends ImageBehavior,NumberContentTitleBehavior{
+public interface SimpleUIBehavior extends ImageBehavior,TitleBehavior,ContentBehavior,NumberBehavior{
 
     @Override
     default int describeContents() {

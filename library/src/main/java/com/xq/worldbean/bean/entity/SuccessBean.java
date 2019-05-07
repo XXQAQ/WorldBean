@@ -22,11 +22,6 @@ public class SuccessBean extends ParentBean implements SuccessBehavior {
         this.isSuccess = isSuccess;
     }
 
-    public SuccessBean(int id,boolean isSuccess, Object tag) {
-        super(id,tag);
-        this.isSuccess = isSuccess;
-    }
-
     @Override
     public String toString() {
         return "SuccessBean{" +
@@ -63,8 +58,9 @@ public class SuccessBean extends ParentBean implements SuccessBehavior {
         return isSuccess;
     }
 
-    public void setSuccess(boolean success) {
+    public SuccessBean setSuccess(boolean success) {
         isSuccess = success;
+        return this;
     }
 
     @Override
@@ -72,8 +68,27 @@ public class SuccessBean extends ParentBean implements SuccessBehavior {
         return successRole;
     }
 
-    public void setSuccessRole(String successRole) {
+    public SuccessBean setSuccessRole(String successRole) {
         this.successRole = successRole;
+        return this;
+    }
+
+    @Override
+    public SuccessBean setId(int id) {
+        super.setId(id);
+        return this;
+    }
+
+    @Override
+    public SuccessBean setIdRole(String idRole) {
+        super.setIdRole(idRole);
+        return this;
+    }
+
+    @Override
+    public SuccessBean setTag(Object tag) {
+        super.setTag(tag);
+        return this;
     }
 
     @Override

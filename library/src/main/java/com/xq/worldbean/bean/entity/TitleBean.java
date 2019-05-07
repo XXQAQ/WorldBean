@@ -22,11 +22,6 @@ public class TitleBean extends ParentBean implements TitleBehavior {
         this.title = title;
     }
 
-    public TitleBean(int id, CharSequence title, Object tag) {
-        super(id,tag);
-        this.title = title;
-    }
-
     @Override
     public String toString() {
         return "TitleBean{" +
@@ -63,8 +58,9 @@ public class TitleBean extends ParentBean implements TitleBehavior {
         return title;
     }
 
-    public void setTitle(CharSequence title) {
+    public TitleBean setTitle(CharSequence title) {
         this.title = title;
+        return this;
     }
 
     @Override
@@ -72,8 +68,27 @@ public class TitleBean extends ParentBean implements TitleBehavior {
         return titleRole;
     }
 
-    public void setTitleRole(String titleRole) {
+    public TitleBean setTitleRole(String titleRole) {
         this.titleRole = titleRole;
+        return this;
+    }
+
+    @Override
+    public TitleBean setId(int id) {
+        super.setId(id);
+        return this;
+    }
+
+    @Override
+    public TitleBean setIdRole(String idRole) {
+        super.setIdRole(idRole);
+        return this;
+    }
+
+    @Override
+    public TitleBean setTag(Object tag) {
+        super.setTag(tag);
+        return this;
     }
 
     @Override
