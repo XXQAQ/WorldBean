@@ -23,6 +23,24 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
     }
 
     @Override
+    public String toString() {
+        return "SimpleUIBean{" +
+                "title=" + title +
+                ", content=" + content +
+                ", number=" + number +
+                ", imageRes=" + imageRes +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", titleRole='" + titleRole + '\'' +
+                ", contentRole='" + contentRole + '\'' +
+                ", numberRole='" + numberRole + '\'' +
+                ", imageRole='" + imageRole + '\'' +
+                ", tag=" + tag +
+                ", id=" + id +
+                ", idRole='" + idRole + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -58,24 +76,6 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         result = 31 * result + (numberRole != null ? numberRole.hashCode() : 0);
         result = 31 * result + (imageRole != null ? imageRole.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "SimpleUIBean{" +
-                "title=" + title +
-                ", content=" + content +
-                ", number=" + number +
-                ", imageRes=" + imageRes +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", titleRole='" + titleRole + '\'' +
-                ", contentRole='" + contentRole + '\'' +
-                ", numberRole='" + numberRole + '\'' +
-                ", imageRole='" + imageRole + '\'' +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                '}';
     }
 
     @Override
