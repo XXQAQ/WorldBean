@@ -1,8 +1,9 @@
 package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
+import com.xq.worldbean.util.callback.UniverseCallback;
 
-public interface SimpleUIBehavior extends TitleBehavior,ContentBehavior,NumberBehavior,ImageBehavior,CoordinateBehavior,PositionBehavior,ProgressBehavior,SuccessBehavior,SwitchStateBehavior,TypeBehavior,SizeBehavior{
+public interface SimpleUIBehavior extends TitleBehavior,ContentBehavior,NumberBehavior,ImageBehavior,CoordinateBehavior,PositionBehavior,ProgressBehavior,SuccessBehavior,SwitchStateBehavior,TypeBehavior,SizeBehavior, UniverseCallback {
 
     @Override
     default int describeContents() {
@@ -74,4 +75,8 @@ public interface SimpleUIBehavior extends TitleBehavior,ContentBehavior,NumberBe
         return 0;
     }
 
+    @Override
+    default void onCallback(Object... objects) {
+
+    }
 }

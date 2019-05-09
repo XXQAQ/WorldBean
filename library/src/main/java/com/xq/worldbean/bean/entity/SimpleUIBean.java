@@ -3,6 +3,7 @@ package com.xq.worldbean.bean.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.SimpleUIBehavior;
+import com.xq.worldbean.util.callback.UniverseCallback;
 import java.io.Serializable;
 
 public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
@@ -24,6 +25,7 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
     protected int type;
     protected double width;
     protected double height;
+    protected UniverseCallback universeCallback;
 
     public SimpleUIBean() {
 
@@ -280,6 +282,16 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
     public SimpleUIBean setHeight(double height) {
         this.height = height;
         return this;
+    }
+
+    public SimpleUIBean setUniverseCallback(UniverseCallback universeCallback) {
+        this.universeCallback = universeCallback;
+        return this;
+    }
+
+    @Override
+    public void onCallback(Object... objects) {
+        if (universeCallback != null)   universeCallback.onCallback();
     }
 
     public SimpleUIBean setOn(boolean isOn){
