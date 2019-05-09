@@ -11,6 +11,7 @@ public class ParentBean implements ParentBehavior {
     protected Object tag;
     protected int id;
     protected String idRole;
+    protected String tagRole;
 
     public ParentBean() {
     }
@@ -25,6 +26,7 @@ public class ParentBean implements ParentBehavior {
                 "tag=" + tag +
                 ", id=" + id +
                 ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -37,7 +39,8 @@ public class ParentBean implements ParentBehavior {
 
         if (id != that.id) return false;
         if (tag != null ? !tag.equals(that.tag) : that.tag != null) return false;
-        return idRole != null ? idRole.equals(that.idRole) : that.idRole == null;
+        if (idRole != null ? !idRole.equals(that.idRole) : that.idRole != null) return false;
+        return tagRole != null ? tagRole.equals(that.tagRole) : that.tagRole == null;
     }
 
     @Override
@@ -45,6 +48,7 @@ public class ParentBean implements ParentBehavior {
         int result = tag != null ? tag.hashCode() : 0;
         result = 31 * result + id;
         result = 31 * result + (idRole != null ? idRole.hashCode() : 0);
+        result = 31 * result + (tagRole != null ? tagRole.hashCode() : 0);
         return result;
     }
 
@@ -79,6 +83,16 @@ public class ParentBean implements ParentBehavior {
     }
 
     @Override
+    public String getTagRole() {
+        return tagRole;
+    }
+
+    public ParentBean setTagRole(String tagRole) {
+        this.tagRole = tagRole;
+        return this;
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }
@@ -91,6 +105,7 @@ public class ParentBean implements ParentBehavior {
             dest.writeSerializable((Serializable) tag);
         dest.writeInt(id);
         dest.writeString(idRole);
+        dest.writeString(tagRole);
     }
 
     protected ParentBean(Parcel in) {
@@ -100,6 +115,7 @@ public class ParentBean implements ParentBehavior {
             this.tag = in.readSerializable();
         this.id = in.readInt();
         this.idRole = in.readString();
+        this.tagRole = in.readString();
     }
 
     public static final Parcelable.Creator<ParentBean> CREATOR = new Parcelable.Creator<ParentBean>() {

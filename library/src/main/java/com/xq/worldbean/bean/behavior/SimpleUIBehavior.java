@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface SimpleUIBehavior extends ImageBehavior,TitleBehavior,ContentBehavior,NumberBehavior,CoordinateBehavior,PositionBehavior,ProgressBehavior,SwitchStateBehavior,TypeBehavior,SizeBehavior{
+public interface SimpleUIBehavior extends TitleBehavior,ContentBehavior,NumberBehavior,ImageBehavior,CoordinateBehavior,PositionBehavior,ProgressBehavior,SwitchStateBehavior,TypeBehavior,SizeBehavior{
 
     @Override
     default int describeContents() {
