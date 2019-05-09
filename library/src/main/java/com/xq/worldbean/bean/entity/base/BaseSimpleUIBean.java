@@ -6,7 +6,7 @@ import com.xq.worldbean.bean.behavior.SimpleUIBehavior;
 import com.xq.worldbean.util.callback.UniverseCallback;
 import java.io.Serializable;
 
-public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseParentBean<T> implements SimpleUIBehavior {
+public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> implements SimpleUIBehavior {
 
     protected CharSequence title;
     protected CharSequence content;

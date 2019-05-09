@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface NumberBehavior extends ParentBehavior{
+public interface NumberBehavior extends BaseBehavior {
 
     @Override
     default int describeContents() {

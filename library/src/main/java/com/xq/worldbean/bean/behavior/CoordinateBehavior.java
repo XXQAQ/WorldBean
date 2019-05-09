@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface CoordinateBehavior extends ParentBehavior{
+public interface CoordinateBehavior extends BaseBehavior {
 
     @Override
     default int describeContents() {

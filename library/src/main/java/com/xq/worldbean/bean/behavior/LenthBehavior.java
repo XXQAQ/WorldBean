@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface LenthBehavior extends ParentBehavior{
+public interface LenthBehavior extends BaseBehavior {
 
     @Override
     default int describeContents() {

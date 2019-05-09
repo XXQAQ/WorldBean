@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import java.io.Serializable;
 
-public interface ParentBehavior extends IdBehavior,TagBehavior,Serializable,Parcelable {
+public interface BaseBehavior extends IdBehavior,TagBehavior,Serializable,Parcelable {
 
     @Override
     default int describeContents() {

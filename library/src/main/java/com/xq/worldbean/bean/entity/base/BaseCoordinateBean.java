@@ -3,7 +3,7 @@ package com.xq.worldbean.bean.entity.base;
 import android.os.Parcel;
 import com.xq.worldbean.bean.behavior.CoordinateBehavior;
 
-public class BaseCoordinateBean<T extends BaseCoordinateBean> extends BaseParentBean implements CoordinateBehavior {
+public class BaseCoordinateBean<T extends BaseCoordinateBean> extends BaseBean implements CoordinateBehavior {
 
     protected double x;
     protected double y;

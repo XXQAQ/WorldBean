@@ -4,7 +4,7 @@ import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.LenthBehavior;
 
-public class BaseLenthBean<T extends BaseLenthBean> extends BaseParentBean implements LenthBehavior {
+public class BaseLenthBean<T extends BaseLenthBean> extends BaseBean implements LenthBehavior {
 
     protected int lenth;
 

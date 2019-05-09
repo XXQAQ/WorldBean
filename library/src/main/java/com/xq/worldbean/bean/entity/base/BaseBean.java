@@ -2,25 +2,25 @@ package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.xq.worldbean.bean.behavior.ParentBehavior;
+import com.xq.worldbean.bean.behavior.BaseBehavior;
 
 import java.io.Serializable;
 
-public class BaseParentBean<T extends BaseParentBean> implements ParentBehavior {
+public class BaseBean<T extends BaseBean> implements BaseBehavior {
 
     protected Object tag;
     protected int id;
 
-    public BaseParentBean() {
+    public BaseBean() {
     }
 
-    public BaseParentBean(int id) {
+    public BaseBean(int id) {
         this.id = id;
     }
 
     @Override
     public String toString() {
-        return "BaseParentBean{" +
+        return "BaseBean{" +
                 "tag=" + tag +
                 ", id=" + id +
                 '}';
@@ -31,7 +31,7 @@ public class BaseParentBean<T extends BaseParentBean> implements ParentBehavior 
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BaseParentBean that = (BaseParentBean) o;
+        BaseBean that = (BaseBean) o;
 
         if (id != that.id) return false;
         return tag != null ? tag.equals(that.tag) : that.tag == null;
@@ -78,7 +78,7 @@ public class BaseParentBean<T extends BaseParentBean> implements ParentBehavior 
         dest.writeInt(id);
     }
 
-    protected BaseParentBean(Parcel in) {
+    protected BaseBean(Parcel in) {
         if (tag instanceof Parcelable)
             this.tag = in.readParcelable(Object.class.getClassLoader());
         else    if (tag instanceof Serializable)
@@ -86,15 +86,15 @@ public class BaseParentBean<T extends BaseParentBean> implements ParentBehavior 
         this.id = in.readInt();
     }
 
-    public static final Parcelable.Creator<BaseParentBean> CREATOR = new Parcelable.Creator<BaseParentBean>() {
+    public static final Parcelable.Creator<BaseBean> CREATOR = new Parcelable.Creator<BaseBean>() {
         @Override
-        public BaseParentBean createFromParcel(Parcel in) {
-            return new BaseParentBean(in);
+        public BaseBean createFromParcel(Parcel in) {
+            return new BaseBean(in);
         }
 
         @Override
-        public BaseParentBean[] newArray(int size) {
-            return new BaseParentBean[size];
+        public BaseBean[] newArray(int size) {
+            return new BaseBean[size];
         }
     };
 

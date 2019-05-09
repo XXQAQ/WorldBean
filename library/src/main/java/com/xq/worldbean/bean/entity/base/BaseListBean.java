@@ -5,7 +5,7 @@ import com.xq.worldbean.bean.behavior.ListBehavior;
 import java.io.Serializable;
 import java.util.List;
 
-public class BaseListBean<T extends BaseListBean,T_List> extends BaseParentBean<T> implements ListBehavior<T_List> {
+public class BaseListBean<T extends BaseListBean,T_List> extends BaseBean<T> implements ListBehavior<T_List> {
 
     protected List<T_List> list;
 

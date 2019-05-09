@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface SizeBehavior extends ParentBehavior{
+public interface SizeBehavior extends BaseBehavior {
 
     @Override
     default int describeContents() {

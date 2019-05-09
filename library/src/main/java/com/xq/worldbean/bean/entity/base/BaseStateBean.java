@@ -7,7 +7,7 @@ import com.xq.worldbean.bean.behavior.StateBehavior;
 
 import java.io.Serializable;
 
-public class BaseStateBean<T extends BaseStateBean> extends BaseParentBean implements StateBehavior {
+public class BaseStateBean<T extends BaseStateBean> extends BaseBean implements StateBehavior {
 
     protected int state;
     protected CharSequence stateDescript;

@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface ImageBehavior extends ParentBehavior{
+public interface ImageBehavior extends BaseBehavior {
 
     @Override
     default int describeContents() {

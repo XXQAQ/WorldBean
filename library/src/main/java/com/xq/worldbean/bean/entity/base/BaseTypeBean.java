@@ -4,7 +4,7 @@ import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.TypeBehavior;
 
-public class BaseTypeBean<T extends BaseTypeBean> extends BaseParentBean implements TypeBehavior {
+public class BaseTypeBean<T extends BaseTypeBean> extends BaseBean implements TypeBehavior {
 
     protected int type;
 

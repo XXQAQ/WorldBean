@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface TitleBehavior extends ParentBehavior{
+public interface TitleBehavior extends BaseBehavior {
 
     @Override
     default int describeContents() {

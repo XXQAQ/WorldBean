@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import com.xq.worldbean.bean.behavior.SuccessBehavior;
 
-public class BaseSuccessBean<T extends BaseSuccessBean> extends BaseParentBean implements SuccessBehavior {
+public class BaseSuccessBean<T extends BaseSuccessBean> extends BaseBean implements SuccessBehavior {
 
     protected boolean isSuccess;
 

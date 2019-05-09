@@ -4,7 +4,7 @@ import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.NumberBehavior;
 
-public class BaseNumberBean<T extends BaseNumberBean> extends BaseParentBean implements NumberBehavior {
+public class BaseNumberBean<T extends BaseNumberBean> extends BaseBean implements NumberBehavior {
 
     protected Number number;
 

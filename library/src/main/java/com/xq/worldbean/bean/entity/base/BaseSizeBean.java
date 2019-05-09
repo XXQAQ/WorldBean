@@ -4,7 +4,7 @@ import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.SizeBehavior;
 
-public class BaseSizeBean<T extends BaseSizeBean> extends BaseParentBean implements SizeBehavior {
+public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean implements SizeBehavior {
 
     protected double width;
     protected double height;

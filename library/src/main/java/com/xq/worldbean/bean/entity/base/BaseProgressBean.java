@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.ProgressBehavior;
 import java.io.Serializable;
 
-public class BaseProgressBean<T extends BaseProgressBean> extends BaseParentBean implements ProgressBehavior {
+public class BaseProgressBean<T extends BaseProgressBean> extends BaseBean implements ProgressBehavior {
 
     protected float progress;
     protected CharSequence progressDescript;
