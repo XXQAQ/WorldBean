@@ -19,11 +19,6 @@ public interface ProgressBehavior extends ParentBehavior{
         return 0;
     }
 
-    @Override
-    default Object getTag() {
-        return null;
-    }
-
     //进度范围 0 - 1.0
     public float getProgress();
 
@@ -33,6 +28,8 @@ public interface ProgressBehavior extends ParentBehavior{
     }
 
     //上述内容在属性值中扮演的角色，不需要处理判断逻辑可直接返回null
-    public String getProgressRole();
+    default String getProgressRole() {
+        return null;
+    }
 
 }

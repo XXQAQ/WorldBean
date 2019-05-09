@@ -23,62 +23,6 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
     }
 
     @Override
-    public String toString() {
-        return "SimpleUIBean{" +
-                "title=" + title +
-                ", content=" + content +
-                ", number=" + number +
-                ", imageRes=" + imageRes +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", titleRole='" + titleRole + '\'' +
-                ", contentRole='" + contentRole + '\'' +
-                ", numberRole='" + numberRole + '\'' +
-                ", imageRole='" + imageRole + '\'' +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        SimpleUIBean that = (SimpleUIBean) o;
-
-        if (imageRes != that.imageRes) return false;
-        if (title != null ? !title.equals(that.title) : that.title != null) return false;
-        if (content != null ? !content.equals(that.content) : that.content != null) return false;
-        if (number != null ? !number.equals(that.number) : that.number != null) return false;
-        if (imageUrl != null ? !imageUrl.equals(that.imageUrl) : that.imageUrl != null)
-            return false;
-        if (titleRole != null ? !titleRole.equals(that.titleRole) : that.titleRole != null)
-            return false;
-        if (contentRole != null ? !contentRole.equals(that.contentRole) : that.contentRole != null)
-            return false;
-        if (numberRole != null ? !numberRole.equals(that.numberRole) : that.numberRole != null)
-            return false;
-        return imageRole != null ? imageRole.equals(that.imageRole) : that.imageRole == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + (number != null ? number.hashCode() : 0);
-        result = 31 * result + imageRes;
-        result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
-        result = 31 * result + (titleRole != null ? titleRole.hashCode() : 0);
-        result = 31 * result + (contentRole != null ? contentRole.hashCode() : 0);
-        result = 31 * result + (numberRole != null ? numberRole.hashCode() : 0);
-        result = 31 * result + (imageRole != null ? imageRole.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public CharSequence getTitle() {
         return title;
     }

@@ -4,7 +4,7 @@ import android.os.Parcel;
 
 import java.util.List;
 
-public interface ListBehavior<T> extends ParentBehavior{
+public interface ListBehavior<T> extends ParentBehavior , LenthBehavior{
 
     @Override
     default int describeContents(){
@@ -22,8 +22,9 @@ public interface ListBehavior<T> extends ParentBehavior{
     }
 
     @Override
-    default Object getTag() {
-        return null;
+    default int getLenth() {
+        if (getList() == null)  return 0;
+        return getList().size();
     }
 
     public List<T> getList();

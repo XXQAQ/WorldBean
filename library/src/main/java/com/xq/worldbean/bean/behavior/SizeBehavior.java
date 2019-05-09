@@ -19,11 +19,6 @@ public interface SizeBehavior extends ParentBehavior{
         return 0;
     }
 
-    @Override
-    default Object getTag() {
-        return null;
-    }
-
     public double getWidth();
 
     public double getHeight();

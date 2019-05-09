@@ -20,11 +20,6 @@ public interface FragmentTitleBehavior extends TitleBehavior{
         return 0;
     }
 
-    @Override
-    default Object getTag() {
-        return null;
-    }
-
     public Fragment getFragment();
 
 }

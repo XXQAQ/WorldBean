@@ -19,11 +19,6 @@ public interface ImageBehavior extends ParentBehavior{
         return 0;
     }
 
-    @Override
-    default Object getTag() {
-        return null;
-    }
-
     default int getImageRes(){
         return 0;
     }
