@@ -1,4 +1,4 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Bundle;
 import android.os.Parcel;
@@ -7,30 +7,30 @@ import android.support.v4.app.Fragment;
 import com.xq.worldbean.bean.behavior.FragmentTitleBehavior;
 import java.lang.reflect.Constructor;
 
-public class FragmentTitleBean extends TitleBean implements FragmentTitleBehavior {
+public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends BaseTitleBean implements FragmentTitleBehavior {
 
     protected Fragment fragment;
 
-    public FragmentTitleBean() {
+    public BaseFragmentTitleBean() {
     }
 
-    public FragmentTitleBean(Fragment fragment) {
+    public BaseFragmentTitleBean(Fragment fragment) {
         this.fragment = fragment;
     }
 
-    public FragmentTitleBean(CharSequence title, Fragment fragment) {
+    public BaseFragmentTitleBean(CharSequence title, Fragment fragment) {
         super(title);
         this.fragment = fragment;
     }
 
-    public FragmentTitleBean(int id, CharSequence title, Fragment fragment) {
+    public BaseFragmentTitleBean(int id, CharSequence title, Fragment fragment) {
         super(id,title);
         this.fragment = fragment;
     }
 
     @Override
     public String toString() {
-        return "FragmentTitleBean{" +
+        return "BaseFragmentTitleBean{" +
                 "fragment=" + fragment +
                 ", title=" + title +
                 ", tag=" + tag +
@@ -44,7 +44,7 @@ public class FragmentTitleBean extends TitleBean implements FragmentTitleBehavio
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        FragmentTitleBean that = (FragmentTitleBean) o;
+        BaseFragmentTitleBean that = (BaseFragmentTitleBean) o;
 
         return fragment != null ? fragment.equals(that.fragment) : that.fragment == null;
     }
@@ -60,19 +60,9 @@ public class FragmentTitleBean extends TitleBean implements FragmentTitleBehavio
         return fragment;
     }
 
-    public FragmentTitleBean setFragment(Fragment fragment) {
+    public T setFragment(Fragment fragment) {
         this.fragment = fragment;
-        return this;
-    }
-
-    @Override
-    public FragmentTitleBean setId(int id) {
-        return (FragmentTitleBean) super.setId(id);
-    }
-
-    @Override
-    public FragmentTitleBean setTag(Object tag) {
-        return (FragmentTitleBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -87,7 +77,7 @@ public class FragmentTitleBean extends TitleBean implements FragmentTitleBehavio
         dest.writeBundle(fragment.getArguments());
     }
 
-    protected FragmentTitleBean(Parcel in) {
+    protected BaseFragmentTitleBean(Parcel in) {
         super(in);
         String fragmentName = in.readString();
         Bundle bundle = in.readBundle();
@@ -102,15 +92,15 @@ public class FragmentTitleBean extends TitleBean implements FragmentTitleBehavio
         }
     }
 
-    public static final Parcelable.Creator<FragmentTitleBean> CREATOR = new Parcelable.Creator<FragmentTitleBean>() {
+    public static final Parcelable.Creator<BaseFragmentTitleBean> CREATOR = new Parcelable.Creator<BaseFragmentTitleBean>() {
         @Override
-        public FragmentTitleBean createFromParcel(Parcel source) {
-            return new FragmentTitleBean(source);
+        public BaseFragmentTitleBean createFromParcel(Parcel source) {
+            return new BaseFragmentTitleBean(source);
         }
 
         @Override
-        public FragmentTitleBean[] newArray(int size) {
-            return new FragmentTitleBean[size];
+        public BaseFragmentTitleBean[] newArray(int size) {
+            return new BaseFragmentTitleBean[size];
         }
     };
 }

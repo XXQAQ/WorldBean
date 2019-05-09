@@ -1,28 +1,28 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.NumberBehavior;
 
-public class NumberBean extends ParentBean implements NumberBehavior {
+public class BaseNumberBean<T extends BaseNumberBean> extends BaseParentBean implements NumberBehavior {
 
     protected Number number;
 
-    public NumberBean() {
+    public BaseNumberBean() {
     }
 
-    public NumberBean(Number number) {
+    public BaseNumberBean(Number number) {
         this.number = number;
     }
 
-    public NumberBean(int id, Number number) {
+    public BaseNumberBean(int id, Number number) {
         super(id);
         this.number = number;
     }
 
     @Override
     public String toString() {
-        return "NumberBean{" +
+        return "BaseNumberBean{" +
                 "number=" + number +
                 ", tag=" + tag +
                 ", id=" + id +
@@ -35,7 +35,7 @@ public class NumberBean extends ParentBean implements NumberBehavior {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        NumberBean that = (NumberBean) o;
+        BaseNumberBean that = (BaseNumberBean) o;
 
         return number != null ? number.equals(that.number) : that.number == null;
     }
@@ -52,19 +52,9 @@ public class NumberBean extends ParentBean implements NumberBehavior {
         return number;
     }
 
-    public NumberBean setNumber(Number number) {
+    public T setNumber(Number number) {
         this.number = number;
-        return this;
-    }
-
-    @Override
-    public NumberBean setId(int id) {
-        return (NumberBean) super.setId(id);
-    }
-
-    @Override
-    public NumberBean setTag(Object tag) {
-        return (NumberBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -78,20 +68,20 @@ public class NumberBean extends ParentBean implements NumberBehavior {
         dest.writeSerializable(this.number);
     }
 
-    protected NumberBean(Parcel in) {
+    protected BaseNumberBean(Parcel in) {
         super(in);
         this.number = (Number) in.readSerializable();
     }
 
-    public static final Creator<NumberBean> CREATOR = new Creator<NumberBean>() {
+    public static final Creator<BaseNumberBean> CREATOR = new Creator<BaseNumberBean>() {
         @Override
-        public NumberBean createFromParcel(Parcel source) {
-            return new NumberBean(source);
+        public BaseNumberBean createFromParcel(Parcel source) {
+            return new BaseNumberBean(source);
         }
 
         @Override
-        public NumberBean[] newArray(int size) {
-            return new NumberBean[size];
+        public BaseNumberBean[] newArray(int size) {
+            return new BaseNumberBean[size];
         }
     };
 

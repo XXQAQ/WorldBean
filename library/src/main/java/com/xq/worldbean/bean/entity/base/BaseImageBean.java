@@ -1,37 +1,37 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 import com.xq.worldbean.bean.behavior.ImageBehavior;
 
-public class ImageBean extends ParentBean implements ImageBehavior {
+public class BaseImageBean<T extends BaseImageBean> extends BaseParentBean implements ImageBehavior {
 
     protected int imageRes;
     protected String imageUrl;
 
-    public ImageBean() {
+    public BaseImageBean() {
     }
 
-    public ImageBean(int imageRes) {
+    public BaseImageBean(int imageRes) {
         this.imageRes = imageRes;
     }
 
-    public ImageBean(String imageUrl) {
+    public BaseImageBean(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
-    public ImageBean(int id, int imageRes) {
+    public BaseImageBean(int id, int imageRes) {
         super(id);
         this.imageRes = imageRes;
     }
 
-    public ImageBean(int id, String imageUrl) {
+    public BaseImageBean(int id, String imageUrl) {
         super(id);
         this.imageUrl = imageUrl;
     }
 
     @Override
     public String toString() {
-        return "ImageBean{" +
+        return "BaseImageBean{" +
                 "imageRes=" + imageRes +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", tag=" + tag +
@@ -45,7 +45,7 @@ public class ImageBean extends ParentBean implements ImageBehavior {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        ImageBean imageBean = (ImageBean) o;
+        BaseImageBean imageBean = (BaseImageBean) o;
 
         if (imageRes != imageBean.imageRes) return false;
         return imageUrl != null ? imageUrl.equals(imageBean.imageUrl) : imageBean.imageUrl == null;
@@ -64,9 +64,9 @@ public class ImageBean extends ParentBean implements ImageBehavior {
         return imageRes;
     }
 
-    public ImageBean setImageRes(int imageRes) {
+    public T setImageRes(int imageRes) {
         this.imageRes = imageRes;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -74,19 +74,9 @@ public class ImageBean extends ParentBean implements ImageBehavior {
         return imageUrl;
     }
 
-    public ImageBean setImageUrl(String imageUrl) {
+    public T setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
-        return this;
-    }
-
-    @Override
-    public ImageBean setId(int id) {
-        return (ImageBean) super.setId(id);
-    }
-
-    @Override
-    public ImageBean setTag(Object tag) {
-        return (ImageBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -101,21 +91,21 @@ public class ImageBean extends ParentBean implements ImageBehavior {
         dest.writeString(this.imageUrl);
     }
 
-    protected ImageBean(Parcel in) {
+    protected BaseImageBean(Parcel in) {
         super(in);
         this.imageRes = in.readInt();
         this.imageUrl = in.readString();
     }
 
-    public static final Creator<ImageBean> CREATOR = new Creator<ImageBean>() {
+    public static final Creator<BaseImageBean> CREATOR = new Creator<BaseImageBean>() {
         @Override
-        public ImageBean createFromParcel(Parcel source) {
-            return new ImageBean(source);
+        public BaseImageBean createFromParcel(Parcel source) {
+            return new BaseImageBean(source);
         }
 
         @Override
-        public ImageBean[] newArray(int size) {
-            return new ImageBean[size];
+        public BaseImageBean[] newArray(int size) {
+            return new BaseImageBean[size];
         }
     };
 }

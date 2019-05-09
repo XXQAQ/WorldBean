@@ -1,24 +1,24 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 import com.xq.worldbean.bean.behavior.CoordinateBehavior;
 
-public class CoordinateBean extends ParentBean implements CoordinateBehavior {
+public class BaseCoordinateBean<T extends BaseCoordinateBean> extends BaseParentBean implements CoordinateBehavior {
 
     protected double x;
     protected double y;
     protected double z;
 
-    public CoordinateBean() {
+    public BaseCoordinateBean() {
     }
 
-    public CoordinateBean(double x, double y, double z) {
+    public BaseCoordinateBean(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public CoordinateBean(int id, double x, double y, double z) {
+    public BaseCoordinateBean(int id, double x, double y, double z) {
         super(id);
         this.x = x;
         this.y = y;
@@ -27,7 +27,7 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
 
     @Override
     public String toString() {
-        return "CoordinateBean{" +
+        return "BaseCoordinateBean{" +
                 "x=" + x +
                 ", y=" + y +
                 ", z=" + z +
@@ -42,7 +42,7 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        CoordinateBean that = (CoordinateBean) o;
+        BaseCoordinateBean that = (BaseCoordinateBean) o;
 
         if (Double.compare(that.x, x) != 0) return false;
         if (Double.compare(that.y, y) != 0) return false;
@@ -67,9 +67,9 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
         return x;
     }
 
-    public CoordinateBean setX(double x) {
+    public T setX(double x) {
         this.x = x;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -77,9 +77,9 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
         return y;
     }
 
-    public CoordinateBean setY(double y) {
+    public T setY(double y) {
         this.y = y;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -87,19 +87,9 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
         return z;
     }
 
-    public CoordinateBean setZ(double z) {
+    public T setZ(double z) {
         this.z = z;
-        return this;
-    }
-
-    @Override
-    public CoordinateBean setId(int id) {
-        return (CoordinateBean) super.setId(id);
-    }
-
-    @Override
-    public CoordinateBean setTag(Object tag) {
-        return (CoordinateBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -115,22 +105,22 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
         dest.writeDouble(this.z);
     }
 
-    protected CoordinateBean(Parcel in) {
+    protected BaseCoordinateBean(Parcel in) {
         super(in);
         this.x = in.readDouble();
         this.y = in.readDouble();
         this.z = in.readDouble();
     }
 
-    public static final Creator<CoordinateBean> CREATOR = new Creator<CoordinateBean>() {
+    public static final Creator<BaseCoordinateBean> CREATOR = new Creator<BaseCoordinateBean>() {
         @Override
-        public CoordinateBean createFromParcel(Parcel source) {
-            return new CoordinateBean(source);
+        public BaseCoordinateBean createFromParcel(Parcel source) {
+            return new BaseCoordinateBean(source);
         }
 
         @Override
-        public CoordinateBean[] newArray(int size) {
-            return new CoordinateBean[size];
+        public BaseCoordinateBean[] newArray(int size) {
+            return new BaseCoordinateBean[size];
         }
     };
 

@@ -1,28 +1,28 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.TypeBehavior;
 
-public class TypeBean extends ParentBean implements TypeBehavior {
+public class BaseTypeBean<T extends BaseTypeBean> extends BaseParentBean implements TypeBehavior {
 
     protected int type;
 
-    public TypeBean() {
+    public BaseTypeBean() {
     }
 
-    public TypeBean(int type) {
+    public BaseTypeBean(int type) {
         this.type = type;
     }
 
-    public TypeBean(int id, int type) {
+    public BaseTypeBean(int id, int type) {
         super(id);
         this.type = type;
     }
 
     @Override
     public String toString() {
-        return "TypeBean{" +
+        return "BaseTypeBean{" +
                 "type=" + type +
                 ", tag=" + tag +
                 ", id=" + id +
@@ -35,7 +35,7 @@ public class TypeBean extends ParentBean implements TypeBehavior {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        TypeBean typeBean = (TypeBean) o;
+        BaseTypeBean typeBean = (BaseTypeBean) o;
 
         return type == typeBean.type;
     }
@@ -52,19 +52,9 @@ public class TypeBean extends ParentBean implements TypeBehavior {
         return type;
     }
 
-    public TypeBean setType(int type) {
+    public T setType(int type) {
         this.type = type;
-        return this;
-    }
-
-    @Override
-    public TypeBean setId(int id) {
-        return (TypeBean) super.setId(id);
-    }
-
-    @Override
-    public TypeBean setTag(Object tag) {
-        return (TypeBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -78,20 +68,20 @@ public class TypeBean extends ParentBean implements TypeBehavior {
         dest.writeInt(this.type);
     }
 
-    protected TypeBean(Parcel in) {
+    protected BaseTypeBean(Parcel in) {
         super(in);
         this.type = in.readInt();
     }
 
-    public static final Creator<TypeBean> CREATOR = new Creator<TypeBean>() {
+    public static final Creator<BaseTypeBean> CREATOR = new Creator<BaseTypeBean>() {
         @Override
-        public TypeBean createFromParcel(Parcel source) {
-            return new TypeBean(source);
+        public BaseTypeBean createFromParcel(Parcel source) {
+            return new BaseTypeBean(source);
         }
 
         @Override
-        public TypeBean[] newArray(int size) {
-            return new TypeBean[size];
+        public BaseTypeBean[] newArray(int size) {
+            return new BaseTypeBean[size];
         }
     };
 }

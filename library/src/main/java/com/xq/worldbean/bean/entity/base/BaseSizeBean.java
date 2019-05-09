@@ -1,23 +1,23 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.SizeBehavior;
 
-public class SizeBean extends ParentBean implements SizeBehavior {
+public class BaseSizeBean<T extends BaseSizeBean> extends BaseParentBean implements SizeBehavior {
 
     protected double width;
     protected double height;
 
-    public SizeBean() {
+    public BaseSizeBean() {
     }
 
-    public SizeBean(double width, double height) {
+    public BaseSizeBean(double width, double height) {
         this.width = width;
         this.height = height;
     }
 
-    public SizeBean(int id, double width, double height) {
+    public BaseSizeBean(int id, double width, double height) {
         super(id);
         this.width = width;
         this.height = height;
@@ -25,7 +25,7 @@ public class SizeBean extends ParentBean implements SizeBehavior {
 
     @Override
     public String toString() {
-        return "SizeBean{" +
+        return "BaseSizeBean{" +
                 "width=" + width +
                 ", height=" + height +
                 ", tag=" + tag +
@@ -39,7 +39,7 @@ public class SizeBean extends ParentBean implements SizeBehavior {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        SizeBean sizeBean = (SizeBean) o;
+        BaseSizeBean sizeBean = (BaseSizeBean) o;
 
         if (Double.compare(sizeBean.width, width) != 0) return false;
         return Double.compare(sizeBean.height, height) == 0;
@@ -61,9 +61,9 @@ public class SizeBean extends ParentBean implements SizeBehavior {
         return width;
     }
 
-    public SizeBean setWidth(double width) {
+    public T setWidth(double width) {
         this.width = width;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -71,19 +71,9 @@ public class SizeBean extends ParentBean implements SizeBehavior {
         return height;
     }
 
-    public SizeBean setHeight(double height) {
+    public T setHeight(double height) {
         this.height = height;
-        return this;
-    }
-
-    @Override
-    public SizeBean setId(int id) {
-        return (SizeBean) super.setId(id);
-    }
-
-    @Override
-    public SizeBean setTag(Object tag) {
-        return (SizeBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -98,21 +88,21 @@ public class SizeBean extends ParentBean implements SizeBehavior {
         dest.writeDouble(this.height);
     }
 
-    protected SizeBean(Parcel in) {
+    protected BaseSizeBean(Parcel in) {
         super(in);
         this.width = in.readDouble();
         this.height = in.readDouble();
     }
 
-    public static final Creator<SizeBean> CREATOR = new Creator<SizeBean>() {
+    public static final Creator<BaseSizeBean> CREATOR = new Creator<BaseSizeBean>() {
         @Override
-        public SizeBean createFromParcel(Parcel source) {
-            return new SizeBean(source);
+        public BaseSizeBean createFromParcel(Parcel source) {
+            return new BaseSizeBean(source);
         }
 
         @Override
-        public SizeBean[] newArray(int size) {
-            return new SizeBean[size];
+        public BaseSizeBean[] newArray(int size) {
+            return new BaseSizeBean[size];
         }
     };
 }

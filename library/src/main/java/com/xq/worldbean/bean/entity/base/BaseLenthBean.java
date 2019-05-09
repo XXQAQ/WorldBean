@@ -1,28 +1,28 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.LenthBehavior;
 
-public class LenthBean extends ParentBean implements LenthBehavior {
+public class BaseLenthBean<T extends BaseLenthBean> extends BaseParentBean implements LenthBehavior {
 
     protected int lenth;
 
-    public LenthBean() {
+    public BaseLenthBean() {
     }
 
-    public LenthBean(int lenth) {
+    public BaseLenthBean(int lenth) {
         this.lenth = lenth;
     }
 
-    public LenthBean(int id, int lenth) {
+    public BaseLenthBean(int id, int lenth) {
         super(id);
         this.lenth = lenth;
     }
 
     @Override
     public String toString() {
-        return "LenthBean{" +
+        return "BaseLenthBean{" +
                 "lenth=" + lenth +
                 ", tag=" + tag +
                 ", id=" + id +
@@ -35,7 +35,7 @@ public class LenthBean extends ParentBean implements LenthBehavior {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        LenthBean lenthBean = (LenthBean) o;
+        BaseLenthBean lenthBean = (BaseLenthBean) o;
 
         return lenth == lenthBean.lenth;
     }
@@ -52,19 +52,9 @@ public class LenthBean extends ParentBean implements LenthBehavior {
         return lenth;
     }
 
-    public LenthBean setLenth(int lenth) {
+    public T setLenth(int lenth) {
         this.lenth = lenth;
-        return this;
-    }
-
-    @Override
-    public LenthBean setId(int id) {
-        return (LenthBean) super.setId(id);
-    }
-
-    @Override
-    public LenthBean setTag(Object tag) {
-        return (LenthBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -78,20 +68,20 @@ public class LenthBean extends ParentBean implements LenthBehavior {
         dest.writeInt(this.lenth);
     }
 
-    protected LenthBean(Parcel in) {
+    protected BaseLenthBean(Parcel in) {
         super(in);
         this.lenth = in.readInt();
     }
 
-    public static final Creator<LenthBean> CREATOR = new Creator<LenthBean>() {
+    public static final Creator<BaseLenthBean> CREATOR = new Creator<BaseLenthBean>() {
         @Override
-        public LenthBean createFromParcel(Parcel source) {
-            return new LenthBean(source);
+        public BaseLenthBean createFromParcel(Parcel source) {
+            return new BaseLenthBean(source);
         }
 
         @Override
-        public LenthBean[] newArray(int size) {
-            return new LenthBean[size];
+        public BaseLenthBean[] newArray(int size) {
+            return new BaseLenthBean[size];
         }
     };
 }

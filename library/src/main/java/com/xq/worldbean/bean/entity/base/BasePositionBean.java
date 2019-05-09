@@ -1,28 +1,28 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.PositionBehavior;
 
-public class PositionBean extends ParentBean implements PositionBehavior {
+public class BasePositionBean<T extends BasePositionBean> extends BaseParentBean implements PositionBehavior {
 
     private int position;
 
-    public PositionBean() {
+    public BasePositionBean() {
     }
 
-    public PositionBean(int position) {
+    public BasePositionBean(int position) {
         this.position = position;
     }
 
-    public PositionBean(int id, int position) {
+    public BasePositionBean(int id, int position) {
         super(id);
         this.position = position;
     }
 
     @Override
     public String toString() {
-        return "PositionBean{" +
+        return "BasePositionBean{" +
                 "position=" + position +
                 ", tag=" + tag +
                 ", id=" + id +
@@ -35,7 +35,7 @@ public class PositionBean extends ParentBean implements PositionBehavior {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        PositionBean that = (PositionBean) o;
+        BasePositionBean that = (BasePositionBean) o;
 
         return position == that.position;
     }
@@ -52,19 +52,9 @@ public class PositionBean extends ParentBean implements PositionBehavior {
         return position;
     }
 
-    public PositionBean setPosition(int position) {
+    public T setPosition(int position) {
         this.position = position;
-        return this;
-    }
-
-    @Override
-    public PositionBean setId(int id) {
-        return (PositionBean) super.setId(id);
-    }
-
-    @Override
-    public PositionBean setTag(Object tag) {
-        return (PositionBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -78,20 +68,20 @@ public class PositionBean extends ParentBean implements PositionBehavior {
         dest.writeInt(this.position);
     }
 
-    protected PositionBean(Parcel in) {
+    protected BasePositionBean(Parcel in) {
         super(in);
         this.position = in.readInt();
     }
 
-    public static final Creator<PositionBean> CREATOR = new Creator<PositionBean>() {
+    public static final Creator<BasePositionBean> CREATOR = new Creator<BasePositionBean>() {
         @Override
-        public PositionBean createFromParcel(Parcel source) {
-            return new PositionBean(source);
+        public BasePositionBean createFromParcel(Parcel source) {
+            return new BasePositionBean(source);
         }
 
         @Override
-        public PositionBean[] newArray(int size) {
-            return new PositionBean[size];
+        public BasePositionBean[] newArray(int size) {
+            return new BasePositionBean[size];
         }
     };
 }

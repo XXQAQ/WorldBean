@@ -1,4 +1,4 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -6,7 +6,7 @@ import com.xq.worldbean.bean.behavior.SimpleUIBehavior;
 import com.xq.worldbean.util.callback.UniverseCallback;
 import java.io.Serializable;
 
-public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
+public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseParentBean<T> implements SimpleUIBehavior {
 
     protected CharSequence title;
     protected CharSequence content;
@@ -27,13 +27,13 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
     protected double height;
     protected UniverseCallback universeCallback;
 
-    public SimpleUIBean() {
+    public BaseSimpleUIBean() {
 
     }
 
     @Override
     public String toString() {
-        return "SimpleUIBean{" +
+        return "BaseSimpleUIBean{" +
                 "title=" + title +
                 ", content=" + content +
                 ", number=" + number +
@@ -62,7 +62,7 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        SimpleUIBean that = (SimpleUIBean) o;
+        BaseSimpleUIBean that = (BaseSimpleUIBean) o;
 
         if (imageRes != that.imageRes) return false;
         if (Double.compare(that.x, x) != 0) return false;
@@ -119,9 +119,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return title;
     }
 
-    public SimpleUIBean setTitle(CharSequence title) {
+    public T setTitle(CharSequence title) {
         this.title = title;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -129,9 +129,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return content;
     }
 
-    public SimpleUIBean setContent(CharSequence content) {
+    public T setContent(CharSequence content) {
         this.content = content;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -139,9 +139,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return number;
     }
 
-    public SimpleUIBean setNumber(Number number) {
+    public T setNumber(Number number) {
         this.number = number;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -149,9 +149,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return imageRes;
     }
 
-    public SimpleUIBean setImageRes(int imageRes) {
+    public T setImageRes(int imageRes) {
         this.imageRes = imageRes;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -159,9 +159,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return imageUrl;
     }
 
-    public SimpleUIBean setImageUrl(String imageUrl) {
+    public T setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -169,9 +169,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return x;
     }
 
-    public SimpleUIBean setX(double x) {
+    public T setX(double x) {
         this.x = x;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -179,9 +179,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return y;
     }
 
-    public SimpleUIBean setY(double y) {
+    public T setY(double y) {
         this.y = y;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -189,9 +189,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return z;
     }
 
-    public SimpleUIBean setZ(double z) {
+    public T setZ(double z) {
         this.z = z;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -199,9 +199,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return position;
     }
 
-    public SimpleUIBean setPosition(int position) {
+    public T setPosition(int position) {
         this.position = position;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -209,9 +209,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return progress;
     }
 
-    public SimpleUIBean setProgress(float progress) {
+    public T setProgress(float progress) {
         this.progress = progress;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -219,9 +219,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return progressDescript;
     }
 
-    public SimpleUIBean setProgressDescript(CharSequence progressDescript) {
+    public T setProgressDescript(CharSequence progressDescript) {
         this.progressDescript = progressDescript;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -229,9 +229,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return isSuccess;
     }
 
-    public SimpleUIBean setSuccess(boolean success) {
+    public T setSuccess(boolean success) {
         isSuccess = success;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -239,9 +239,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return state;
     }
 
-    public SimpleUIBean setState(int state) {
+    public T setState(int state) {
         this.state = state;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -249,9 +249,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return stateDescript;
     }
 
-    public SimpleUIBean setStateDescript(CharSequence stateDescript) {
+    public T setStateDescript(CharSequence stateDescript) {
         this.stateDescript = stateDescript;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -259,9 +259,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return type;
     }
 
-    public SimpleUIBean setType(int type) {
+    public T setType(int type) {
         this.type = type;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -269,9 +269,9 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return width;
     }
 
-    public SimpleUIBean setWidth(double width) {
+    public T setWidth(double width) {
         this.width = width;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -279,33 +279,23 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return height;
     }
 
-    public SimpleUIBean setHeight(double height) {
+    public T setHeight(double height) {
         this.height = height;
-        return this;
+        return (T) this;
     }
 
-    public SimpleUIBean setUniverseCallback(UniverseCallback universeCallback) {
+    public T setUniverseCallback(UniverseCallback universeCallback) {
         this.universeCallback = universeCallback;
-        return this;
+        return (T) this;
+    }
+
+    public T setOn(boolean isOn){
+        return setState(isOn?1:0);
     }
 
     @Override
     public void onCallback(Object... objects) {
         if (universeCallback != null)   universeCallback.onCallback();
-    }
-
-    public SimpleUIBean setOn(boolean isOn){
-        return setState(isOn?1:0);
-    }
-
-    @Override
-    public SimpleUIBean setId(int id) {
-        return (SimpleUIBean) super.setId(id);
-    }
-
-    @Override
-    public SimpleUIBean setTag(Object tag) {
-        return (SimpleUIBean) super.setTag(tag);
     }
 
     @Override
@@ -355,7 +345,7 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         dest.writeDouble(this.height);
     }
 
-    protected SimpleUIBean(Parcel in) {
+    protected BaseSimpleUIBean(Parcel in) {
         super(in);
         if (title instanceof Parcelable)
             this.title = in.readParcelable(CharSequence.class.getClassLoader());
@@ -396,15 +386,15 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         this.height = in.readDouble();
     }
 
-    public static final Creator<SimpleUIBean> CREATOR = new Creator<SimpleUIBean>() {
+    public static final Creator<BaseSimpleUIBean> CREATOR = new Creator<BaseSimpleUIBean>() {
         @Override
-        public SimpleUIBean createFromParcel(Parcel source) {
-            return new SimpleUIBean(source);
+        public BaseSimpleUIBean createFromParcel(Parcel source) {
+            return new BaseSimpleUIBean(source);
         }
 
         @Override
-        public SimpleUIBean[] newArray(int size) {
-            return new SimpleUIBean[size];
+        public BaseSimpleUIBean[] newArray(int size) {
+            return new BaseSimpleUIBean[size];
         }
     };
 }

@@ -1,29 +1,29 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.TitleBehavior;
 import java.io.Serializable;
 
-public class TitleBean extends ParentBean implements TitleBehavior {
+public class BaseTitleBean<T extends BaseTitleBean> extends BaseParentBean implements TitleBehavior {
 
     protected CharSequence title;
 
-    public TitleBean() {
+    public BaseTitleBean() {
     }
 
-    public TitleBean(CharSequence title) {
+    public BaseTitleBean(CharSequence title) {
         this.title = title;
     }
 
-    public TitleBean(int id, CharSequence title) {
+    public BaseTitleBean(int id, CharSequence title) {
         super(id);
         this.title = title;
     }
 
     @Override
     public String toString() {
-        return "TitleBean{" +
+        return "BaseTitleBean{" +
                 "title=" + title +
                 ", tag=" + tag +
                 ", id=" + id +
@@ -36,7 +36,7 @@ public class TitleBean extends ParentBean implements TitleBehavior {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        TitleBean titleBean = (TitleBean) o;
+        BaseTitleBean titleBean = (BaseTitleBean) o;
 
         return title != null ? title.equals(titleBean.title) : titleBean.title == null;
     }
@@ -53,19 +53,9 @@ public class TitleBean extends ParentBean implements TitleBehavior {
         return title;
     }
 
-    public TitleBean setTitle(CharSequence title) {
+    public T setTitle(CharSequence title) {
         this.title = title;
-        return this;
-    }
-
-    @Override
-    public TitleBean setId(int id) {
-        return (TitleBean) super.setId(id);
-    }
-
-    @Override
-    public TitleBean setTag(Object tag) {
-        return (TitleBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -84,7 +74,7 @@ public class TitleBean extends ParentBean implements TitleBehavior {
             dest.writeString(title == null?null:title.toString());
     }
 
-    protected TitleBean(Parcel in) {
+    protected BaseTitleBean(Parcel in) {
         super(in);
         if (title instanceof Parcelable)
             this.title = in.readParcelable(CharSequence.class.getClassLoader());
@@ -94,15 +84,15 @@ public class TitleBean extends ParentBean implements TitleBehavior {
             this.title = in.readString();
     }
 
-    public static final Parcelable.Creator<TitleBean> CREATOR = new Parcelable.Creator<TitleBean>() {
+    public static final Parcelable.Creator<BaseTitleBean> CREATOR = new Parcelable.Creator<BaseTitleBean>() {
         @Override
-        public TitleBean createFromParcel(Parcel source) {
-            return new TitleBean(source);
+        public BaseTitleBean createFromParcel(Parcel source) {
+            return new BaseTitleBean(source);
         }
 
         @Override
-        public TitleBean[] newArray(int size) {
-            return new TitleBean[size];
+        public BaseTitleBean[] newArray(int size) {
+            return new BaseTitleBean[size];
         }
     };
 }

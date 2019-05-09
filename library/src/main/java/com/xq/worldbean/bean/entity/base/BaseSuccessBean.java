@@ -1,29 +1,29 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.xq.worldbean.bean.behavior.SuccessBehavior;
 
-public class SuccessBean extends ParentBean implements SuccessBehavior {
+public class BaseSuccessBean<T extends BaseSuccessBean> extends BaseParentBean implements SuccessBehavior {
 
     protected boolean isSuccess;
 
-    public SuccessBean() {
+    public BaseSuccessBean() {
     }
 
-    public SuccessBean(boolean isSuccess) {
+    public BaseSuccessBean(boolean isSuccess) {
         this.isSuccess = isSuccess;
     }
 
-    public SuccessBean(int id,boolean isSuccess) {
+    public BaseSuccessBean(int id, boolean isSuccess) {
         super(id);
         this.isSuccess = isSuccess;
     }
 
     @Override
     public String toString() {
-        return "SuccessBean{" +
+        return "BaseSuccessBean{" +
                 "isSuccess=" + isSuccess +
                 ", tag=" + tag +
                 ", id=" + id +
@@ -36,7 +36,7 @@ public class SuccessBean extends ParentBean implements SuccessBehavior {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        SuccessBean that = (SuccessBean) o;
+        BaseSuccessBean that = (BaseSuccessBean) o;
 
         return isSuccess == that.isSuccess;
     }
@@ -53,19 +53,9 @@ public class SuccessBean extends ParentBean implements SuccessBehavior {
         return isSuccess;
     }
 
-    public SuccessBean setSuccess(boolean success) {
+    public T setSuccess(boolean success) {
         isSuccess = success;
-        return this;
-    }
-
-    @Override
-    public SuccessBean setId(int id) {
-        return (SuccessBean) super.setId(id);
-    }
-
-    @Override
-    public SuccessBean setTag(Object tag) {
-        return (SuccessBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -79,20 +69,20 @@ public class SuccessBean extends ParentBean implements SuccessBehavior {
         dest.writeByte(this.isSuccess ? (byte) 1 : (byte) 0);
     }
 
-    protected SuccessBean(Parcel in) {
+    protected BaseSuccessBean(Parcel in) {
         super(in);
         this.isSuccess = in.readByte() != 0;
     }
 
-    public static final Parcelable.Creator<SuccessBean> CREATOR = new Parcelable.Creator<SuccessBean>() {
+    public static final Parcelable.Creator<BaseSuccessBean> CREATOR = new Parcelable.Creator<BaseSuccessBean>() {
         @Override
-        public SuccessBean createFromParcel(Parcel source) {
-            return new SuccessBean(source);
+        public BaseSuccessBean createFromParcel(Parcel source) {
+            return new BaseSuccessBean(source);
         }
 
         @Override
-        public SuccessBean[] newArray(int size) {
-            return new SuccessBean[size];
+        public BaseSuccessBean[] newArray(int size) {
+            return new BaseSuccessBean[size];
         }
     };
 }

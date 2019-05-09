@@ -1,33 +1,33 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.ProgressBehavior;
 import java.io.Serializable;
 
-public class ProgressBean extends ParentBean implements ProgressBehavior {
+public class BaseProgressBean<T extends BaseProgressBean> extends BaseParentBean implements ProgressBehavior {
 
     protected float progress;
     protected CharSequence progressDescript;
 
-    public ProgressBean() {
+    public BaseProgressBean() {
     }
 
-    public ProgressBean(float progress) {
+    public BaseProgressBean(float progress) {
         this.progress = progress;
     }
 
-    public ProgressBean(float progress, CharSequence progressDescript) {
+    public BaseProgressBean(float progress, CharSequence progressDescript) {
         this.progress = progress;
         this.progressDescript = progressDescript;
     }
 
-    public ProgressBean(int id, float progress) {
+    public BaseProgressBean(int id, float progress) {
         super(id);
         this.progress = progress;
     }
 
-    public ProgressBean(int id, float progress, CharSequence progressDescript) {
+    public BaseProgressBean(int id, float progress, CharSequence progressDescript) {
         super(id);
         this.progress = progress;
         this.progressDescript = progressDescript;
@@ -35,7 +35,7 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
 
     @Override
     public String toString() {
-        return "ProgressBean{" +
+        return "BaseProgressBean{" +
                 "progress=" + progress +
                 ", progressDescript=" + progressDescript +
                 ", tag=" + tag +
@@ -49,7 +49,7 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        ProgressBean that = (ProgressBean) o;
+        BaseProgressBean that = (BaseProgressBean) o;
 
         if (Float.compare(that.progress, progress) != 0) return false;
         return progressDescript != null ? progressDescript.equals(that.progressDescript) : that.progressDescript == null;
@@ -68,9 +68,9 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
         return progress;
     }
 
-    public ProgressBean setProgress(float progress) {
+    public T setProgress(float progress) {
         this.progress = progress;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -78,19 +78,9 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
         return progressDescript;
     }
 
-    public ProgressBean setProgressDescript(CharSequence progressDescript) {
+    public T setProgressDescript(CharSequence progressDescript) {
         this.progressDescript = progressDescript;
-        return this;
-    }
-
-    @Override
-    public ProgressBean setId(int id) {
-        return (ProgressBean) super.setId(id);
-    }
-
-    @Override
-    public ProgressBean setTag(Object tag) {
-        return (ProgressBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -110,7 +100,7 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
             dest.writeString(progressDescript == null?null:progressDescript.toString());
     }
 
-    protected ProgressBean(Parcel in) {
+    protected BaseProgressBean(Parcel in) {
         super(in);
         this.progress = in.readFloat();
         if (progressDescript instanceof Parcelable)
@@ -121,15 +111,15 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
             this.progressDescript = in.readString();
     }
 
-    public static final Creator<ProgressBean> CREATOR = new Creator<ProgressBean>() {
+    public static final Creator<BaseProgressBean> CREATOR = new Creator<BaseProgressBean>() {
         @Override
-        public ProgressBean createFromParcel(Parcel source) {
-            return new ProgressBean(source);
+        public BaseProgressBean createFromParcel(Parcel source) {
+            return new BaseProgressBean(source);
         }
 
         @Override
-        public ProgressBean[] newArray(int size) {
-            return new ProgressBean[size];
+        public BaseProgressBean[] newArray(int size) {
+            return new BaseProgressBean[size];
         }
     };
 }

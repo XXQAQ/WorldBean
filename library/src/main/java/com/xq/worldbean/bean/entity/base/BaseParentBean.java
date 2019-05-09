@@ -1,4 +1,4 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -6,21 +6,21 @@ import com.xq.worldbean.bean.behavior.ParentBehavior;
 
 import java.io.Serializable;
 
-public class ParentBean implements ParentBehavior {
+public class BaseParentBean<T extends BaseParentBean> implements ParentBehavior {
 
     protected Object tag;
     protected int id;
 
-    public ParentBean() {
+    public BaseParentBean() {
     }
 
-    public ParentBean(int id) {
+    public BaseParentBean(int id) {
         this.id = id;
     }
 
     @Override
     public String toString() {
-        return "ParentBean{" +
+        return "BaseParentBean{" +
                 "tag=" + tag +
                 ", id=" + id +
                 '}';
@@ -31,7 +31,7 @@ public class ParentBean implements ParentBehavior {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ParentBean that = (ParentBean) o;
+        BaseParentBean that = (BaseParentBean) o;
 
         if (id != that.id) return false;
         return tag != null ? tag.equals(that.tag) : that.tag == null;
@@ -49,9 +49,9 @@ public class ParentBean implements ParentBehavior {
         return tag;
     }
 
-    public ParentBean setTag(Object tag) {
+    public T setTag(Object tag) {
         this.tag = tag;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -59,9 +59,9 @@ public class ParentBean implements ParentBehavior {
         return id;
     }
 
-    public ParentBean setId(int id) {
+    public T setId(int id) {
         this.id = id;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class ParentBean implements ParentBehavior {
         dest.writeInt(id);
     }
 
-    protected ParentBean(Parcel in) {
+    protected BaseParentBean(Parcel in) {
         if (tag instanceof Parcelable)
             this.tag = in.readParcelable(Object.class.getClassLoader());
         else    if (tag instanceof Serializable)
@@ -86,15 +86,15 @@ public class ParentBean implements ParentBehavior {
         this.id = in.readInt();
     }
 
-    public static final Parcelable.Creator<ParentBean> CREATOR = new Parcelable.Creator<ParentBean>() {
+    public static final Parcelable.Creator<BaseParentBean> CREATOR = new Parcelable.Creator<BaseParentBean>() {
         @Override
-        public ParentBean createFromParcel(Parcel in) {
-            return new ParentBean(in);
+        public BaseParentBean createFromParcel(Parcel in) {
+            return new BaseParentBean(in);
         }
 
         @Override
-        public ParentBean[] newArray(int size) {
-            return new ParentBean[size];
+        public BaseParentBean[] newArray(int size) {
+            return new BaseParentBean[size];
         }
     };
 

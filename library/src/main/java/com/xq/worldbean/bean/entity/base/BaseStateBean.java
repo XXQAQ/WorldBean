@@ -1,4 +1,4 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -7,29 +7,29 @@ import com.xq.worldbean.bean.behavior.StateBehavior;
 
 import java.io.Serializable;
 
-public class StateBean extends ParentBean implements StateBehavior {
+public class BaseStateBean<T extends BaseStateBean> extends BaseParentBean implements StateBehavior {
 
     protected int state;
     protected CharSequence stateDescript;
 
-    public StateBean() {
+    public BaseStateBean() {
     }
 
-    public StateBean(int state) {
+    public BaseStateBean(int state) {
         this.state = state;
     }
 
-    public StateBean(int state, CharSequence stateDescript) {
+    public BaseStateBean(int state, CharSequence stateDescript) {
         this.state = state;
         this.stateDescript = stateDescript;
     }
 
-    public StateBean(int id, int state) {
+    public BaseStateBean(int id, int state) {
         super(id);
         this.state = state;
     }
 
-    public StateBean(int id, int state, CharSequence stateDescript) {
+    public BaseStateBean(int id, int state, CharSequence stateDescript) {
         super(id);
         this.state = state;
         this.stateDescript = stateDescript;
@@ -37,7 +37,7 @@ public class StateBean extends ParentBean implements StateBehavior {
 
     @Override
     public String toString() {
-        return "StateBean{" +
+        return "BaseStateBean{" +
                 "state=" + state +
                 ", stateDescript=" + stateDescript +
                 ", tag=" + tag +
@@ -51,7 +51,7 @@ public class StateBean extends ParentBean implements StateBehavior {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        StateBean stateBean = (StateBean) o;
+        BaseStateBean stateBean = (BaseStateBean) o;
 
         if (state != stateBean.state) return false;
         return stateDescript != null ? stateDescript.equals(stateBean.stateDescript) : stateBean.stateDescript == null;
@@ -70,9 +70,9 @@ public class StateBean extends ParentBean implements StateBehavior {
         return state;
     }
 
-    public StateBean setState(int state) {
+    public T setState(int state) {
         this.state = state;
-        return this;
+        return (T) this;
     }
 
     @Override
@@ -80,19 +80,9 @@ public class StateBean extends ParentBean implements StateBehavior {
         return stateDescript;
     }
 
-    public StateBean setStateDescript(CharSequence stateDescript) {
+    public T setStateDescript(CharSequence stateDescript) {
         this.stateDescript = stateDescript;
-        return this;
-    }
-
-    @Override
-    public StateBean setId(int id) {
-        return (StateBean) super.setId(id);
-    }
-
-    @Override
-    public StateBean setTag(Object tag) {
-        return (StateBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -112,7 +102,7 @@ public class StateBean extends ParentBean implements StateBehavior {
             dest.writeString(stateDescript == null?null:stateDescript.toString());
     }
 
-    protected StateBean(Parcel in) {
+    protected BaseStateBean(Parcel in) {
         super(in);
         this.state = in.readInt();
         if (stateDescript instanceof Parcelable)
@@ -123,15 +113,15 @@ public class StateBean extends ParentBean implements StateBehavior {
             this.stateDescript = in.readString();
     }
 
-    public static final Creator<StateBean> CREATOR = new Creator<StateBean>() {
+    public static final Creator<BaseStateBean> CREATOR = new Creator<BaseStateBean>() {
         @Override
-        public StateBean createFromParcel(Parcel source) {
-            return new StateBean(source);
+        public BaseStateBean createFromParcel(Parcel source) {
+            return new BaseStateBean(source);
         }
 
         @Override
-        public StateBean[] newArray(int size) {
-            return new StateBean[size];
+        public BaseStateBean[] newArray(int size) {
+            return new BaseStateBean[size];
         }
     };
 }

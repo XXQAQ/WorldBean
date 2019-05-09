@@ -1,26 +1,26 @@
-package com.xq.worldbean.bean.entity;
+package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 import com.xq.worldbean.bean.behavior.ListBehavior;
 import java.io.Serializable;
 import java.util.List;
 
-public class ListBean<T> extends ParentBean implements ListBehavior<T> {
+public class BaseListBean<T extends BaseListBean,T_List> extends BaseParentBean<T> implements ListBehavior<T_List> {
 
-    protected List<T> list;
+    protected List<T_List> list;
 
-    public ListBean(List<T> list) {
+    public BaseListBean(List<T_List> list) {
         this.list = list;
     }
 
-    public ListBean(int id, List<T> list) {
+    public BaseListBean(int id, List<T_List> list) {
         super(id);
         this.list = list;
     }
 
     @Override
     public String toString() {
-        return "ListBean{" +
+        return "BaseListBean{" +
                 "list=" + list +
                 ", tag=" + tag +
                 ", id=" + id +
@@ -33,7 +33,7 @@ public class ListBean<T> extends ParentBean implements ListBehavior<T> {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        ListBean<?> listBean = (ListBean<?>) o;
+        BaseListBean listBean = (BaseListBean) o;
 
         return list != null ? list.equals(listBean.list) : listBean.list == null;
     }
@@ -46,23 +46,13 @@ public class ListBean<T> extends ParentBean implements ListBehavior<T> {
     }
 
     @Override
-    public List<T> getList() {
+    public List<T_List> getList() {
         return list;
     }
 
-    public ListBean<T> setList(List<T> list) {
+    public T setList(List<T_List> list) {
         this.list = list;
-        return this;
-    }
-
-    @Override
-    public ListBean setId(int id) {
-        return (ListBean) super.setId(id);
-    }
-
-    @Override
-    public ListBean setTag(Object tag) {
-        return (ListBean) super.setTag(tag);
+        return (T) this;
     }
 
     @Override
@@ -76,20 +66,20 @@ public class ListBean<T> extends ParentBean implements ListBehavior<T> {
         dest.writeSerializable((Serializable) this.list);
     }
 
-    protected ListBean(Parcel in) {
+    protected BaseListBean(Parcel in) {
         super(in);
-        this.list = (List<T>) in.readSerializable();
+        this.list = (List) in.readSerializable();
     }
 
-    public static final Creator<ListBean> CREATOR = new Creator<ListBean>() {
+    public static final Creator<BaseListBean> CREATOR = new Creator<BaseListBean>() {
         @Override
-        public ListBean createFromParcel(Parcel source) {
-            return new ListBean(source);
+        public BaseListBean createFromParcel(Parcel source) {
+            return new BaseListBean(source);
         }
 
         @Override
-        public ListBean[] newArray(int size) {
-            return new ListBean[size];
+        public BaseListBean[] newArray(int size) {
+            return new BaseListBean[size];
         }
     };
 }
