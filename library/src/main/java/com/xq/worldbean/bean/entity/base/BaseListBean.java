@@ -9,6 +9,9 @@ public class BaseListBean<T extends BaseListBean,T_List> extends BaseParentBean<
 
     protected List<T_List> list;
 
+    public BaseListBean() {
+    }
+
     public BaseListBean(List<T_List> list) {
         this.list = list;
     }
