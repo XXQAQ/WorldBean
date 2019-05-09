@@ -19,6 +19,7 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
     protected int position;
     protected float progress;
     protected CharSequence progressDescript;
+    protected boolean isSuccess;
     protected int state;
     protected CharSequence stateDescript;
     protected int type;
@@ -53,6 +54,7 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
                 ", position=" + position +
                 ", progress=" + progress +
                 ", progressDescript=" + progressDescript +
+                ", isSuccess=" + isSuccess +
                 ", state=" + state +
                 ", stateDescript=" + stateDescript +
                 ", type=" + type +
@@ -89,6 +91,7 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         if (Double.compare(that.z, z) != 0) return false;
         if (position != that.position) return false;
         if (Float.compare(that.progress, progress) != 0) return false;
+        if (isSuccess != that.isSuccess) return false;
         if (state != that.state) return false;
         if (type != that.type) return false;
         if (Double.compare(that.width, width) != 0) return false;
@@ -141,6 +144,7 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         result = 31 * result + position;
         result = 31 * result + (progress != +0.0f ? Float.floatToIntBits(progress) : 0);
         result = 31 * result + (progressDescript != null ? progressDescript.hashCode() : 0);
+        result = 31 * result + (isSuccess ? 1 : 0);
         result = 31 * result + state;
         result = 31 * result + (stateDescript != null ? stateDescript.hashCode() : 0);
         result = 31 * result + type;
@@ -268,6 +272,16 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
 
     public SimpleUIBean setProgressDescript(CharSequence progressDescript) {
         this.progressDescript = progressDescript;
+        return this;
+    }
+
+    @Override
+    public boolean isSuccess() {
+        return isSuccess;
+    }
+
+    public SimpleUIBean setSuccess(boolean success) {
+        isSuccess = success;
         return this;
     }
 
@@ -474,6 +488,7 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
             dest.writeSerializable((Serializable) progressDescript);
         else
             dest.writeString(progressDescript == null?null:progressDescript.toString());
+        dest.writeByte(this.isSuccess ? (byte) 1 : (byte) 0);
         dest.writeInt(this.state);
         if (stateDescript instanceof Parcelable)
             dest.writeParcelable((Parcelable) stateDescript, flags);
@@ -524,6 +539,7 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
             this.progressDescript = (CharSequence) in.readSerializable();
         else
             this.progressDescript = in.readString();
+        this.isSuccess = in.readByte() != 0;
         this.state = in.readInt();
         if (stateDescript instanceof Parcelable)
             this.stateDescript = in.readParcelable(CharSequence.class.getClassLoader());
