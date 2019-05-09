@@ -16,9 +16,8 @@ public interface LenthBehavior extends ParentBehavior{
 
     public int getLenth();
 
-    //上述内容在属性值中扮演的角色，不需要处理判断逻辑可直接返回null
-    default String getLenthRole(){
-        return null;
+    default int getLenth(String role) {
+        return getLenth();
     }
 
 }

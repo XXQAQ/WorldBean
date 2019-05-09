@@ -16,14 +16,17 @@ public interface StateBehavior extends ParentBehavior{
 
     public int getState();
 
+    default int getState(String role) {
+        return getState();
+    }
+
     //对状态的描述
     default CharSequence getStateDescript(){
         return null;
     }
 
-    //上述内容在属性值中扮演的角色，不需要处理判断逻辑可直接返回null
-    default String getStateRole() {
-        return null;
+    default CharSequence getStateDescript(String role){
+        return getStateDescript();
     }
 
 }

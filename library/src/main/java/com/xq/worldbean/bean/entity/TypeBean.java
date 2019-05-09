@@ -7,7 +7,6 @@ import com.xq.worldbean.bean.behavior.TypeBehavior;
 public class TypeBean extends ParentBean implements TypeBehavior {
 
     protected int type;
-    protected String typeRole;
 
     public TypeBean() {
     }
@@ -25,11 +24,8 @@ public class TypeBean extends ParentBean implements TypeBehavior {
     public String toString() {
         return "TypeBean{" +
                 "type=" + type +
-                ", typeRole='" + typeRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -41,15 +37,13 @@ public class TypeBean extends ParentBean implements TypeBehavior {
 
         TypeBean typeBean = (TypeBean) o;
 
-        if (type != typeBean.type) return false;
-        return typeRole != null ? typeRole.equals(typeBean.typeRole) : typeBean.typeRole == null;
+        return type == typeBean.type;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + type;
-        result = 31 * result + (typeRole != null ? typeRole.hashCode() : 0);
         return result;
     }
 
@@ -64,23 +58,8 @@ public class TypeBean extends ParentBean implements TypeBehavior {
     }
 
     @Override
-    public String getTypeRole() {
-        return typeRole;
-    }
-
-    public TypeBean setTypeRole(String typeRole) {
-        this.typeRole = typeRole;
-        return this;
-    }
-
-    @Override
     public TypeBean setId(int id) {
         return (TypeBean) super.setId(id);
-    }
-
-    @Override
-    public TypeBean setIdRole(String idRole) {
-        return (TypeBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -97,13 +76,11 @@ public class TypeBean extends ParentBean implements TypeBehavior {
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeInt(this.type);
-        dest.writeString(this.typeRole);
     }
 
     protected TypeBean(Parcel in) {
         super(in);
         this.type = in.readInt();
-        this.typeRole = in.readString();
     }
 
     public static final Creator<TypeBean> CREATOR = new Creator<TypeBean>() {

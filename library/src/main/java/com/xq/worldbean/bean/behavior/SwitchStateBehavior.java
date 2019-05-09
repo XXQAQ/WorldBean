@@ -19,9 +19,17 @@ public interface SwitchStateBehavior extends StateBehavior{
         return getState() > 0;
     }
 
+    default boolean isOn(String role) {
+        return isOn();
+    }
+
     //isOn与getOn本质上无任何区别，只是getOn针对一些利用反射对方法名解析的框架做了兼容处理
     default boolean getOn(){
         return isOn();
+    }
+
+    default boolean getOn(String role){
+        return isOn(role);
     }
 
 }

@@ -7,7 +7,6 @@ import com.xq.worldbean.bean.behavior.PositionBehavior;
 public class PositionBean extends ParentBean implements PositionBehavior {
 
     private int position;
-    private String positionRole;
 
     public PositionBean() {
     }
@@ -25,11 +24,8 @@ public class PositionBean extends ParentBean implements PositionBehavior {
     public String toString() {
         return "PositionBean{" +
                 "position=" + position +
-                ", positionRole='" + positionRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -41,15 +37,13 @@ public class PositionBean extends ParentBean implements PositionBehavior {
 
         PositionBean that = (PositionBean) o;
 
-        if (position != that.position) return false;
-        return positionRole != null ? positionRole.equals(that.positionRole) : that.positionRole == null;
+        return position == that.position;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + position;
-        result = 31 * result + (positionRole != null ? positionRole.hashCode() : 0);
         return result;
     }
 
@@ -64,23 +58,8 @@ public class PositionBean extends ParentBean implements PositionBehavior {
     }
 
     @Override
-    public String getPositionRole() {
-        return positionRole;
-    }
-
-    public PositionBean setPositionRole(String positionRole) {
-        this.positionRole = positionRole;
-        return this;
-    }
-
-    @Override
     public PositionBean setId(int id) {
         return (PositionBean) super.setId(id);
-    }
-
-    @Override
-    public PositionBean setIdRole(String idRole) {
-        return (PositionBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -97,13 +76,11 @@ public class PositionBean extends ParentBean implements PositionBehavior {
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeInt(this.position);
-        dest.writeString(this.positionRole);
     }
 
     protected PositionBean(Parcel in) {
         super(in);
         this.position = in.readInt();
-        this.positionRole = in.readString();
     }
 
     public static final Creator<PositionBean> CREATOR = new Creator<PositionBean>() {

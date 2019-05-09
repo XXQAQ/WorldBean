@@ -7,7 +7,6 @@ public class ImageBean extends ParentBean implements ImageBehavior {
 
     protected int imageRes;
     protected String imageUrl;
-    protected String imageRole;
 
     public ImageBean() {
     }
@@ -35,11 +34,8 @@ public class ImageBean extends ParentBean implements ImageBehavior {
         return "ImageBean{" +
                 "imageRes=" + imageRes +
                 ", imageUrl='" + imageUrl + '\'' +
-                ", imageRole='" + imageRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -47,20 +43,19 @@ public class ImageBean extends ParentBean implements ImageBehavior {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         ImageBean imageBean = (ImageBean) o;
 
         if (imageRes != imageBean.imageRes) return false;
-        if (imageUrl != null ? !imageUrl.equals(imageBean.imageUrl) : imageBean.imageUrl != null)
-            return false;
-        return imageRole != null ? imageRole.equals(imageBean.imageRole) : imageBean.imageRole == null;
+        return imageUrl != null ? imageUrl.equals(imageBean.imageUrl) : imageBean.imageUrl == null;
     }
 
     @Override
     public int hashCode() {
-        int result = imageRes;
+        int result = super.hashCode();
+        result = 31 * result + imageRes;
         result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
-        result = 31 * result + (imageRole != null ? imageRole.hashCode() : 0);
         return result;
     }
 
@@ -85,23 +80,8 @@ public class ImageBean extends ParentBean implements ImageBehavior {
     }
 
     @Override
-    public String getImageRole() {
-        return imageRole;
-    }
-
-    public ImageBean setImageRole(String imageRole) {
-        this.imageRole = imageRole;
-        return this;
-    }
-
-    @Override
     public ImageBean setId(int id) {
         return (ImageBean) super.setId(id);
-    }
-
-    @Override
-    public ImageBean setIdRole(String idRole) {
-        return (ImageBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -119,14 +99,12 @@ public class ImageBean extends ParentBean implements ImageBehavior {
         super.writeToParcel(dest, flags);
         dest.writeInt(this.imageRes);
         dest.writeString(this.imageUrl);
-        dest.writeString(this.imageRole);
     }
 
     protected ImageBean(Parcel in) {
         super(in);
         this.imageRes = in.readInt();
         this.imageUrl = in.readString();
-        this.imageRole = in.readString();
     }
 
     public static final Creator<ImageBean> CREATOR = new Creator<ImageBean>() {

@@ -7,7 +7,6 @@ import com.xq.worldbean.bean.behavior.NumberBehavior;
 public class NumberBean extends ParentBean implements NumberBehavior {
 
     protected Number number;
-    protected String numberRole;
 
     public NumberBean() {
     }
@@ -25,11 +24,8 @@ public class NumberBean extends ParentBean implements NumberBehavior {
     public String toString() {
         return "NumberBean{" +
                 "number=" + number +
-                ", numberRole='" + numberRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -41,15 +37,13 @@ public class NumberBean extends ParentBean implements NumberBehavior {
 
         NumberBean that = (NumberBean) o;
 
-        if (number != null ? !number.equals(that.number) : that.number != null) return false;
-        return numberRole != null ? numberRole.equals(that.numberRole) : that.numberRole == null;
+        return number != null ? number.equals(that.number) : that.number == null;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + (number != null ? number.hashCode() : 0);
-        result = 31 * result + (numberRole != null ? numberRole.hashCode() : 0);
         return result;
     }
 
@@ -64,23 +58,8 @@ public class NumberBean extends ParentBean implements NumberBehavior {
     }
 
     @Override
-    public String getNumberRole() {
-        return numberRole;
-    }
-
-    public NumberBean setNumberRole(String numberRole) {
-        this.numberRole = numberRole;
-        return this;
-    }
-
-    @Override
     public NumberBean setId(int id) {
         return (NumberBean) super.setId(id);
-    }
-
-    @Override
-    public NumberBean setIdRole(String idRole) {
-        return (NumberBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -97,13 +76,11 @@ public class NumberBean extends ParentBean implements NumberBehavior {
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeSerializable(this.number);
-        dest.writeString(this.numberRole);
     }
 
     protected NumberBean(Parcel in) {
         super(in);
         this.number = (Number) in.readSerializable();
-        this.numberRole = in.readString();
     }
 
     public static final Creator<NumberBean> CREATOR = new Creator<NumberBean>() {

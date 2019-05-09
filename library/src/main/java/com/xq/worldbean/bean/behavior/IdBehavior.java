@@ -19,14 +19,17 @@ public interface IdBehavior extends Serializable, Parcelable {
 
     public int getId();
 
-    //上述内容在属性值中扮演的角色，不需要处理判断逻辑可直接返回null
-    default String getIdRole(){
-        return null;
+    default int getId(String role) {
+        return getId();
     }
 
     //主键
     default int getPrimaryId(){
         return 0;
+    }
+
+    default int getPrimaryId(String role){
+        return getPrimaryId();
     }
 
 }

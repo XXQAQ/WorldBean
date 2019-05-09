@@ -8,7 +8,6 @@ import java.io.Serializable;
 public class TitleBean extends ParentBean implements TitleBehavior {
 
     protected CharSequence title;
-    protected String titleRole;
 
     public TitleBean() {
     }
@@ -26,11 +25,8 @@ public class TitleBean extends ParentBean implements TitleBehavior {
     public String toString() {
         return "TitleBean{" +
                 "title=" + title +
-                ", titleRole='" + titleRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -42,15 +38,13 @@ public class TitleBean extends ParentBean implements TitleBehavior {
 
         TitleBean titleBean = (TitleBean) o;
 
-        if (title != null ? !title.equals(titleBean.title) : titleBean.title != null) return false;
-        return titleRole != null ? titleRole.equals(titleBean.titleRole) : titleBean.titleRole == null;
+        return title != null ? title.equals(titleBean.title) : titleBean.title == null;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (titleRole != null ? titleRole.hashCode() : 0);
         return result;
     }
 
@@ -65,23 +59,8 @@ public class TitleBean extends ParentBean implements TitleBehavior {
     }
 
     @Override
-    public String getTitleRole() {
-        return titleRole;
-    }
-
-    public TitleBean setTitleRole(String titleRole) {
-        this.titleRole = titleRole;
-        return this;
-    }
-
-    @Override
     public TitleBean setId(int id) {
         return (TitleBean) super.setId(id);
-    }
-
-    @Override
-    public TitleBean setIdRole(String idRole) {
-        return (TitleBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -103,7 +82,6 @@ public class TitleBean extends ParentBean implements TitleBehavior {
             dest.writeSerializable((Serializable) title);
         else
             dest.writeString(title == null?null:title.toString());
-        dest.writeString(titleRole);
     }
 
     protected TitleBean(Parcel in) {
@@ -114,7 +92,6 @@ public class TitleBean extends ParentBean implements TitleBehavior {
             this.title = (CharSequence) in.readSerializable();
         else
             this.title = in.readString();
-        this.titleRole = in.readString();
     }
 
     public static final Parcelable.Creator<TitleBean> CREATOR = new Parcelable.Creator<TitleBean>() {

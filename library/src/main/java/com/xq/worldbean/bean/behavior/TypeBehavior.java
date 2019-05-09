@@ -16,9 +16,8 @@ public interface TypeBehavior extends ParentBehavior {
 
     public int getType();
 
-    //上述内容在属性值中扮演的角色，不需要处理判断逻辑可直接返回null
-    default String getTypeRole() {
-        return null;
+    default int getType(String role) {
+        return getType();
     }
 
 }

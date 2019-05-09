@@ -11,7 +11,6 @@ public class StateBean extends ParentBean implements StateBehavior {
 
     protected int state;
     protected CharSequence stateDescript;
-    protected String stateRole;
 
     public StateBean() {
     }
@@ -41,11 +40,8 @@ public class StateBean extends ParentBean implements StateBehavior {
         return "StateBean{" +
                 "state=" + state +
                 ", stateDescript=" + stateDescript +
-                ", stateRole='" + stateRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -58,9 +54,7 @@ public class StateBean extends ParentBean implements StateBehavior {
         StateBean stateBean = (StateBean) o;
 
         if (state != stateBean.state) return false;
-        if (stateDescript != null ? !stateDescript.equals(stateBean.stateDescript) : stateBean.stateDescript != null)
-            return false;
-        return stateRole != null ? stateRole.equals(stateBean.stateRole) : stateBean.stateRole == null;
+        return stateDescript != null ? stateDescript.equals(stateBean.stateDescript) : stateBean.stateDescript == null;
     }
 
     @Override
@@ -68,7 +62,6 @@ public class StateBean extends ParentBean implements StateBehavior {
         int result = super.hashCode();
         result = 31 * result + state;
         result = 31 * result + (stateDescript != null ? stateDescript.hashCode() : 0);
-        result = 31 * result + (stateRole != null ? stateRole.hashCode() : 0);
         return result;
     }
 
@@ -93,23 +86,8 @@ public class StateBean extends ParentBean implements StateBehavior {
     }
 
     @Override
-    public String getStateRole() {
-        return stateRole;
-    }
-
-    public StateBean setStateRole(String stateRole) {
-        this.stateRole = stateRole;
-        return this;
-    }
-
-    @Override
     public StateBean setId(int id) {
         return (StateBean) super.setId(id);
-    }
-
-    @Override
-    public StateBean setIdRole(String idRole) {
-        return (StateBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -132,7 +110,6 @@ public class StateBean extends ParentBean implements StateBehavior {
             dest.writeSerializable((Serializable) stateDescript);
         else
             dest.writeString(stateDescript == null?null:stateDescript.toString());
-        dest.writeString(this.stateRole);
     }
 
     protected StateBean(Parcel in) {
@@ -144,7 +121,6 @@ public class StateBean extends ParentBean implements StateBehavior {
             this.stateDescript = (CharSequence) in.readSerializable();
         else
             this.stateDescript = in.readString();
-        this.stateRole = in.readString();
     }
 
     public static final Creator<StateBean> CREATOR = new Creator<StateBean>() {

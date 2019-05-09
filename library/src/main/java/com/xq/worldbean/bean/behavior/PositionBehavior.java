@@ -16,8 +16,8 @@ public interface PositionBehavior extends ParentBehavior{
 
     public int getPosition();
 
-    default String getPositionRole(){
-        return null;
+    default int getPosition(String role) {
+        return getPosition();
     }
 
 }

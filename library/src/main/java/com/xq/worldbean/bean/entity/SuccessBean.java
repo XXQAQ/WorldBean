@@ -8,7 +8,6 @@ import com.xq.worldbean.bean.behavior.SuccessBehavior;
 public class SuccessBean extends ParentBean implements SuccessBehavior {
 
     protected boolean isSuccess;
-    protected String successRole;
 
     public SuccessBean() {
     }
@@ -26,11 +25,8 @@ public class SuccessBean extends ParentBean implements SuccessBehavior {
     public String toString() {
         return "SuccessBean{" +
                 "isSuccess=" + isSuccess +
-                ", successRole='" + successRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -42,15 +38,13 @@ public class SuccessBean extends ParentBean implements SuccessBehavior {
 
         SuccessBean that = (SuccessBean) o;
 
-        if (isSuccess != that.isSuccess) return false;
-        return successRole != null ? successRole.equals(that.successRole) : that.successRole == null;
+        return isSuccess == that.isSuccess;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + (isSuccess ? 1 : 0);
-        result = 31 * result + (successRole != null ? successRole.hashCode() : 0);
         return result;
     }
 
@@ -65,23 +59,8 @@ public class SuccessBean extends ParentBean implements SuccessBehavior {
     }
 
     @Override
-    public String getSuccessRole() {
-        return successRole;
-    }
-
-    public SuccessBean setSuccessRole(String successRole) {
-        this.successRole = successRole;
-        return this;
-    }
-
-    @Override
     public SuccessBean setId(int id) {
         return (SuccessBean) super.setId(id);
-    }
-
-    @Override
-    public SuccessBean setIdRole(String idRole) {
-        return (SuccessBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -98,13 +77,11 @@ public class SuccessBean extends ParentBean implements SuccessBehavior {
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeByte(this.isSuccess ? (byte) 1 : (byte) 0);
-        dest.writeString(this.successRole);
     }
 
     protected SuccessBean(Parcel in) {
         super(in);
         this.isSuccess = in.readByte() != 0;
-        this.successRole = in.readString();
     }
 
     public static final Parcelable.Creator<SuccessBean> CREATOR = new Parcelable.Creator<SuccessBean>() {

@@ -9,7 +9,6 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
 
     protected float progress;
     protected CharSequence progressDescript;
-    protected String progressRole;
 
     public ProgressBean() {
     }
@@ -39,11 +38,8 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
         return "ProgressBean{" +
                 "progress=" + progress +
                 ", progressDescript=" + progressDescript +
-                ", progressRole='" + progressRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -56,9 +52,7 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
         ProgressBean that = (ProgressBean) o;
 
         if (Float.compare(that.progress, progress) != 0) return false;
-        if (progressDescript != null ? !progressDescript.equals(that.progressDescript) : that.progressDescript != null)
-            return false;
-        return progressRole != null ? progressRole.equals(that.progressRole) : that.progressRole == null;
+        return progressDescript != null ? progressDescript.equals(that.progressDescript) : that.progressDescript == null;
     }
 
     @Override
@@ -66,7 +60,6 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
         int result = super.hashCode();
         result = 31 * result + (progress != +0.0f ? Float.floatToIntBits(progress) : 0);
         result = 31 * result + (progressDescript != null ? progressDescript.hashCode() : 0);
-        result = 31 * result + (progressRole != null ? progressRole.hashCode() : 0);
         return result;
     }
 
@@ -91,23 +84,8 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
     }
 
     @Override
-    public String getProgressRole() {
-        return progressRole;
-    }
-
-    public ProgressBean setProgressRole(String progressRole) {
-        this.progressRole = progressRole;
-        return this;
-    }
-
-    @Override
     public ProgressBean setId(int id) {
         return (ProgressBean) super.setId(id);
-    }
-
-    @Override
-    public ProgressBean setIdRole(String idRole) {
-        return (ProgressBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -130,7 +108,6 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
             dest.writeSerializable((Serializable) progressDescript);
         else
             dest.writeString(progressDescript == null?null:progressDescript.toString());
-        dest.writeString(this.progressRole);
     }
 
     protected ProgressBean(Parcel in) {
@@ -142,7 +119,6 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
             this.progressDescript = (CharSequence) in.readSerializable();
         else
             this.progressDescript = in.readString();
-        this.progressRole = in.readString();
     }
 
     public static final Creator<ProgressBean> CREATOR = new Creator<ProgressBean>() {

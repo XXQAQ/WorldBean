@@ -3,7 +3,6 @@ package com.xq.worldbean.bean.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.SimpleUIBehavior;
-
 import java.io.Serializable;
 
 public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
@@ -25,16 +24,6 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
     protected int type;
     protected double width;
     protected double height;
-    protected String titleRole;
-    protected String contentRole;
-    protected String numberRole;
-    protected String imageRole;
-    protected String coordinateRole;
-    protected String positionRole;
-    protected String progressRole;
-    protected String stateRole;
-    protected String typeRole;
-    protected String sizeRole;
 
     public SimpleUIBean() {
 
@@ -60,20 +49,8 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
                 ", type=" + type +
                 ", width=" + width +
                 ", height=" + height +
-                ", titleRole='" + titleRole + '\'' +
-                ", contentRole='" + contentRole + '\'' +
-                ", numberRole='" + numberRole + '\'' +
-                ", imageRole='" + imageRole + '\'' +
-                ", coordinateRole='" + coordinateRole + '\'' +
-                ", positionRole='" + positionRole + '\'' +
-                ", progressRole='" + progressRole + '\'' +
-                ", stateRole='" + stateRole + '\'' +
-                ", typeRole='" + typeRole + '\'' +
-                ", sizeRole='" + sizeRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -103,27 +80,7 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
             return false;
         if (progressDescript != null ? !progressDescript.equals(that.progressDescript) : that.progressDescript != null)
             return false;
-        if (stateDescript != null ? !stateDescript.equals(that.stateDescript) : that.stateDescript != null)
-            return false;
-        if (titleRole != null ? !titleRole.equals(that.titleRole) : that.titleRole != null)
-            return false;
-        if (contentRole != null ? !contentRole.equals(that.contentRole) : that.contentRole != null)
-            return false;
-        if (numberRole != null ? !numberRole.equals(that.numberRole) : that.numberRole != null)
-            return false;
-        if (imageRole != null ? !imageRole.equals(that.imageRole) : that.imageRole != null)
-            return false;
-        if (coordinateRole != null ? !coordinateRole.equals(that.coordinateRole) : that.coordinateRole != null)
-            return false;
-        if (positionRole != null ? !positionRole.equals(that.positionRole) : that.positionRole != null)
-            return false;
-        if (progressRole != null ? !progressRole.equals(that.progressRole) : that.progressRole != null)
-            return false;
-        if (stateRole != null ? !stateRole.equals(that.stateRole) : that.stateRole != null)
-            return false;
-        if (typeRole != null ? !typeRole.equals(that.typeRole) : that.typeRole != null)
-            return false;
-        return sizeRole != null ? sizeRole.equals(that.sizeRole) : that.sizeRole == null;
+        return stateDescript != null ? stateDescript.equals(that.stateDescript) : that.stateDescript == null;
     }
 
     @Override
@@ -152,16 +109,6 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(height);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (titleRole != null ? titleRole.hashCode() : 0);
-        result = 31 * result + (contentRole != null ? contentRole.hashCode() : 0);
-        result = 31 * result + (numberRole != null ? numberRole.hashCode() : 0);
-        result = 31 * result + (imageRole != null ? imageRole.hashCode() : 0);
-        result = 31 * result + (coordinateRole != null ? coordinateRole.hashCode() : 0);
-        result = 31 * result + (positionRole != null ? positionRole.hashCode() : 0);
-        result = 31 * result + (progressRole != null ? progressRole.hashCode() : 0);
-        result = 31 * result + (stateRole != null ? stateRole.hashCode() : 0);
-        result = 31 * result + (typeRole != null ? typeRole.hashCode() : 0);
-        result = 31 * result + (sizeRole != null ? sizeRole.hashCode() : 0);
         return result;
     }
 
@@ -335,106 +282,6 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         return this;
     }
 
-    @Override
-    public String getTitleRole() {
-        return titleRole;
-    }
-
-    public SimpleUIBean setTitleRole(String titleRole) {
-        this.titleRole = titleRole;
-        return this;
-    }
-
-    @Override
-    public String getContentRole() {
-        return contentRole;
-    }
-
-    public SimpleUIBean setContentRole(String contentRole) {
-        this.contentRole = contentRole;
-        return this;
-    }
-
-    @Override
-    public String getNumberRole() {
-        return numberRole;
-    }
-
-    public SimpleUIBean setNumberRole(String numberRole) {
-        this.numberRole = numberRole;
-        return this;
-    }
-
-    @Override
-    public String getImageRole() {
-        return imageRole;
-    }
-
-    public SimpleUIBean setImageRole(String imageRole) {
-        this.imageRole = imageRole;
-        return this;
-    }
-
-    @Override
-    public String getCoordinateRole() {
-        return coordinateRole;
-    }
-
-    public SimpleUIBean setCoordinateRole(String coordinateRole) {
-        this.coordinateRole = coordinateRole;
-        return this;
-    }
-
-    @Override
-    public String getPositionRole() {
-        return positionRole;
-    }
-
-    public SimpleUIBean setPositionRole(String positionRole) {
-        this.positionRole = positionRole;
-        return this;
-    }
-
-    @Override
-    public String getProgressRole() {
-        return progressRole;
-    }
-
-    public SimpleUIBean setProgressRole(String progressRole) {
-        this.progressRole = progressRole;
-        return this;
-    }
-
-    @Override
-    public String getStateRole() {
-        return stateRole;
-    }
-
-    public SimpleUIBean setStateRole(String stateRole) {
-        this.stateRole = stateRole;
-        return this;
-    }
-
-    @Override
-    public String getTypeRole() {
-        return typeRole;
-    }
-
-    public SimpleUIBean setTypeRole(String typeRole) {
-        this.typeRole = typeRole;
-        return this;
-    }
-
-    @Override
-    public String getSizeRole() {
-        return sizeRole;
-    }
-
-    public SimpleUIBean setSizeRole(String sizeRole) {
-        this.sizeRole = sizeRole;
-        return this;
-    }
-
     public SimpleUIBean setOn(boolean isOn){
         return setState(isOn?1:0);
     }
@@ -442,11 +289,6 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
     @Override
     public SimpleUIBean setId(int id) {
         return (SimpleUIBean) super.setId(id);
-    }
-
-    @Override
-    public SimpleUIBean setIdRole(String idRole) {
-        return (SimpleUIBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -499,16 +341,6 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         dest.writeInt(this.type);
         dest.writeDouble(this.width);
         dest.writeDouble(this.height);
-        dest.writeString(this.titleRole);
-        dest.writeString(this.contentRole);
-        dest.writeString(this.numberRole);
-        dest.writeString(this.imageRole);
-        dest.writeString(this.coordinateRole);
-        dest.writeString(this.positionRole);
-        dest.writeString(this.progressRole);
-        dest.writeString(this.stateRole);
-        dest.writeString(this.typeRole);
-        dest.writeString(this.sizeRole);
     }
 
     protected SimpleUIBean(Parcel in) {
@@ -550,16 +382,6 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
         this.type = in.readInt();
         this.width = in.readDouble();
         this.height = in.readDouble();
-        this.titleRole = in.readString();
-        this.contentRole = in.readString();
-        this.numberRole = in.readString();
-        this.imageRole = in.readString();
-        this.coordinateRole = in.readString();
-        this.positionRole = in.readString();
-        this.progressRole = in.readString();
-        this.stateRole = in.readString();
-        this.typeRole = in.readString();
-        this.sizeRole = in.readString();
     }
 
     public static final Creator<SimpleUIBean> CREATOR = new Creator<SimpleUIBean>() {

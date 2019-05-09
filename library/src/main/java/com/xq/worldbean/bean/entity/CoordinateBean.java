@@ -8,7 +8,6 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
     protected double x;
     protected double y;
     protected double z;
-    protected String coordinateRole;
 
     public CoordinateBean() {
     }
@@ -32,11 +31,8 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
                 "x=" + x +
                 ", y=" + y +
                 ", z=" + z +
-                ", coordinateRole='" + coordinateRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -50,8 +46,7 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
 
         if (Double.compare(that.x, x) != 0) return false;
         if (Double.compare(that.y, y) != 0) return false;
-        if (Double.compare(that.z, z) != 0) return false;
-        return coordinateRole != null ? coordinateRole.equals(that.coordinateRole) : that.coordinateRole == null;
+        return Double.compare(that.z, z) == 0;
     }
 
     @Override
@@ -64,7 +59,6 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(z);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (coordinateRole != null ? coordinateRole.hashCode() : 0);
         return result;
     }
 
@@ -99,23 +93,8 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
     }
 
     @Override
-    public String getCoordinateRole() {
-        return coordinateRole;
-    }
-
-    public CoordinateBean setCoordinateRole(String coordinateRole) {
-        this.coordinateRole = coordinateRole;
-        return this;
-    }
-
-    @Override
     public CoordinateBean setId(int id) {
         return (CoordinateBean) super.setId(id);
-    }
-
-    @Override
-    public CoordinateBean setIdRole(String idRole) {
-        return (CoordinateBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -134,7 +113,6 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
         dest.writeDouble(this.x);
         dest.writeDouble(this.y);
         dest.writeDouble(this.z);
-        dest.writeString(this.coordinateRole);
     }
 
     protected CoordinateBean(Parcel in) {
@@ -142,7 +120,6 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
         this.x = in.readDouble();
         this.y = in.readDouble();
         this.z = in.readDouble();
-        this.coordinateRole = in.readString();
     }
 
     public static final Creator<CoordinateBean> CREATOR = new Creator<CoordinateBean>() {

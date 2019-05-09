@@ -33,11 +33,8 @@ public class FragmentTitleBean extends TitleBean implements FragmentTitleBehavio
         return "FragmentTitleBean{" +
                 "fragment=" + fragment +
                 ", title=" + title +
-                ", titleRole='" + titleRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -71,11 +68,6 @@ public class FragmentTitleBean extends TitleBean implements FragmentTitleBehavio
     @Override
     public FragmentTitleBean setId(int id) {
         return (FragmentTitleBean) super.setId(id);
-    }
-
-    @Override
-    public FragmentTitleBean setIdRole(String idRole) {
-        return (FragmentTitleBean) super.setIdRole(idRole);
     }
 
     @Override

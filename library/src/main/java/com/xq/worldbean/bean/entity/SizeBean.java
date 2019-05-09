@@ -8,7 +8,6 @@ public class SizeBean extends ParentBean implements SizeBehavior {
 
     protected double width;
     protected double height;
-    protected String sizeRole;
 
     public SizeBean() {
     }
@@ -29,11 +28,8 @@ public class SizeBean extends ParentBean implements SizeBehavior {
         return "SizeBean{" +
                 "width=" + width +
                 ", height=" + height +
-                ", sizeRole='" + sizeRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -46,8 +42,7 @@ public class SizeBean extends ParentBean implements SizeBehavior {
         SizeBean sizeBean = (SizeBean) o;
 
         if (Double.compare(sizeBean.width, width) != 0) return false;
-        if (Double.compare(sizeBean.height, height) != 0) return false;
-        return sizeRole != null ? sizeRole.equals(sizeBean.sizeRole) : sizeBean.sizeRole == null;
+        return Double.compare(sizeBean.height, height) == 0;
     }
 
     @Override
@@ -58,7 +53,6 @@ public class SizeBean extends ParentBean implements SizeBehavior {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(height);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (sizeRole != null ? sizeRole.hashCode() : 0);
         return result;
     }
 
@@ -83,23 +77,8 @@ public class SizeBean extends ParentBean implements SizeBehavior {
     }
 
     @Override
-    public String getSizeRole() {
-        return sizeRole;
-    }
-
-    public SizeBean setSizeRole(String sizeRole) {
-        this.sizeRole = sizeRole;
-        return this;
-    }
-
-    @Override
     public SizeBean setId(int id) {
         return (SizeBean) super.setId(id);
-    }
-
-    @Override
-    public SizeBean setIdRole(String idRole) {
-        return (SizeBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -117,14 +96,12 @@ public class SizeBean extends ParentBean implements SizeBehavior {
         super.writeToParcel(dest, flags);
         dest.writeDouble(this.width);
         dest.writeDouble(this.height);
-        dest.writeString(this.sizeRole);
     }
 
     protected SizeBean(Parcel in) {
         super(in);
         this.width = in.readDouble();
         this.height = in.readDouble();
-        this.sizeRole = in.readString();
     }
 
     public static final Creator<SizeBean> CREATOR = new Creator<SizeBean>() {

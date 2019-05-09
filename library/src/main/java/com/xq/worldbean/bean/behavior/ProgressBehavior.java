@@ -17,14 +17,17 @@ public interface ProgressBehavior extends ParentBehavior{
     //进度范围 0 - 1.0
     public float getProgress();
 
+    default float getProgress(String role) {
+        return getProgress();
+    }
+
     //对进度值的描述
     default CharSequence getProgressDescript(){
         return null;
     }
 
-    //上述内容在属性值中扮演的角色，不需要处理判断逻辑可直接返回null
-    default String getProgressRole() {
-        return null;
+    default CharSequence getProgressDescript(String role){
+        return getProgressDescript();
     }
 
 }

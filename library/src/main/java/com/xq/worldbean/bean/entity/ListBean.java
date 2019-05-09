@@ -8,7 +8,6 @@ import java.util.List;
 public class ListBean<T> extends ParentBean implements ListBehavior<T> {
 
     protected List<T> list;
-    protected String listRole;
 
     public ListBean(List<T> list) {
         this.list = list;
@@ -23,11 +22,8 @@ public class ListBean<T> extends ParentBean implements ListBehavior<T> {
     public String toString() {
         return "ListBean{" +
                 "list=" + list +
-                ", listRole='" + listRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -39,15 +35,13 @@ public class ListBean<T> extends ParentBean implements ListBehavior<T> {
 
         ListBean<?> listBean = (ListBean<?>) o;
 
-        if (list != null ? !list.equals(listBean.list) : listBean.list != null) return false;
-        return listRole != null ? listRole.equals(listBean.listRole) : listBean.listRole == null;
+        return list != null ? list.equals(listBean.list) : listBean.list == null;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + (list != null ? list.hashCode() : 0);
-        result = 31 * result + (listRole != null ? listRole.hashCode() : 0);
         return result;
     }
 
@@ -62,23 +56,8 @@ public class ListBean<T> extends ParentBean implements ListBehavior<T> {
     }
 
     @Override
-    public String getListRole() {
-        return listRole;
-    }
-
-    public ListBean<T> setListRole(String listRole) {
-        this.listRole = listRole;
-        return this;
-    }
-
-    @Override
     public ListBean setId(int id) {
         return (ListBean) super.setId(id);
-    }
-
-    @Override
-    public ListBean setIdRole(String idRole) {
-        return (ListBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -95,13 +74,11 @@ public class ListBean<T> extends ParentBean implements ListBehavior<T> {
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeSerializable((Serializable) this.list);
-        dest.writeString(this.listRole);
     }
 
     protected ListBean(Parcel in) {
         super(in);
         this.list = (List<T>) in.readSerializable();
-        this.listRole = in.readString();
     }
 
     public static final Creator<ListBean> CREATOR = new Creator<ListBean>() {

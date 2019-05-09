@@ -7,7 +7,6 @@ import com.xq.worldbean.bean.behavior.LenthBehavior;
 public class LenthBean extends ParentBean implements LenthBehavior {
 
     protected int lenth;
-    protected String lenthRole;
 
     public LenthBean() {
     }
@@ -25,11 +24,8 @@ public class LenthBean extends ParentBean implements LenthBehavior {
     public String toString() {
         return "LenthBean{" +
                 "lenth=" + lenth +
-                ", lenthRole='" + lenthRole + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
-                ", idRole='" + idRole + '\'' +
-                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
@@ -41,15 +37,13 @@ public class LenthBean extends ParentBean implements LenthBehavior {
 
         LenthBean lenthBean = (LenthBean) o;
 
-        if (lenth != lenthBean.lenth) return false;
-        return lenthRole != null ? lenthRole.equals(lenthBean.lenthRole) : lenthBean.lenthRole == null;
+        return lenth == lenthBean.lenth;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + lenth;
-        result = 31 * result + (lenthRole != null ? lenthRole.hashCode() : 0);
         return result;
     }
 
@@ -64,23 +58,8 @@ public class LenthBean extends ParentBean implements LenthBehavior {
     }
 
     @Override
-    public String getLenthRole() {
-        return lenthRole;
-    }
-
-    public LenthBean setLenthRole(String lenthRole) {
-        this.lenthRole = lenthRole;
-        return this;
-    }
-
-    @Override
     public LenthBean setId(int id) {
         return (LenthBean) super.setId(id);
-    }
-
-    @Override
-    public LenthBean setIdRole(String idRole) {
-        return (LenthBean) super.setIdRole(idRole);
     }
 
     @Override
@@ -97,13 +76,11 @@ public class LenthBean extends ParentBean implements LenthBehavior {
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeInt(this.lenth);
-        dest.writeString(this.lenthRole);
     }
 
     protected LenthBean(Parcel in) {
         super(in);
         this.lenth = in.readInt();
-        this.lenthRole = in.readString();
     }
 
     public static final Creator<LenthBean> CREATOR = new Creator<LenthBean>() {

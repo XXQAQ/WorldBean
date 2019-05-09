@@ -43,18 +43,8 @@ public class SwitchStateBean extends StateBean implements SwitchStateBehavior {
     }
 
     @Override
-    public SwitchStateBean setStateRole(String stateRole) {
-        return (SwitchStateBean) super.setStateRole(stateRole);
-    }
-
-    @Override
     public SwitchStateBean setId(int id) {
         return (SwitchStateBean) super.setId(id);
-    }
-
-    @Override
-    public SwitchStateBean setIdRole(String idRole) {
-        return (SwitchStateBean) super.setIdRole(idRole);
     }
 
     @Override
