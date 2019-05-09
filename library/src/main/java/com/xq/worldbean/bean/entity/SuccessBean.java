@@ -75,20 +75,17 @@ public class SuccessBean extends ParentBean implements SuccessBehavior {
 
     @Override
     public SuccessBean setId(int id) {
-        super.setId(id);
-        return this;
+        return (SuccessBean) super.setId(id);
     }
 
     @Override
     public SuccessBean setIdRole(String idRole) {
-        super.setIdRole(idRole);
-        return this;
+        return (SuccessBean) super.setIdRole(idRole);
     }
 
     @Override
     public SuccessBean setTag(Object tag) {
-        super.setTag(tag);
-        return this;
+        return (SuccessBean) super.setTag(tag);
     }
 
     @Override

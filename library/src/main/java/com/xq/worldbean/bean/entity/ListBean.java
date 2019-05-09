@@ -72,20 +72,17 @@ public class ListBean<T> extends ParentBean implements ListBehavior<T> {
 
     @Override
     public ListBean setId(int id) {
-        super.setId(id);
-        return this;
+        return (ListBean) super.setId(id);
     }
 
     @Override
     public ListBean setIdRole(String idRole) {
-        super.setIdRole(idRole);
-        return this;
+        return (ListBean) super.setIdRole(idRole);
     }
 
     @Override
     public ListBean setTag(Object tag) {
-        super.setTag(tag);
-        return this;
+        return (ListBean) super.setTag(tag);
     }
 
     @Override

@@ -93,20 +93,17 @@ public class SizeBean extends ParentBean implements SizeBehavior {
 
     @Override
     public SizeBean setId(int id) {
-        super.setId(id);
-        return this;
+        return (SizeBean) super.setId(id);
     }
 
     @Override
     public SizeBean setIdRole(String idRole) {
-        super.setIdRole(idRole);
-        return this;
+        return (SizeBean) super.setIdRole(idRole);
     }
 
     @Override
     public SizeBean setTag(Object tag) {
-        super.setTag(tag);
-        return this;
+        return (SizeBean) super.setTag(tag);
     }
 
     @Override

@@ -1,9 +1,8 @@
 package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
-import android.support.v4.app.Fragment;
 
-public interface FragmentTitleBehavior extends TitleBehavior{
+public interface ProgressBehavior extends ParentBehavior{
 
     @Override
     default int describeContents() {
@@ -25,6 +24,15 @@ public interface FragmentTitleBehavior extends TitleBehavior{
         return null;
     }
 
-    public Fragment getFragment();
+    //进度范围 0 - 1.0
+    public float getProgress();
+
+    //对进度值的描述
+    default CharSequence getProgressDescript(){
+        return null;
+    }
+
+    //上述内容在属性值中扮演的角色，不需要处理判断逻辑可直接返回null
+    public String getProgressRole();
 
 }

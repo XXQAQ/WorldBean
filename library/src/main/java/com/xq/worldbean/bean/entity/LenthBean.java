@@ -74,20 +74,17 @@ public class LenthBean extends ParentBean implements LenthBehavior {
 
     @Override
     public LenthBean setId(int id) {
-        super.setId(id);
-        return this;
+        return (LenthBean) super.setId(id);
     }
 
     @Override
     public LenthBean setIdRole(String idRole) {
-        super.setIdRole(idRole);
-        return this;
+        return (LenthBean) super.setIdRole(idRole);
     }
 
     @Override
     public LenthBean setTag(Object tag) {
-        super.setTag(tag);
-        return this;
+        return (LenthBean) super.setTag(tag);
     }
 
     @Override

@@ -170,20 +170,17 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
 
     @Override
     public SimpleUIBean setId(int id) {
-        super.setId(id);
-        return this;
+        return (SimpleUIBean) super.setId(id);
     }
 
     @Override
     public SimpleUIBean setIdRole(String idRole) {
-        super.setIdRole(idRole);
-        return this;
+        return (SimpleUIBean) super.setIdRole(idRole);
     }
 
     @Override
     public SimpleUIBean setTag(Object tag) {
-        super.setTag(tag);
-        return this;
+        return (SimpleUIBean) super.setTag(tag);
     }
 
     @Override

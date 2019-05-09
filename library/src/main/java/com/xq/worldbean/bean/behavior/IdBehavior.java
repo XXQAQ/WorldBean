@@ -24,7 +24,8 @@ public interface IdBehavior extends Serializable, Parcelable {
         return null;
     }
 
-    default int getForeignId(){
+    //主键
+    default int getPrimaryId(){
         return 0;
     }
 

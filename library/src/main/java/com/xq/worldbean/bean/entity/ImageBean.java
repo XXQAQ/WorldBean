@@ -92,20 +92,17 @@ public class ImageBean extends ParentBean implements ImageBehavior {
 
     @Override
     public ImageBean setId(int id) {
-        super.setId(id);
-        return this;
+        return (ImageBean) super.setId(id);
     }
 
     @Override
     public ImageBean setIdRole(String idRole) {
-        super.setIdRole(idRole);
-        return this;
+        return (ImageBean) super.setIdRole(idRole);
     }
 
     @Override
     public ImageBean setTag(Object tag) {
-        super.setTag(tag);
-        return this;
+        return (ImageBean) super.setTag(tag);
     }
 
     @Override

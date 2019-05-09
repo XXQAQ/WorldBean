@@ -74,20 +74,17 @@ public class PositionBean extends ParentBean implements PositionBehavior {
 
     @Override
     public PositionBean setId(int id) {
-        super.setId(id);
-        return this;
+        return (PositionBean) super.setId(id);
     }
 
     @Override
     public PositionBean setIdRole(String idRole) {
-        super.setIdRole(idRole);
-        return this;
+        return (PositionBean) super.setIdRole(idRole);
     }
 
     @Override
     public PositionBean setTag(Object tag) {
-        super.setTag(tag);
-        return this;
+        return (PositionBean) super.setTag(tag);
     }
 
     @Override

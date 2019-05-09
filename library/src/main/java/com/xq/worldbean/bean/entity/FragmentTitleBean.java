@@ -69,20 +69,17 @@ public class FragmentTitleBean extends TitleBean implements FragmentTitleBehavio
 
     @Override
     public FragmentTitleBean setId(int id) {
-        super.setId(id);
-        return this;
+        return (FragmentTitleBean) super.setId(id);
     }
 
     @Override
     public FragmentTitleBean setIdRole(String idRole) {
-        super.setIdRole(idRole);
-        return this;
+        return (FragmentTitleBean) super.setIdRole(idRole);
     }
 
     @Override
     public FragmentTitleBean setTag(Object tag) {
-        super.setTag(tag);
-        return this;
+        return (FragmentTitleBean) super.setTag(tag);
     }
 
     @Override

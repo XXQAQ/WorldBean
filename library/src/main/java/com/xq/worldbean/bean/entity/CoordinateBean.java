@@ -109,20 +109,17 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
 
     @Override
     public CoordinateBean setId(int id) {
-        super.setId(id);
-        return this;
+        return (CoordinateBean) super.setId(id);
     }
 
     @Override
     public CoordinateBean setIdRole(String idRole) {
-        super.setIdRole(idRole);
-        return this;
+        return (CoordinateBean) super.setIdRole(idRole);
     }
 
     @Override
     public CoordinateBean setTag(Object tag) {
-        super.setTag(tag);
-        return this;
+        return (CoordinateBean) super.setTag(tag);
     }
 
     @Override

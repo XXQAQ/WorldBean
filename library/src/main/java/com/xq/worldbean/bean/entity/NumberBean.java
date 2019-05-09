@@ -74,20 +74,17 @@ public class NumberBean extends ParentBean implements NumberBehavior {
 
     @Override
     public NumberBean setId(int id) {
-        super.setId(id);
-        return this;
+        return (NumberBean) super.setId(id);
     }
 
     @Override
     public NumberBean setIdRole(String idRole) {
-        super.setIdRole(idRole);
-        return this;
+        return (NumberBean) super.setIdRole(idRole);
     }
 
     @Override
     public NumberBean setTag(Object tag) {
-        super.setTag(tag);
-        return this;
+        return (NumberBean) super.setTag(tag);
     }
 
     @Override

@@ -75,20 +75,17 @@ public class TitleBean extends ParentBean implements TitleBehavior {
 
     @Override
     public TitleBean setId(int id) {
-        super.setId(id);
-        return this;
+        return (TitleBean) super.setId(id);
     }
 
     @Override
     public TitleBean setIdRole(String idRole) {
-        super.setIdRole(idRole);
-        return this;
+        return (TitleBean) super.setIdRole(idRole);
     }
 
     @Override
     public TitleBean setTag(Object tag) {
-        super.setTag(tag);
-        return this;
+        return (TitleBean) super.setTag(tag);
     }
 
     @Override
