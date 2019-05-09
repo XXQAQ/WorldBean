@@ -14,11 +14,6 @@ public interface StateBehavior extends ParentBehavior{
 
     }
 
-    @Override
-    default int getId() {
-        return 0;
-    }
-
     public int getState();
 
     //对状态的描述

@@ -27,6 +27,7 @@ public class ListBean<T> extends ParentBean implements ListBehavior<T> {
                 ", tag=" + tag +
                 ", id=" + id +
                 ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 

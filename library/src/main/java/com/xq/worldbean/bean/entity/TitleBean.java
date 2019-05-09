@@ -30,6 +30,7 @@ public class TitleBean extends ParentBean implements TitleBehavior {
                 ", tag=" + tag +
                 ", id=" + id +
                 ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 

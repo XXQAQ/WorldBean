@@ -14,11 +14,6 @@ public interface SizeBehavior extends ParentBehavior{
 
     }
 
-    @Override
-    default int getId() {
-        return 0;
-    }
-
     public double getWidth();
 
     public double getHeight();

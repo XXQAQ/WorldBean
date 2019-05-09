@@ -29,6 +29,7 @@ public class PositionBean extends ParentBean implements PositionBehavior {
                 ", tag=" + tag +
                 ", id=" + id +
                 ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 

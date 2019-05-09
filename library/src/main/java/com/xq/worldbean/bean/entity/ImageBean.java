@@ -36,6 +36,10 @@ public class ImageBean extends ParentBean implements ImageBehavior {
                 "imageRes=" + imageRes +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", imageRole='" + imageRole + '\'' +
+                ", tag=" + tag +
+                ", id=" + id +
+                ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 

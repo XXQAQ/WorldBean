@@ -14,11 +14,6 @@ public interface CoordinateBehavior extends ParentBehavior{
 
     }
 
-    @Override
-    default int getId() {
-        return 0;
-    }
-
     public double getX();
 
     public double getY();

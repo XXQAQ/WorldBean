@@ -30,6 +30,7 @@ public class SuccessBean extends ParentBean implements SuccessBehavior {
                 ", tag=" + tag +
                 ", id=" + id +
                 ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 

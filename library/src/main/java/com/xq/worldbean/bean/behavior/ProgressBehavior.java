@@ -14,11 +14,6 @@ public interface ProgressBehavior extends ParentBehavior{
 
     }
 
-    @Override
-    default int getId() {
-        return 0;
-    }
-
     //进度范围 0 - 1.0
     public float getProgress();
 

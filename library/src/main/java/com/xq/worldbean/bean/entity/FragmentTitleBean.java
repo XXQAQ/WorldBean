@@ -37,6 +37,7 @@ public class FragmentTitleBean extends TitleBean implements FragmentTitleBehavio
                 ", tag=" + tag +
                 ", id=" + id +
                 ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 

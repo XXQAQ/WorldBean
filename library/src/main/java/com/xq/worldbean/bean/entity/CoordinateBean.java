@@ -36,6 +36,7 @@ public class CoordinateBean extends ParentBean implements CoordinateBehavior {
                 ", tag=" + tag +
                 ", id=" + id +
                 ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 

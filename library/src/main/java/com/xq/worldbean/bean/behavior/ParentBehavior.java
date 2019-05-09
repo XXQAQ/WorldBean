@@ -17,4 +17,14 @@ public interface ParentBehavior extends IdBehavior,TagBehavior,Serializable,Parc
 
     }
 
+    @Override
+    default Object getTag() {
+        return null;
+    }
+
+    @Override
+    default int getId() {
+        return 0;
+    }
+
 }

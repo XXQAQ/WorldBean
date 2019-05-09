@@ -14,11 +14,6 @@ public interface PositionBehavior extends ParentBehavior{
 
     }
 
-    @Override
-    default int getId() {
-        return 0;
-    }
-
     public int getPosition();
 
     default String getPositionRole(){

@@ -33,6 +33,7 @@ public class SizeBean extends ParentBean implements SizeBehavior {
                 ", tag=" + tag +
                 ", id=" + id +
                 ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 

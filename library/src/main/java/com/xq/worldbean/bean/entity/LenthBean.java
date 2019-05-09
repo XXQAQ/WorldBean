@@ -29,6 +29,7 @@ public class LenthBean extends ParentBean implements LenthBehavior {
                 ", tag=" + tag +
                 ", id=" + id +
                 ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 

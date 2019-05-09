@@ -29,6 +29,7 @@ public class TypeBean extends ParentBean implements TypeBehavior {
                 ", tag=" + tag +
                 ", id=" + id +
                 ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 

@@ -29,6 +29,7 @@ public class NumberBean extends ParentBean implements NumberBehavior {
                 ", tag=" + tag +
                 ", id=" + id +
                 ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 

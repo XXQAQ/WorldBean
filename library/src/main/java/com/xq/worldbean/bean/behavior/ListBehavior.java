@@ -17,11 +17,6 @@ public interface ListBehavior<T> extends ParentBehavior , LenthBehavior{
     }
 
     @Override
-    default int getId() {
-        return 0;
-    }
-
-    @Override
     default int getLenth() {
         if (getList() == null)  return 0;
         return getList().size();

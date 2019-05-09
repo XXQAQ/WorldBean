@@ -14,11 +14,6 @@ public interface SuccessBehavior extends ParentBehavior{
 
     }
 
-    @Override
-    default int getId() {
-        return 0;
-    }
-
     public boolean isSuccess();
 
     //getSuccess与isSuccess本质上无任何区别，只是getSuccess针对一些利用反射对方法名解析的框架做了兼容处理

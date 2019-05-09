@@ -15,11 +15,6 @@ public interface FragmentTitleBehavior extends TitleBehavior{
 
     }
 
-    @Override
-    default int getId() {
-        return 0;
-    }
-
     public Fragment getFragment();
 
 }

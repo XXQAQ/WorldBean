@@ -426,6 +426,21 @@ public class SimpleUIBean extends ParentBean implements SimpleUIBehavior {
     }
 
     @Override
+    public SimpleUIBean setId(int id) {
+        return (SimpleUIBean) super.setId(id);
+    }
+
+    @Override
+    public SimpleUIBean setIdRole(String idRole) {
+        return (SimpleUIBean) super.setIdRole(idRole);
+    }
+
+    @Override
+    public SimpleUIBean setTag(Object tag) {
+        return (SimpleUIBean) super.setTag(tag);
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }

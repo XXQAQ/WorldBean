@@ -14,11 +14,6 @@ public interface SwitchStateBehavior extends StateBehavior{
 
     }
 
-    @Override
-    default int getId() {
-        return 0;
-    }
-
     //默认 state>0 的情况下标识为on，如果判断逻辑不同或需要变量单独处理则请重写此方法
     default boolean isOn() {
         return getState() > 0;

@@ -43,6 +43,7 @@ public class ProgressBean extends ParentBean implements ProgressBehavior {
                 ", tag=" + tag +
                 ", id=" + id +
                 ", idRole='" + idRole + '\'' +
+                ", tagRole='" + tagRole + '\'' +
                 '}';
     }
 
