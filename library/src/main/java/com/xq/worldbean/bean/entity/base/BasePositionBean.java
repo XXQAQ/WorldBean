@@ -6,7 +6,7 @@ import com.xq.worldbean.bean.behavior.PositionBehavior;
 
 public class BasePositionBean<T extends BasePositionBean> extends BaseBean implements PositionBehavior {
 
-    private int position;
+    protected int position;
 
     public BasePositionBean() {
     }
