@@ -40,6 +40,7 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> im
                 ", fractionDescript=" + fractionDescript +
                 ", tag=" + tag +
                 ", id=" + id +
+                ", primaryId=" + primaryId +
                 '}';
     }
 
@@ -49,7 +50,7 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> im
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        BaseFractionBean<?> that = (BaseFractionBean<?>) o;
+        BaseFractionBean that = (BaseFractionBean) o;
 
         if (Float.compare(that.fraction, fraction) != 0) return false;
         return fractionDescript != null ? fractionDescript.equals(that.fractionDescript) : that.fractionDescript == null;

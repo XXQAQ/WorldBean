@@ -26,6 +26,7 @@ public class BaseTypeBean<T extends BaseTypeBean> extends BaseBean<T> implements
                 "type=" + type +
                 ", tag=" + tag +
                 ", id=" + id +
+                ", primaryId=" + primaryId +
                 '}';
     }
 

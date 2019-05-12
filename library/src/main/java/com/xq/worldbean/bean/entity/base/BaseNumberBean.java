@@ -26,6 +26,7 @@ public class BaseNumberBean<T extends BaseNumberBean> extends BaseBean<T> implem
                 "number=" + number +
                 ", tag=" + tag +
                 ", id=" + id +
+                ", primaryId=" + primaryId +
                 '}';
     }
 

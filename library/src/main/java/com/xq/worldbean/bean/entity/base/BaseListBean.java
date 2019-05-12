@@ -27,6 +27,7 @@ public class BaseListBean<T extends BaseListBean> extends BaseBean<T> implements
                 "list=" + list +
                 ", tag=" + tag +
                 ", id=" + id +
+                ", primaryId=" + primaryId +
                 '}';
     }
 

@@ -33,6 +33,7 @@ public class BaseCoordinateBean<T extends BaseCoordinateBean> extends BaseBean<T
                 ", z=" + z +
                 ", tag=" + tag +
                 ", id=" + id +
+                ", primaryId=" + primaryId +
                 '}';
     }
 

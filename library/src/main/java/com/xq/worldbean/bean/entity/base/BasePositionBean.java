@@ -26,6 +26,7 @@ public class BasePositionBean<T extends BasePositionBean> extends BaseBean<T> im
                 "position=" + position +
                 ", tag=" + tag +
                 ", id=" + id +
+                ", primaryId=" + primaryId +
                 '}';
     }
 

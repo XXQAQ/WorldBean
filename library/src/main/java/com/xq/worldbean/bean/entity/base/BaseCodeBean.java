@@ -25,6 +25,7 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements
                 "code=" + code +
                 ", tag=" + tag +
                 ", id=" + id +
+                ", primaryId=" + primaryId +
                 '}';
     }
 
@@ -34,7 +35,7 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        BaseCodeBean<?> that = (BaseCodeBean<?>) o;
+        BaseCodeBean that = (BaseCodeBean) o;
 
         return code == that.code;
     }

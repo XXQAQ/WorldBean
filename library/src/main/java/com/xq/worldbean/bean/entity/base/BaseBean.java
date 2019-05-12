@@ -10,6 +10,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
 
     protected Object tag;
     protected int id;
+    protected int primaryId;
 
     public BaseBean() {
     }
@@ -23,6 +24,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
         return "BaseBean{" +
                 "tag=" + tag +
                 ", id=" + id +
+                ", primaryId=" + primaryId +
                 '}';
     }
 
@@ -34,6 +36,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
         BaseBean that = (BaseBean) o;
 
         if (id != that.id) return false;
+        if (primaryId != that.primaryId) return false;
         return tag != null ? tag.equals(that.tag) : that.tag == null;
     }
 
@@ -41,6 +44,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
     public int hashCode() {
         int result = tag != null ? tag.hashCode() : 0;
         result = 31 * result + id;
+        result = 31 * result + primaryId;
         return result;
     }
 
@@ -67,6 +71,17 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
     }
 
     @Override
+    public int getPrimaryId() {
+        return primaryId;
+    }
+
+    @Override
+    public T setPrimaryId(int primaryId) {
+        this.primaryId = primaryId;
+        return (T) this;
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }
@@ -78,6 +93,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
         else    if (tag instanceof Serializable)
             dest.writeSerializable((Serializable) tag);
         dest.writeInt(id);
+        dest.writeInt(primaryId);
     }
 
     protected BaseBean(Parcel in) {
@@ -86,6 +102,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
         else    if (tag instanceof Serializable)
             this.tag = in.readSerializable();
         this.id = in.readInt();
+        this.primaryId = in.readInt();
     }
 
     public static final Parcelable.Creator<BaseBean> CREATOR = new Parcelable.Creator<BaseBean>() {

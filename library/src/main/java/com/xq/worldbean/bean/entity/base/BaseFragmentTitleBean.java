@@ -35,6 +35,7 @@ public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends Base
                 ", title=" + title +
                 ", tag=" + tag +
                 ", id=" + id +
+                ", primaryId=" + primaryId +
                 '}';
     }
 

@@ -27,6 +27,7 @@ public class BaseTitleBean<T extends BaseTitleBean> extends BaseBean<T> implemen
                 "title=" + title +
                 ", tag=" + tag +
                 ", id=" + id +
+                ", primaryId=" + primaryId +
                 '}';
     }
 

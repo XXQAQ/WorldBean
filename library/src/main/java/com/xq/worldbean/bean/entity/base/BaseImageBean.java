@@ -36,6 +36,7 @@ public class BaseImageBean<T extends BaseImageBean> extends BaseBean<T> implemen
                 ", imageUrl='" + imageUrl + '\'' +
                 ", tag=" + tag +
                 ", id=" + id +
+                ", primaryId=" + primaryId +
                 '}';
     }
 

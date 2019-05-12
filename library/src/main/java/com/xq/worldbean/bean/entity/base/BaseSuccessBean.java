@@ -27,6 +27,7 @@ public class BaseSuccessBean<T extends BaseSuccessBean> extends BaseBean<T> impl
                 "isSuccess=" + isSuccess +
                 ", tag=" + tag +
                 ", id=" + id +
+                ", primaryId=" + primaryId +
                 '}';
     }
 
