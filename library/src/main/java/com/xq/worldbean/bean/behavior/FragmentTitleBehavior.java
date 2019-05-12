@@ -1,9 +1,8 @@
 package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
-import android.support.v4.app.Fragment;
 
-public interface FragmentTitleBehavior<T extends FragmentTitleBehavior> extends TitleBehavior<T>{
+public interface FragmentTitleBehavior<T extends FragmentTitleBehavior> extends TitleBehavior<T>,FragmentBehavior<T>{
 
     @Override
     default int describeContents() {
@@ -13,12 +12,6 @@ public interface FragmentTitleBehavior<T extends FragmentTitleBehavior> extends 
     @Override
     default void writeToParcel(Parcel dest, int flags) {
 
-    }
-
-    public Fragment getFragment();
-
-    default T setFragment(Fragment fragment){
-        return (T)this;
     }
 
 }
