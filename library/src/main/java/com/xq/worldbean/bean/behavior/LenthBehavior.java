@@ -16,8 +16,16 @@ public interface LenthBehavior extends BaseBehavior {
 
     public int getLenth();
 
+    default int getSize(){
+        return getLenth();
+    }
+
     default int getLenth(String role) {
         return getLenth();
+    }
+
+    default int getSize(String role){
+        return getLenth(role);
     }
 
 }
