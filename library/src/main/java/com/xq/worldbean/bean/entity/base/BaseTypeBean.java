@@ -35,9 +35,9 @@ public class BaseTypeBean<T extends BaseTypeBean> extends BaseBean<T> implements
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        BaseTypeBean typeBean = (BaseTypeBean) o;
+        BaseTypeBean that = (BaseTypeBean) o;
 
-        return type == typeBean.type;
+        return type == that.type;
     }
 
     @Override

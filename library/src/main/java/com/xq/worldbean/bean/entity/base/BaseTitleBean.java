@@ -36,9 +36,9 @@ public class BaseTitleBean<T extends BaseTitleBean> extends BaseBean<T> implemen
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        BaseTitleBean titleBean = (BaseTitleBean) o;
+        BaseTitleBean that = (BaseTitleBean) o;
 
-        return title != null ? title.equals(titleBean.title) : titleBean.title == null;
+        return title != null ? title.equals(that.title) : that.title == null;
     }
 
     @Override

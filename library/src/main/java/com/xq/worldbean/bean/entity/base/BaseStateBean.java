@@ -51,10 +51,10 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implemen
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        BaseStateBean stateBean = (BaseStateBean) o;
+        BaseStateBean that = (BaseStateBean) o;
 
-        if (state != stateBean.state) return false;
-        return stateDescript != null ? stateDescript.equals(stateBean.stateDescript) : stateBean.stateDescript == null;
+        if (state != that.state) return false;
+        return stateDescript != null ? stateDescript.equals(that.stateDescript) : that.stateDescript == null;
     }
 
     @Override

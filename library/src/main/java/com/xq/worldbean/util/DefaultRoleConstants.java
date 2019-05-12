@@ -1,6 +1,6 @@
 package com.xq.worldbean.util;
 
-public class DefaultRoleEnum {
+public class DefaultRoleConstants {
 
     public static final String ROLE_SIZE_LARGE = "size_large";
 

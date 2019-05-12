@@ -39,10 +39,10 @@ public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        BaseSizeBean sizeBean = (BaseSizeBean) o;
+        BaseSizeBean that = (BaseSizeBean) o;
 
-        if (Double.compare(sizeBean.width, width) != 0) return false;
-        return Double.compare(sizeBean.height, height) == 0;
+        if (Double.compare(that.width, width) != 0) return false;
+        return Double.compare(that.height, height) == 0;
     }
 
     @Override

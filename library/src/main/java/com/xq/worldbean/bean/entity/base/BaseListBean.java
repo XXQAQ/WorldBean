@@ -36,9 +36,9 @@ public class BaseListBean<T extends BaseListBean> extends BaseBean<T> implements
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        BaseListBean listBean = (BaseListBean) o;
+        BaseListBean that = (BaseListBean) o;
 
-        return list != null ? list.equals(listBean.list) : listBean.list == null;
+        return list != null ? list.equals(that.list) : that.list == null;
     }
 
     @Override

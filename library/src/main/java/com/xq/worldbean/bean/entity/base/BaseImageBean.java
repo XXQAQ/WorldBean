@@ -45,10 +45,10 @@ public class BaseImageBean<T extends BaseImageBean> extends BaseBean<T> implemen
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        BaseImageBean imageBean = (BaseImageBean) o;
+        BaseImageBean that = (BaseImageBean) o;
 
-        if (imageRes != imageBean.imageRes) return false;
-        return imageUrl != null ? imageUrl.equals(imageBean.imageUrl) : imageBean.imageUrl == null;
+        if (imageRes != that.imageRes) return false;
+        return imageUrl != null ? imageUrl.equals(that.imageUrl) : that.imageUrl == null;
     }
 
     @Override
