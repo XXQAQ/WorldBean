@@ -17,14 +17,15 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     protected double y;
     protected double z;
     protected int position;
-    protected float progress;
-    protected CharSequence progressDescript;
+    protected float fraction;
+    protected CharSequence fractionDescript;
     protected boolean isSuccess;
     protected int state;
     protected CharSequence stateDescript;
     protected int type;
     protected double width;
     protected double height;
+    protected int code;
     protected UniverseCallback universeCallback;
 
     public BaseSimpleUIBean() {
@@ -43,14 +44,15 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
                 ", y=" + y +
                 ", z=" + z +
                 ", position=" + position +
-                ", progress=" + progress +
-                ", progressDescript=" + progressDescript +
+                ", fraction=" + fraction +
+                ", fractionDescript=" + fractionDescript +
                 ", isSuccess=" + isSuccess +
                 ", state=" + state +
                 ", stateDescript=" + stateDescript +
                 ", type=" + type +
                 ", width=" + width +
                 ", height=" + height +
+                ", code=" + code +
                 ", tag=" + tag +
                 ", id=" + id +
                 '}';
@@ -69,18 +71,19 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         if (Double.compare(that.y, y) != 0) return false;
         if (Double.compare(that.z, z) != 0) return false;
         if (position != that.position) return false;
-        if (Float.compare(that.progress, progress) != 0) return false;
+        if (Float.compare(that.fraction, fraction) != 0) return false;
         if (isSuccess != that.isSuccess) return false;
         if (state != that.state) return false;
         if (type != that.type) return false;
         if (Double.compare(that.width, width) != 0) return false;
         if (Double.compare(that.height, height) != 0) return false;
+        if (code != that.code) return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
         if (content != null ? !content.equals(that.content) : that.content != null) return false;
         if (number != null ? !number.equals(that.number) : that.number != null) return false;
         if (imageUrl != null ? !imageUrl.equals(that.imageUrl) : that.imageUrl != null)
             return false;
-        if (progressDescript != null ? !progressDescript.equals(that.progressDescript) : that.progressDescript != null)
+        if (fractionDescript != null ? !fractionDescript.equals(that.fractionDescript) : that.fractionDescript != null)
             return false;
         return stateDescript != null ? stateDescript.equals(that.stateDescript) : that.stateDescript == null;
     }
@@ -101,8 +104,8 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         temp = Double.doubleToLongBits(z);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + position;
-        result = 31 * result + (progress != +0.0f ? Float.floatToIntBits(progress) : 0);
-        result = 31 * result + (progressDescript != null ? progressDescript.hashCode() : 0);
+        result = 31 * result + (fraction != +0.0f ? Float.floatToIntBits(fraction) : 0);
+        result = 31 * result + (fractionDescript != null ? fractionDescript.hashCode() : 0);
         result = 31 * result + (isSuccess ? 1 : 0);
         result = 31 * result + state;
         result = 31 * result + (stateDescript != null ? stateDescript.hashCode() : 0);
@@ -111,6 +114,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(height);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + code;
         return result;
     }
 
@@ -205,22 +209,22 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     }
 
     @Override
-    public float getProgress() {
-        return progress;
+    public float getFraction() {
+        return fraction;
     }
 
-    public T setProgress(float progress) {
-        this.progress = progress;
+    public T setFraction(float fraction) {
+        this.fraction = fraction;
         return (T) this;
     }
 
     @Override
-    public CharSequence getProgressDescript() {
-        return progressDescript;
+    public CharSequence getFractionDescript() {
+        return fractionDescript;
     }
 
-    public T setProgressDescript(CharSequence progressDescript) {
-        this.progressDescript = progressDescript;
+    public T setFractionDescript(CharSequence fractionDescript) {
+        this.fractionDescript = fractionDescript;
         return (T) this;
     }
 
@@ -284,18 +288,28 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return (T) this;
     }
 
+    @Override
+    public int getCode() {
+        return code;
+    }
+
+    public T setCode(int code) {
+        this.code = code;
+        return (T) this;
+    }
+
     public T setUniverseCallback(UniverseCallback universeCallback) {
         this.universeCallback = universeCallback;
         return (T) this;
     }
 
-    public T setOn(boolean isOn){
-        return setState(isOn?1:0);
-    }
-
     @Override
     public void onCallback(Object... objects) {
         if (universeCallback != null)   universeCallback.onCallback();
+    }
+
+    public T setOn(boolean isOn){
+        return setState(isOn?1:0);
     }
 
     @Override
@@ -325,13 +339,13 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         dest.writeDouble(this.y);
         dest.writeDouble(this.z);
         dest.writeInt(this.position);
-        dest.writeFloat(this.progress);
-        if (progressDescript instanceof Parcelable)
-            dest.writeParcelable((Parcelable) progressDescript, flags);
-        else    if (progressDescript instanceof Serializable)
-            dest.writeSerializable((Serializable) progressDescript);
+        dest.writeFloat(this.fraction);
+        if (fractionDescript instanceof Parcelable)
+            dest.writeParcelable((Parcelable) fractionDescript, flags);
+        else    if (fractionDescript instanceof Serializable)
+            dest.writeSerializable((Serializable) fractionDescript);
         else
-            dest.writeString(progressDescript == null?null:progressDescript.toString());
+            dest.writeString(fractionDescript == null?null: fractionDescript.toString());
         dest.writeByte(this.isSuccess ? (byte) 1 : (byte) 0);
         dest.writeInt(this.state);
         if (stateDescript instanceof Parcelable)
@@ -343,6 +357,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         dest.writeInt(this.type);
         dest.writeDouble(this.width);
         dest.writeDouble(this.height);
+        dest.writeInt(this.code);
     }
 
     protected BaseSimpleUIBean(Parcel in) {
@@ -366,13 +381,13 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         this.y = in.readDouble();
         this.z = in.readDouble();
         this.position = in.readInt();
-        this.progress = in.readFloat();
-        if (progressDescript instanceof Parcelable)
-            this.progressDescript = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (progressDescript instanceof Serializable)
-            this.progressDescript = (CharSequence) in.readSerializable();
+        this.fraction = in.readFloat();
+        if (fractionDescript instanceof Parcelable)
+            this.fractionDescript = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (fractionDescript instanceof Serializable)
+            this.fractionDescript = (CharSequence) in.readSerializable();
         else
-            this.progressDescript = in.readString();
+            this.fractionDescript = in.readString();
         this.isSuccess = in.readByte() != 0;
         this.state = in.readInt();
         if (stateDescript instanceof Parcelable)
@@ -384,6 +399,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         this.type = in.readInt();
         this.width = in.readDouble();
         this.height = in.readDouble();
+        this.code = in.readInt();
     }
 
     public static final Creator<BaseSimpleUIBean> CREATOR = new Creator<BaseSimpleUIBean>() {

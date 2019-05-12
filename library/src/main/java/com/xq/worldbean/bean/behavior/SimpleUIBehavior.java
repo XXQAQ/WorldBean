@@ -3,7 +3,7 @@ package com.xq.worldbean.bean.behavior;
 import android.os.Parcel;
 import com.xq.worldbean.util.callback.UniverseCallback;
 
-public interface SimpleUIBehavior extends TitleBehavior,ContentBehavior,NumberBehavior,ImageBehavior,CoordinateBehavior,PositionBehavior,ProgressBehavior,SuccessBehavior,SwitchStateBehavior,TypeBehavior,SizeBehavior, UniverseCallback {
+public interface SimpleUIBehavior extends TitleBehavior,ContentBehavior,NumberBehavior,ImageBehavior,CoordinateBehavior,PositionBehavior, FractionBehavior,SuccessBehavior,SwitchStateBehavior,TypeBehavior,SizeBehavior,CodeBehavior, UniverseCallback {
 
     @Override
     default int describeContents() {
@@ -46,7 +46,7 @@ public interface SimpleUIBehavior extends TitleBehavior,ContentBehavior,NumberBe
     }
 
     @Override
-    default float getProgress() {
+    default float getFraction() {
         return 0;
     }
 
@@ -72,6 +72,11 @@ public interface SimpleUIBehavior extends TitleBehavior,ContentBehavior,NumberBe
 
     @Override
     default double getHeight() {
+        return 0;
+    }
+
+    @Override
+    default int getCode() {
         return 0;
     }
 
