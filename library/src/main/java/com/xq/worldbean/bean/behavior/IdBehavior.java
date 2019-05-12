@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import java.io.Serializable;
 
-public interface IdBehavior extends Serializable, Parcelable {
+public interface IdBehavior<T extends IdBehavior> extends Serializable, Parcelable {
 
     @Override
     default int describeContents() {
@@ -23,13 +23,21 @@ public interface IdBehavior extends Serializable, Parcelable {
         return getId();
     }
 
+    default T setId(int id){
+        return (T) this;
+    }
+
+    default T setId(int id,String role){
+        return setId(id);
+    }
+
     //主键
     default int getPrimaryId(){
         return 0;
     }
 
-    default int getPrimaryId(String role){
-        return getPrimaryId();
+    default T setPrimaryId(int id){
+        return (T) this;
     }
 
 }

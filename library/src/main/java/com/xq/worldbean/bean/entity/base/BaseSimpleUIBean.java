@@ -6,7 +6,7 @@ import com.xq.worldbean.bean.behavior.SimpleUIBehavior;
 import com.xq.worldbean.util.callback.UniverseCallback;
 import java.io.Serializable;
 
-public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> implements SimpleUIBehavior {
+public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> implements SimpleUIBehavior<T> {
 
     protected CharSequence title;
     protected CharSequence content;
@@ -123,6 +123,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return title;
     }
 
+    @Override
     public T setTitle(CharSequence title) {
         this.title = title;
         return (T) this;
@@ -133,6 +134,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return content;
     }
 
+    @Override
     public T setContent(CharSequence content) {
         this.content = content;
         return (T) this;
@@ -143,6 +145,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return number;
     }
 
+    @Override
     public T setNumber(Number number) {
         this.number = number;
         return (T) this;
@@ -153,6 +156,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return imageRes;
     }
 
+    @Override
     public T setImageRes(int imageRes) {
         this.imageRes = imageRes;
         return (T) this;
@@ -163,6 +167,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return imageUrl;
     }
 
+    @Override
     public T setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return (T) this;
@@ -173,6 +178,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return x;
     }
 
+    @Override
     public T setX(double x) {
         this.x = x;
         return (T) this;
@@ -183,6 +189,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return y;
     }
 
+    @Override
     public T setY(double y) {
         this.y = y;
         return (T) this;
@@ -193,6 +200,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return z;
     }
 
+    @Override
     public T setZ(double z) {
         this.z = z;
         return (T) this;
@@ -203,6 +211,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return position;
     }
 
+    @Override
     public T setPosition(int position) {
         this.position = position;
         return (T) this;
@@ -213,6 +222,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return fraction;
     }
 
+    @Override
     public T setFraction(float fraction) {
         this.fraction = fraction;
         return (T) this;
@@ -223,6 +233,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return fractionDescript;
     }
 
+    @Override
     public T setFractionDescript(CharSequence fractionDescript) {
         this.fractionDescript = fractionDescript;
         return (T) this;
@@ -233,6 +244,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return isSuccess;
     }
 
+    @Override
     public T setSuccess(boolean success) {
         isSuccess = success;
         return (T) this;
@@ -243,6 +255,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return state;
     }
 
+    @Override
     public T setState(int state) {
         this.state = state;
         return (T) this;
@@ -253,6 +266,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return stateDescript;
     }
 
+    @Override
     public T setStateDescript(CharSequence stateDescript) {
         this.stateDescript = stateDescript;
         return (T) this;
@@ -263,6 +277,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return type;
     }
 
+    @Override
     public T setType(int type) {
         this.type = type;
         return (T) this;
@@ -273,6 +288,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return width;
     }
 
+    @Override
     public T setWidth(double width) {
         this.width = width;
         return (T) this;
@@ -283,6 +299,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return height;
     }
 
+    @Override
     public T setHeight(double height) {
         this.height = height;
         return (T) this;
@@ -293,9 +310,15 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return code;
     }
 
+    @Override
     public T setCode(int code) {
         this.code = code;
         return (T) this;
+    }
+
+    @Override
+    public T setOn(boolean isOn){
+        return setState(isOn?1:0);
     }
 
     public T setUniverseCallback(UniverseCallback universeCallback) {
@@ -306,10 +329,6 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     @Override
     public void onCallback(Object... objects) {
         if (universeCallback != null)   universeCallback.onCallback();
-    }
-
-    public T setOn(boolean isOn){
-        return setState(isOn?1:0);
     }
 
     @Override

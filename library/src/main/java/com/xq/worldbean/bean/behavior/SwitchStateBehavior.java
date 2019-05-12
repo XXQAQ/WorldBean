@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface SwitchStateBehavior extends StateBehavior{
+public interface SwitchStateBehavior<T extends SwitchStateBehavior> extends StateBehavior<T>{
 
     @Override
     default int describeContents() {
@@ -30,6 +30,14 @@ public interface SwitchStateBehavior extends StateBehavior{
 
     default boolean getOn(String role){
         return isOn(role);
+    }
+
+    default T setOn(boolean isOn){
+        return (T)this;
+    }
+
+    default T setOn(boolean isOn,String role){
+        return setOn(isOn);
     }
 
 }

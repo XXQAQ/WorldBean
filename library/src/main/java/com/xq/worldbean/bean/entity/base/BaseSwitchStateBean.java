@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.entity.base;
 
 import com.xq.worldbean.bean.behavior.SwitchStateBehavior;
 
-public class BaseSwitchStateBean<T extends BaseSwitchStateBean> extends BaseStateBean implements SwitchStateBehavior {
+public class BaseSwitchStateBean<T extends BaseSwitchStateBean> extends BaseStateBean<T> implements SwitchStateBehavior<T> {
 
     public BaseSwitchStateBean() {
     }
@@ -28,6 +28,7 @@ public class BaseSwitchStateBean<T extends BaseSwitchStateBean> extends BaseStat
         return SwitchStateBehavior.super.isOn();
     }
 
+    @Override
     public T setOn(boolean isOn){
         return (T) setState(isOn?1:0);
     }

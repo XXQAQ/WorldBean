@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface ContentBehavior extends BaseBehavior {
+public interface ContentBehavior<T extends ContentBehavior> extends BaseBehavior<T> {
 
     @Override
     default int describeContents() {
@@ -18,6 +18,14 @@ public interface ContentBehavior extends BaseBehavior {
 
     default CharSequence getContent(String role){
         return getContent();
+    }
+
+    default T setContent(CharSequence content){
+        return (T)this;
+    }
+
+    default T setContent(CharSequence content,String role){
+        return setContent(content);
     }
 
 }

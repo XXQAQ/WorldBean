@@ -7,7 +7,7 @@ import com.xq.worldbean.bean.behavior.StateBehavior;
 
 import java.io.Serializable;
 
-public class BaseStateBean<T extends BaseStateBean> extends BaseBean implements StateBehavior {
+public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implements StateBehavior<T> {
 
     protected int state;
     protected CharSequence stateDescript;
@@ -70,6 +70,7 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean implements 
         return state;
     }
 
+    @Override
     public T setState(int state) {
         this.state = state;
         return (T) this;
@@ -80,6 +81,7 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean implements 
         return stateDescript;
     }
 
+    @Override
     public T setStateDescript(CharSequence stateDescript) {
         this.stateDescript = stateDescript;
         return (T) this;

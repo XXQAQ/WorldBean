@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import com.xq.worldbean.bean.behavior.SuccessBehavior;
 
-public class BaseSuccessBean<T extends BaseSuccessBean> extends BaseBean implements SuccessBehavior {
+public class BaseSuccessBean<T extends BaseSuccessBean> extends BaseBean<T> implements SuccessBehavior<T> {
 
     protected boolean isSuccess;
 
@@ -53,6 +53,7 @@ public class BaseSuccessBean<T extends BaseSuccessBean> extends BaseBean impleme
         return isSuccess;
     }
 
+    @Override
     public T setSuccess(boolean success) {
         isSuccess = success;
         return (T) this;

@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface NumberBehavior extends BaseBehavior {
+public interface NumberBehavior<T extends NumberBehavior> extends BaseBehavior<T> {
 
     @Override
     default int describeContents() {
@@ -18,6 +18,14 @@ public interface NumberBehavior extends BaseBehavior {
 
     default Number getNumber(String role) {
         return getNumber();
+    }
+
+    default T setNumber(Number number){
+        return (T)this;
+    }
+
+    default T setNumber(Number number,String role){
+        return setNumber(number);
     }
 
 }

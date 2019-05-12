@@ -4,7 +4,7 @@ import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.TypeBehavior;
 
-public class BaseTypeBean<T extends BaseTypeBean> extends BaseBean implements TypeBehavior {
+public class BaseTypeBean<T extends BaseTypeBean> extends BaseBean<T> implements TypeBehavior<T> {
 
     protected int type;
 
@@ -52,6 +52,7 @@ public class BaseTypeBean<T extends BaseTypeBean> extends BaseBean implements Ty
         return type;
     }
 
+    @Override
     public T setType(int type) {
         this.type = type;
         return (T) this;

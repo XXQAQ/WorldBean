@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.FractionBehavior;
 import java.io.Serializable;
 
-public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean implements FractionBehavior {
+public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> implements FractionBehavior<T> {
 
     protected float fraction;
     protected CharSequence fractionDescript;
@@ -68,6 +68,7 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean imple
         return fraction;
     }
 
+    @Override
     public T setFraction(float fraction) {
         this.fraction = fraction;
         return (T) this;
@@ -78,6 +79,7 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean imple
         return fractionDescript;
     }
 
+    @Override
     public T setFractionDescript(CharSequence fractionDescript) {
         this.fractionDescript = fractionDescript;
         return (T) this;

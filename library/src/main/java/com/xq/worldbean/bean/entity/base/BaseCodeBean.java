@@ -1,8 +1,9 @@
 package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
+import com.xq.worldbean.bean.behavior.CodeBehavior;
 
-public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<BaseCodeBean> {
+public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements CodeBehavior<T> {
 
     protected int code;
 
@@ -45,10 +46,12 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<BaseCodeBean>
         return result;
     }
 
+    @Override
     public int getCode() {
         return code;
     }
 
+    @Override
     public T setCode(int code) {
         this.code = code;
         return (T) this;

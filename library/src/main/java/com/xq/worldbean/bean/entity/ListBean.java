@@ -4,15 +4,15 @@ import com.xq.worldbean.bean.entity.base.BaseListBean;
 
 import java.util.List;
 
-public class ListBean<T> extends BaseListBean<ListBean,T> {
+public class ListBean extends BaseListBean<ListBean> {
     public ListBean() {
     }
 
-    public ListBean(List<T> list) {
+    public ListBean(List list) {
         super(list);
     }
 
-    public ListBean(int id, List<T> list) {
+    public ListBean(int id, List list) {
         super(id, list);
     }
 }

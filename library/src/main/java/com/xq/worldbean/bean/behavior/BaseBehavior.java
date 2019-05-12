@@ -1,11 +1,8 @@
 package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 
-import java.io.Serializable;
-
-public interface BaseBehavior extends IdBehavior,TagBehavior,Serializable,Parcelable {
+public interface BaseBehavior<T extends BaseBehavior> extends IdBehavior<T>,TagBehavior<T> {
 
     @Override
     default int describeContents() {

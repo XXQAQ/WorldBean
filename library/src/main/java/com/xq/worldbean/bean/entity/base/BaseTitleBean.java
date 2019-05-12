@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.TitleBehavior;
 import java.io.Serializable;
 
-public class BaseTitleBean<T extends BaseTitleBean> extends BaseBean implements TitleBehavior {
+public class BaseTitleBean<T extends BaseTitleBean> extends BaseBean<T> implements TitleBehavior<T> {
 
     protected CharSequence title;
 
@@ -53,6 +53,7 @@ public class BaseTitleBean<T extends BaseTitleBean> extends BaseBean implements 
         return title;
     }
 
+    @Override
     public T setTitle(CharSequence title) {
         this.title = title;
         return (T) this;

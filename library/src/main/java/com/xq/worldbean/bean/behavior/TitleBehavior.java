@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface TitleBehavior extends BaseBehavior {
+public interface TitleBehavior<T extends TitleBehavior> extends BaseBehavior<T> {
 
     @Override
     default int describeContents() {
@@ -18,6 +18,14 @@ public interface TitleBehavior extends BaseBehavior {
 
     default CharSequence getTitle(String role) {
         return getTitle();
+    }
+
+    default T setTitle(CharSequence title) {
+        return (T) this;
+    }
+
+    default T setTitle(CharSequence title,String role) {
+        return setTitle(title);
     }
 
 }

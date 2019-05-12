@@ -5,18 +5,18 @@ import com.xq.worldbean.bean.behavior.ListBehavior;
 import java.io.Serializable;
 import java.util.List;
 
-public class BaseListBean<T extends BaseListBean,T_List> extends BaseBean<T> implements ListBehavior<T_List> {
+public class BaseListBean<T extends BaseListBean> extends BaseBean<T> implements ListBehavior<T> {
 
-    protected List<T_List> list;
+    protected List list;
 
     public BaseListBean() {
     }
 
-    public BaseListBean(List<T_List> list) {
+    public BaseListBean(List list) {
         this.list = list;
     }
 
-    public BaseListBean(int id, List<T_List> list) {
+    public BaseListBean(int id, List list) {
         super(id);
         this.list = list;
     }
@@ -49,11 +49,12 @@ public class BaseListBean<T extends BaseListBean,T_List> extends BaseBean<T> imp
     }
 
     @Override
-    public List<T_List> getList() {
+    public List getList() {
         return list;
     }
 
-    public T setList(List<T_List> list) {
+    @Override
+    public T setList(List list) {
         this.list = list;
         return (T) this;
     }

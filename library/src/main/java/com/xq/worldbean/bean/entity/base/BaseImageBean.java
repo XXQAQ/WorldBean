@@ -3,7 +3,7 @@ package com.xq.worldbean.bean.entity.base;
 import android.os.Parcel;
 import com.xq.worldbean.bean.behavior.ImageBehavior;
 
-public class BaseImageBean<T extends BaseImageBean> extends BaseBean implements ImageBehavior {
+public class BaseImageBean<T extends BaseImageBean> extends BaseBean<T> implements ImageBehavior<T> {
 
     protected int imageRes;
     protected String imageUrl;
@@ -64,6 +64,7 @@ public class BaseImageBean<T extends BaseImageBean> extends BaseBean implements 
         return imageRes;
     }
 
+    @Override
     public T setImageRes(int imageRes) {
         this.imageRes = imageRes;
         return (T) this;
@@ -74,6 +75,7 @@ public class BaseImageBean<T extends BaseImageBean> extends BaseBean implements 
         return imageUrl;
     }
 
+    @Override
     public T setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return (T) this;

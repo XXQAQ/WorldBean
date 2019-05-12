@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface SuccessBehavior extends BaseBehavior {
+public interface SuccessBehavior<T extends SuccessBehavior> extends BaseBehavior<T> {
 
     @Override
     default int describeContents() {
@@ -27,6 +27,14 @@ public interface SuccessBehavior extends BaseBehavior {
 
     default boolean getSuccess(String role){
         return isSuccess(role);
+    }
+
+    default T setSuccess(boolean isSuccess){
+        return (T)this;
+    }
+
+    default T setSuccess(boolean isSuccess,String role){
+        return setSuccess(isSuccess);
     }
 
 }

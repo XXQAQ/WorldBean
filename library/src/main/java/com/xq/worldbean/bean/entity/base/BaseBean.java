@@ -6,7 +6,7 @@ import com.xq.worldbean.bean.behavior.BaseBehavior;
 
 import java.io.Serializable;
 
-public class BaseBean<T extends BaseBean> implements BaseBehavior {
+public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
 
     protected Object tag;
     protected int id;
@@ -49,6 +49,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior {
         return tag;
     }
 
+    @Override
     public T setTag(Object tag) {
         this.tag = tag;
         return (T) this;
@@ -59,6 +60,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior {
         return id;
     }
 
+    @Override
     public T setId(int id) {
         this.id = id;
         return (T) this;

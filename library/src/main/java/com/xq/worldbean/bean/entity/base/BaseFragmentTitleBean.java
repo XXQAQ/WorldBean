@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import com.xq.worldbean.bean.behavior.FragmentTitleBehavior;
 import java.lang.reflect.Constructor;
 
-public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends BaseTitleBean implements FragmentTitleBehavior {
+public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends BaseTitleBean<T> implements FragmentTitleBehavior<T> {
 
     protected Fragment fragment;
 
@@ -56,10 +56,12 @@ public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends Base
         return result;
     }
 
+    @Override
     public Fragment getFragment() {
         return fragment;
     }
 
+    @Override
     public T setFragment(Fragment fragment) {
         this.fragment = fragment;
         return (T) this;

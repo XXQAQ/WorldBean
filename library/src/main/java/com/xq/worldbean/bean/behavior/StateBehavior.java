@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface StateBehavior extends BaseBehavior {
+public interface StateBehavior<T extends StateBehavior> extends BaseBehavior<T> {
 
     @Override
     default int describeContents() {
@@ -20,6 +20,14 @@ public interface StateBehavior extends BaseBehavior {
         return getState();
     }
 
+    default T setState(int state){
+        return (T)this;
+    }
+
+    default T setState(int state,String role){
+        return setState(state);
+    }
+
     //对状态的描述
     default CharSequence getStateDescript(){
         return null;
@@ -27,6 +35,14 @@ public interface StateBehavior extends BaseBehavior {
 
     default CharSequence getStateDescript(String role){
         return getStateDescript();
+    }
+
+    default T setStateDescript(CharSequence descript){
+        return (T)this;
+    }
+
+    default T setStateDescript(CharSequence descript,String role){
+        return setStateDescript(descript);
     }
 
 }
