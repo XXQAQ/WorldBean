@@ -4,42 +4,39 @@ import android.os.Bundle;
 import android.os.Parcel;
 import com.xq.worldbean.bean.behavior.FragmentBehavior;
 
-public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends BaseTitleBean<T> implements FragmentBehavior<T> {
+public class BaseFragmentBean<T extends BaseFragmentBean> extends BaseBean<T> implements FragmentBehavior<T> {
 
     protected String fragmentName;
     protected Bundle fragmentArguments;
 
-    public BaseFragmentTitleBean() {
+    public BaseFragmentBean() {
     }
 
-    public BaseFragmentTitleBean(CharSequence title, String fragmentName) {
-        super(title);
+    public BaseFragmentBean(String fragmentName) {
         this.fragmentName = fragmentName;
     }
 
-    public BaseFragmentTitleBean(CharSequence title, String fragmentName, Bundle fragmentArguments) {
-        super(title);
+    public BaseFragmentBean(String fragmentName, Bundle fragmentArguments) {
         this.fragmentName = fragmentName;
         this.fragmentArguments = fragmentArguments;
     }
 
-    public BaseFragmentTitleBean(int id, CharSequence title, String fragmentName) {
-        super(id, title);
+    public BaseFragmentBean(int id, String fragmentName) {
+        super(id);
         this.fragmentName = fragmentName;
     }
 
-    public BaseFragmentTitleBean(int id, CharSequence title, String fragmentName, Bundle fragmentArguments) {
-        super(id, title);
+    public BaseFragmentBean(int id, String fragmentName, Bundle fragmentArguments) {
+        super(id);
         this.fragmentName = fragmentName;
         this.fragmentArguments = fragmentArguments;
     }
 
     @Override
     public String toString() {
-        return "BaseFragmentTitleBean{" +
+        return "BaseFragmentBean{" +
                 "fragmentName='" + fragmentName + '\'' +
                 ", fragmentArguments=" + fragmentArguments +
-                ", title=" + title +
                 ", tag=" + tag +
                 ", id=" + id +
                 ", primaryId=" + primaryId +
@@ -52,7 +49,7 @@ public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends Base
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        BaseFragmentTitleBean that = (BaseFragmentTitleBean) o;
+        BaseFragmentBean that = (BaseFragmentBean) o;
 
         if (fragmentName != null ? !fragmentName.equals(that.fragmentName) : that.fragmentName != null)
             return false;
@@ -101,21 +98,21 @@ public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends Base
         dest.writeBundle(this.fragmentArguments);
     }
 
-    protected BaseFragmentTitleBean(Parcel in) {
+    protected BaseFragmentBean(Parcel in) {
         super(in);
         this.fragmentName = in.readString();
         this.fragmentArguments = in.readBundle();
     }
 
-    public static final Creator<BaseFragmentTitleBean> CREATOR = new Creator<BaseFragmentTitleBean>() {
+    public static final Creator<BaseFragmentBean> CREATOR = new Creator<BaseFragmentBean>() {
         @Override
-        public BaseFragmentTitleBean createFromParcel(Parcel source) {
-            return new BaseFragmentTitleBean(source);
+        public BaseFragmentBean createFromParcel(Parcel source) {
+            return new BaseFragmentBean(source);
         }
 
         @Override
-        public BaseFragmentTitleBean[] newArray(int size) {
-            return new BaseFragmentTitleBean[size];
+        public BaseFragmentBean[] newArray(int size) {
+            return new BaseFragmentBean[size];
         }
     };
 }
