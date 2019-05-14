@@ -31,9 +31,6 @@ public class BaseCoordinateBean<T extends BaseCoordinateBean> extends BaseBean<T
                 "x=" + x +
                 ", y=" + y +
                 ", z=" + z +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

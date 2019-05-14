@@ -61,9 +61,6 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
                 ", codeDescriptor=" + codeDescriptor +
                 ", level=" + level +
                 ", levelDescriptor=" + levelDescriptor +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

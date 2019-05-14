@@ -38,9 +38,6 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> im
         return "BaseFractionBean{" +
                 "fraction=" + fraction +
                 ", fractionDescriptor=" + fractionDescriptor +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

@@ -38,9 +38,6 @@ public class BaseLevel<T extends BaseLevel> extends BaseBean<T> implements Level
         return "BaseLevel{" +
                 "level=" + level +
                 ", levelDescriptor=" + levelDescriptor +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

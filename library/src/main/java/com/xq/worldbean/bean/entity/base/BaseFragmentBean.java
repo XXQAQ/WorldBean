@@ -37,9 +37,6 @@ public class BaseFragmentBean<T extends BaseFragmentBean> extends BaseBean<T> im
         return "BaseFragmentBean{" +
                 "fragmentName='" + fragmentName + '\'' +
                 ", fragmentArguments=" + fragmentArguments +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

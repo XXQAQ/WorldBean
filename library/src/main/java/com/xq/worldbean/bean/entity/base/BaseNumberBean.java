@@ -24,9 +24,6 @@ public class BaseNumberBean<T extends BaseNumberBean> extends BaseBean<T> implem
     public String toString() {
         return "BaseNumberBean{" +
                 "number=" + number +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

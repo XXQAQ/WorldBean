@@ -38,9 +38,6 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements
         return "BaseCodeBean{" +
                 "code=" + code +
                 ", codeDescriptor=" + codeDescriptor +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

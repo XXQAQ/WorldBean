@@ -11,6 +11,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
     protected Object tag;
     protected int id;
     protected int primaryId;
+    protected int unreadPrompt;
 
     public BaseBean() {
     }
@@ -25,6 +26,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
                 "tag=" + tag +
                 ", id=" + id +
                 ", primaryId=" + primaryId +
+                ", unreadPrompt=" + unreadPrompt +
                 '}';
     }
 
@@ -37,6 +39,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
 
         if (id != that.id) return false;
         if (primaryId != that.primaryId) return false;
+        if (unreadPrompt != that.unreadPrompt) return false;
         return tag != null ? tag.equals(that.tag) : that.tag == null;
     }
 
@@ -45,6 +48,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
         int result = tag != null ? tag.hashCode() : 0;
         result = 31 * result + id;
         result = 31 * result + primaryId;
+        result = 31 * result + unreadPrompt;
         return result;
     }
 
@@ -82,6 +86,17 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
     }
 
     @Override
+    public int getUnreadPrompt() {
+        return unreadPrompt;
+    }
+
+    @Override
+    public T setUnreadPrompt(int unreadPrompt) {
+        this.unreadPrompt = unreadPrompt;
+        return (T) this;
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }
@@ -94,6 +109,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
             dest.writeSerializable((Serializable) tag);
         dest.writeInt(id);
         dest.writeInt(primaryId);
+        dest.writeInt(unreadPrompt);
     }
 
     protected BaseBean(Parcel in) {
@@ -103,6 +119,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
             this.tag = in.readSerializable();
         this.id = in.readInt();
         this.primaryId = in.readInt();
+        this.unreadPrompt = in.readInt();
     }
 
     public static final Parcelable.Creator<BaseBean> CREATOR = new Parcelable.Creator<BaseBean>() {

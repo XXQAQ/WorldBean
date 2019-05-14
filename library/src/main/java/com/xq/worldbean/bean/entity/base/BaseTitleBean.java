@@ -25,9 +25,6 @@ public class BaseTitleBean<T extends BaseTitleBean> extends BaseBean<T> implemen
     public String toString() {
         return "BaseTitleBean{" +
                 "title=" + title +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

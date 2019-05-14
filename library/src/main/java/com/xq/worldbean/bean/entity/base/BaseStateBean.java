@@ -40,9 +40,6 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implemen
         return "BaseStateBean{" +
                 "state=" + state +
                 ", stateDescriptor=" + stateDescriptor +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

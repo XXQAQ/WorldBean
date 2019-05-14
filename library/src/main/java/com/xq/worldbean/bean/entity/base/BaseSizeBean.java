@@ -28,9 +28,6 @@ public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements
         return "BaseSizeBean{" +
                 "width=" + width +
                 ", height=" + height +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

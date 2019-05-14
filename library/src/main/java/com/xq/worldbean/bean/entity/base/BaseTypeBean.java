@@ -38,9 +38,6 @@ public class BaseTypeBean<T extends BaseTypeBean> extends BaseBean<T> implements
         return "BaseTypeBean{" +
                 "type=" + type +
                 ", typeDescriptor=" + typeDescriptor +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

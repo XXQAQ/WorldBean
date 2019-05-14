@@ -34,9 +34,6 @@ public class BaseImageBean<T extends BaseImageBean> extends BaseBean<T> implemen
         return "BaseImageBean{" +
                 "imageRes=" + imageRes +
                 ", imageUrl='" + imageUrl + '\'' +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

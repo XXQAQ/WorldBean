@@ -25,9 +25,6 @@ public class BaseSuccessBean<T extends BaseSuccessBean> extends BaseBean<T> impl
     public String toString() {
         return "BaseSuccessBean{" +
                 "isSuccess=" + isSuccess +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

@@ -25,9 +25,6 @@ public class BaseListBean<T extends BaseListBean> extends BaseBean<T> implements
     public String toString() {
         return "BaseListBean{" +
                 "list=" + list +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

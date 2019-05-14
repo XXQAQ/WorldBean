@@ -24,9 +24,6 @@ public class BasePositionBean<T extends BasePositionBean> extends BaseBean<T> im
     public String toString() {
         return "BasePositionBean{" +
                 "position=" + position +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 

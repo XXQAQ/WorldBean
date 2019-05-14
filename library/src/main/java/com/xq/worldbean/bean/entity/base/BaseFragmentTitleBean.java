@@ -39,10 +39,6 @@ public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends Base
         return "BaseFragmentTitleBean{" +
                 "fragmentName='" + fragmentName + '\'' +
                 ", fragmentArguments=" + fragmentArguments +
-                ", title=" + title +
-                ", tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
                 '}';
     }
 
