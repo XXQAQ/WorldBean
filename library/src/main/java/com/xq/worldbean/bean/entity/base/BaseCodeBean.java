@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements CodeBehavior<T> {
 
     protected int code;
-    protected CharSequence codeDescript;
+    protected CharSequence codeDescriptor;
 
     public BaseCodeBean() {
     }
@@ -17,9 +17,9 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements
         this.code = code;
     }
 
-    public BaseCodeBean(int code, CharSequence codeDescript) {
+    public BaseCodeBean(int code, CharSequence codeDescriptor) {
         this.code = code;
-        this.codeDescript = codeDescript;
+        this.codeDescriptor = codeDescriptor;
     }
 
     public BaseCodeBean(int id, int code) {
@@ -27,17 +27,17 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements
         this.code = code;
     }
 
-    public BaseCodeBean(int id, int code, CharSequence codeDescript) {
+    public BaseCodeBean(int id, int code, CharSequence codeDescriptor) {
         super(id);
         this.code = code;
-        this.codeDescript = codeDescript;
+        this.codeDescriptor = codeDescriptor;
     }
 
     @Override
     public String toString() {
         return "BaseCodeBean{" +
                 "code=" + code +
-                ", codeDescript=" + codeDescript +
+                ", codeDescriptor=" + codeDescriptor +
                 ", tag=" + tag +
                 ", id=" + id +
                 ", primaryId=" + primaryId +
@@ -53,14 +53,14 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements
         BaseCodeBean that = (BaseCodeBean) o;
 
         if (code != that.code) return false;
-        return codeDescript != null ? codeDescript.equals(that.codeDescript) : that.codeDescript == null;
+        return codeDescriptor != null ? codeDescriptor.equals(that.codeDescriptor) : that.codeDescriptor == null;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + code;
-        result = 31 * result + (codeDescript != null ? codeDescript.hashCode() : 0);
+        result = 31 * result + (codeDescriptor != null ? codeDescriptor.hashCode() : 0);
         return result;
     }
 
@@ -76,13 +76,13 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements
     }
 
     @Override
-    public CharSequence getCodeDescript() {
-        return codeDescript;
+    public CharSequence getCodeDescriptor() {
+        return codeDescriptor;
     }
 
     @Override
-    public T setCodeDescript(CharSequence codeDescript) {
-        this.codeDescript = codeDescript;
+    public T setCodeDescriptor(CharSequence codeDescriptor) {
+        this.codeDescriptor = codeDescriptor;
         return (T) this;
     }
 
@@ -95,23 +95,23 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeInt(this.code);
-        if (codeDescript instanceof Parcelable)
-            dest.writeParcelable((Parcelable) codeDescript, flags);
-        else    if (codeDescript instanceof Serializable)
-            dest.writeSerializable((Serializable) codeDescript);
+        if (codeDescriptor instanceof Parcelable)
+            dest.writeParcelable((Parcelable) codeDescriptor, flags);
+        else    if (codeDescriptor instanceof Serializable)
+            dest.writeSerializable((Serializable) codeDescriptor);
         else
-            dest.writeString(codeDescript == null?null:codeDescript.toString());
+            dest.writeString(codeDescriptor == null?null:codeDescriptor.toString());
     }
 
     protected BaseCodeBean(Parcel in) {
         super(in);
         this.code = in.readInt();
-        if (codeDescript instanceof Parcelable)
-            this.codeDescript = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (codeDescript instanceof Serializable)
-            this.codeDescript = (CharSequence) in.readSerializable();
+        if (codeDescriptor instanceof Parcelable)
+            this.codeDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (codeDescriptor instanceof Serializable)
+            this.codeDescriptor = (CharSequence) in.readSerializable();
         else
-            this.codeDescript = in.readString();
+            this.codeDescriptor = in.readString();
     }
 
     public static final Creator<BaseCodeBean> CREATOR = new Creator<BaseCodeBean>() {

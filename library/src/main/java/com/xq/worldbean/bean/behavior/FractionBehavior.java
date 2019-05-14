@@ -29,20 +29,20 @@ public interface FractionBehavior<T extends FractionBehavior> extends BaseBehavi
     }
 
     //对当前百分比进度值的描述
-    default CharSequence getFractionDescript(){
+    default CharSequence getFractionDescriptor(){
         return null;
     }
 
-    default CharSequence getFractionDescript(String role){
-        return getFractionDescript();
+    default CharSequence getFractionDescriptor(String role){
+        return getFractionDescriptor();
     }
 
-    default T setFractionDescript(CharSequence descript){
+    default T setFractionDescriptor(CharSequence descriptor){
         return (T)this;
     }
 
-    default T setFractionDescript(CharSequence descript,String role){
-        return setFractionDescript(descript);
+    default T setFractionDescriptor(CharSequence descriptor,String role){
+        return setFractionDescriptor(descriptor);
     }
 
 }

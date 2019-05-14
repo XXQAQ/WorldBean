@@ -11,16 +11,16 @@ public class BaseSwitchStateBean<T extends BaseSwitchStateBean> extends BaseStat
         super(state);
     }
 
-    public BaseSwitchStateBean(int state, CharSequence stateDescript) {
-        super(state, stateDescript);
+    public BaseSwitchStateBean(int state, CharSequence stateDescriptor) {
+        super(state, stateDescriptor);
     }
 
     public BaseSwitchStateBean(int id, int state) {
         super(id, state);
     }
 
-    public BaseSwitchStateBean(int id, int state, CharSequence stateDescript) {
-        super(id, state, stateDescript);
+    public BaseSwitchStateBean(int id, int state, CharSequence stateDescriptor) {
+        super(id, state, stateDescriptor);
     }
 
     @Override

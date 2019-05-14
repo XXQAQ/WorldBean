@@ -29,19 +29,19 @@ public interface CodeBehavior<T extends CodeBehavior> extends BaseBehavior<T> {
     }
 
     //对Code的描述
-    default CharSequence getCodeDescript(){
+    default CharSequence getCodeDescriptor(){
         return null;
     }
 
-    default CharSequence getCodeDescript(String role){
-        return getCodeDescript();
+    default CharSequence getCodeDescriptor(String role){
+        return getCodeDescriptor();
     }
 
-    default T setCodeDescript(CharSequence descript){
+    default T setCodeDescriptor(CharSequence descriptor){
         return (T)this;
     }
 
-    default T setCodeDescript(CharSequence descript,String role){
-        return setCodeDescript(descript);
+    default T setCodeDescriptor(CharSequence descriptor,String role){
+        return setCodeDescriptor(descriptor);
     }
 }

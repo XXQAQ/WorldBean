@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implements StateBehavior<T> {
 
     protected int state;
-    protected CharSequence stateDescript;
+    protected CharSequence stateDescriptor;
 
     public BaseStateBean() {
     }
@@ -19,9 +19,9 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implemen
         this.state = state;
     }
 
-    public BaseStateBean(int state, CharSequence stateDescript) {
+    public BaseStateBean(int state, CharSequence stateDescriptor) {
         this.state = state;
-        this.stateDescript = stateDescript;
+        this.stateDescriptor = stateDescriptor;
     }
 
     public BaseStateBean(int id, int state) {
@@ -29,17 +29,17 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implemen
         this.state = state;
     }
 
-    public BaseStateBean(int id, int state, CharSequence stateDescript) {
+    public BaseStateBean(int id, int state, CharSequence stateDescriptor) {
         super(id);
         this.state = state;
-        this.stateDescript = stateDescript;
+        this.stateDescriptor = stateDescriptor;
     }
 
     @Override
     public String toString() {
         return "BaseStateBean{" +
                 "state=" + state +
-                ", stateDescript=" + stateDescript +
+                ", stateDescriptor=" + stateDescriptor +
                 ", tag=" + tag +
                 ", id=" + id +
                 ", primaryId=" + primaryId +
@@ -55,14 +55,14 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implemen
         BaseStateBean that = (BaseStateBean) o;
 
         if (state != that.state) return false;
-        return stateDescript != null ? stateDescript.equals(that.stateDescript) : that.stateDescript == null;
+        return stateDescriptor != null ? stateDescriptor.equals(that.stateDescriptor) : that.stateDescriptor == null;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + state;
-        result = 31 * result + (stateDescript != null ? stateDescript.hashCode() : 0);
+        result = 31 * result + (stateDescriptor != null ? stateDescriptor.hashCode() : 0);
         return result;
     }
 
@@ -78,13 +78,13 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public CharSequence getStateDescript() {
-        return stateDescript;
+    public CharSequence getStateDescriptor() {
+        return stateDescriptor;
     }
 
     @Override
-    public T setStateDescript(CharSequence stateDescript) {
-        this.stateDescript = stateDescript;
+    public T setStateDescriptor(CharSequence stateDescriptor) {
+        this.stateDescriptor = stateDescriptor;
         return (T) this;
     }
 
@@ -97,23 +97,23 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implemen
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeInt(this.state);
-        if (stateDescript instanceof Parcelable)
-            dest.writeParcelable((Parcelable) stateDescript, flags);
-        else    if (stateDescript instanceof Serializable)
-            dest.writeSerializable((Serializable) stateDescript);
+        if (stateDescriptor instanceof Parcelable)
+            dest.writeParcelable((Parcelable) stateDescriptor, flags);
+        else    if (stateDescriptor instanceof Serializable)
+            dest.writeSerializable((Serializable) stateDescriptor);
         else
-            dest.writeString(stateDescript == null?null:stateDescript.toString());
+            dest.writeString(stateDescriptor == null?null:stateDescriptor.toString());
     }
 
     protected BaseStateBean(Parcel in) {
         super(in);
         this.state = in.readInt();
-        if (stateDescript instanceof Parcelable)
-            this.stateDescript = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (stateDescript instanceof Serializable)
-            this.stateDescript = (CharSequence) in.readSerializable();
+        if (stateDescriptor instanceof Parcelable)
+            this.stateDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (stateDescriptor instanceof Serializable)
+            this.stateDescriptor = (CharSequence) in.readSerializable();
         else
-            this.stateDescript = in.readString();
+            this.stateDescriptor = in.readString();
     }
 
     public static final Creator<BaseStateBean> CREATOR = new Creator<BaseStateBean>() {

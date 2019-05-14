@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class BaseLevel<T extends BaseLevel> extends BaseBean<T> implements LevelBehavior<T> {
 
     protected int level;
-    protected CharSequence levelDescript;
+    protected CharSequence levelDescriptor;
 
     public BaseLevel() {
     }
@@ -17,9 +17,9 @@ public class BaseLevel<T extends BaseLevel> extends BaseBean<T> implements Level
         this.level = level;
     }
 
-    public BaseLevel(int level, CharSequence levelDescript) {
+    public BaseLevel(int level, CharSequence levelDescriptor) {
         this.level = level;
-        this.levelDescript = levelDescript;
+        this.levelDescriptor = levelDescriptor;
     }
 
     public BaseLevel(int id, int level) {
@@ -27,17 +27,17 @@ public class BaseLevel<T extends BaseLevel> extends BaseBean<T> implements Level
         this.level = level;
     }
 
-    public BaseLevel(int id, int level, CharSequence levelDescript) {
+    public BaseLevel(int id, int level, CharSequence levelDescriptor) {
         super(id);
         this.level = level;
-        this.levelDescript = levelDescript;
+        this.levelDescriptor = levelDescriptor;
     }
 
     @Override
     public String toString() {
         return "BaseLevel{" +
                 "level=" + level +
-                ", levelDescript=" + levelDescript +
+                ", levelDescriptor=" + levelDescriptor +
                 ", tag=" + tag +
                 ", id=" + id +
                 ", primaryId=" + primaryId +
@@ -53,14 +53,14 @@ public class BaseLevel<T extends BaseLevel> extends BaseBean<T> implements Level
         BaseLevel that = (BaseLevel) o;
 
         if (level != that.level) return false;
-        return levelDescript != null ? levelDescript.equals(that.levelDescript) : that.levelDescript == null;
+        return levelDescriptor != null ? levelDescriptor.equals(that.levelDescriptor) : that.levelDescriptor == null;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + level;
-        result = 31 * result + (levelDescript != null ? levelDescript.hashCode() : 0);
+        result = 31 * result + (levelDescriptor != null ? levelDescriptor.hashCode() : 0);
         return result;
     }
 
@@ -76,13 +76,13 @@ public class BaseLevel<T extends BaseLevel> extends BaseBean<T> implements Level
     }
 
     @Override
-    public CharSequence getLevelDescript() {
-        return levelDescript;
+    public CharSequence getLevelDescriptor() {
+        return levelDescriptor;
     }
 
     @Override
-    public T setLevelDescript(CharSequence levelDescript) {
-        this.levelDescript = levelDescript;
+    public T setLevelDescriptor(CharSequence levelDescriptor) {
+        this.levelDescriptor = levelDescriptor;
         return (T) this;
     }
 
@@ -95,23 +95,23 @@ public class BaseLevel<T extends BaseLevel> extends BaseBean<T> implements Level
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeInt(this.level);
-        if (levelDescript instanceof Parcelable)
-            dest.writeParcelable((Parcelable) levelDescript, flags);
-        else    if (levelDescript instanceof Serializable)
-            dest.writeSerializable((Serializable) levelDescript);
+        if (levelDescriptor instanceof Parcelable)
+            dest.writeParcelable((Parcelable) levelDescriptor, flags);
+        else    if (levelDescriptor instanceof Serializable)
+            dest.writeSerializable((Serializable) levelDescriptor);
         else
-            dest.writeString(levelDescript == null?null:levelDescript.toString());
+            dest.writeString(levelDescriptor == null?null:levelDescriptor.toString());
     }
 
     protected BaseLevel(Parcel in) {
         super(in);
         this.level = in.readInt();
-        if (levelDescript instanceof Parcelable)
-            this.levelDescript = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (levelDescript instanceof Serializable)
-            this.levelDescript = (CharSequence) in.readSerializable();
+        if (levelDescriptor instanceof Parcelable)
+            this.levelDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (levelDescriptor instanceof Serializable)
+            this.levelDescriptor = (CharSequence) in.readSerializable();
         else
-            this.levelDescript = in.readString();
+            this.levelDescriptor = in.readString();
     }
 
     public static final Creator<BaseLevel> CREATOR = new Creator<BaseLevel>() {

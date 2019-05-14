@@ -29,20 +29,20 @@ public interface LevelBehavior<T extends LevelBehavior> extends BaseBehavior<T>{
     }
 
     //对等级的描述
-    default CharSequence getLevelDescript() {
+    default CharSequence getLevelDescriptor() {
         return null;
     }
 
-    default CharSequence getLevelDescript(String role) {
-        return getLevelDescript();
+    default CharSequence getLevelDescriptor(String role) {
+        return getLevelDescriptor();
     }
 
-    default T setLevelDescript(CharSequence descript){
+    default T setLevelDescriptor(CharSequence descriptor){
         return (T) this;
     }
 
-    default T setLevelDescript(CharSequence descript,String role){
-        return setLevelDescript(descript);
+    default T setLevelDescriptor(CharSequence descriptor,String role){
+        return setLevelDescriptor(descriptor);
     }
 
 }

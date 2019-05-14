@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> implements FractionBehavior<T> {
 
     protected float fraction;
-    protected CharSequence fractionDescript;
+    protected CharSequence fractionDescriptor;
 
     public BaseFractionBean() {
     }
@@ -17,9 +17,9 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> im
         this.fraction = fraction;
     }
 
-    public BaseFractionBean(float fraction, CharSequence fractionDescript) {
+    public BaseFractionBean(float fraction, CharSequence fractionDescriptor) {
         this.fraction = fraction;
-        this.fractionDescript = fractionDescript;
+        this.fractionDescriptor = fractionDescriptor;
     }
 
     public BaseFractionBean(int id, float fraction) {
@@ -27,17 +27,17 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> im
         this.fraction = fraction;
     }
 
-    public BaseFractionBean(int id, float fraction, CharSequence fractionDescript) {
+    public BaseFractionBean(int id, float fraction, CharSequence fractionDescriptor) {
         super(id);
         this.fraction = fraction;
-        this.fractionDescript = fractionDescript;
+        this.fractionDescriptor = fractionDescriptor;
     }
 
     @Override
     public String toString() {
         return "BaseFractionBean{" +
                 "fraction=" + fraction +
-                ", fractionDescript=" + fractionDescript +
+                ", fractionDescriptor=" + fractionDescriptor +
                 ", tag=" + tag +
                 ", id=" + id +
                 ", primaryId=" + primaryId +
@@ -53,14 +53,14 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> im
         BaseFractionBean that = (BaseFractionBean) o;
 
         if (Float.compare(that.fraction, fraction) != 0) return false;
-        return fractionDescript != null ? fractionDescript.equals(that.fractionDescript) : that.fractionDescript == null;
+        return fractionDescriptor != null ? fractionDescriptor.equals(that.fractionDescriptor) : that.fractionDescriptor == null;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + (fraction != +0.0f ? Float.floatToIntBits(fraction) : 0);
-        result = 31 * result + (fractionDescript != null ? fractionDescript.hashCode() : 0);
+        result = 31 * result + (fractionDescriptor != null ? fractionDescriptor.hashCode() : 0);
         return result;
     }
 
@@ -76,13 +76,13 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> im
     }
 
     @Override
-    public CharSequence getFractionDescript() {
-        return fractionDescript;
+    public CharSequence getFractionDescriptor() {
+        return fractionDescriptor;
     }
 
     @Override
-    public T setFractionDescript(CharSequence fractionDescript) {
-        this.fractionDescript = fractionDescript;
+    public T setFractionDescriptor(CharSequence fractionDescriptor) {
+        this.fractionDescriptor = fractionDescriptor;
         return (T) this;
     }
 
@@ -95,23 +95,23 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> im
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeFloat(this.fraction);
-        if (fractionDescript instanceof Parcelable)
-            dest.writeParcelable((Parcelable) fractionDescript, flags);
-        else    if (fractionDescript instanceof Serializable)
-            dest.writeSerializable((Serializable) fractionDescript);
+        if (fractionDescriptor instanceof Parcelable)
+            dest.writeParcelable((Parcelable) fractionDescriptor, flags);
+        else    if (fractionDescriptor instanceof Serializable)
+            dest.writeSerializable((Serializable) fractionDescriptor);
         else
-            dest.writeString(fractionDescript == null?null: fractionDescript.toString());
+            dest.writeString(fractionDescriptor == null?null: fractionDescriptor.toString());
     }
 
     protected BaseFractionBean(Parcel in) {
         super(in);
         this.fraction = in.readFloat();
-        if (fractionDescript instanceof Parcelable)
-            this.fractionDescript = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (fractionDescript instanceof Serializable)
-            this.fractionDescript = (CharSequence) in.readSerializable();
+        if (fractionDescriptor instanceof Parcelable)
+            this.fractionDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (fractionDescriptor instanceof Serializable)
+            this.fractionDescriptor = (CharSequence) in.readSerializable();
         else
-            this.fractionDescript = in.readString();
+            this.fractionDescriptor = in.readString();
     }
 
     public static final Creator<BaseFractionBean> CREATOR = new Creator<BaseFractionBean>() {

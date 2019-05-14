@@ -29,20 +29,20 @@ public interface StateBehavior<T extends StateBehavior> extends BaseBehavior<T> 
     }
 
     //对状态的描述
-    default CharSequence getStateDescript(){
+    default CharSequence getStateDescriptor(){
         return null;
     }
 
-    default CharSequence getStateDescript(String role){
-        return getStateDescript();
+    default CharSequence getStateDescriptor(String role){
+        return getStateDescriptor();
     }
 
-    default T setStateDescript(CharSequence descript){
+    default T setStateDescriptor(CharSequence descriptor){
         return (T)this;
     }
 
-    default T setStateDescript(CharSequence descript,String role){
-        return setStateDescript(descript);
+    default T setStateDescriptor(CharSequence descriptor,String role){
+        return setStateDescriptor(descriptor);
     }
 
 }

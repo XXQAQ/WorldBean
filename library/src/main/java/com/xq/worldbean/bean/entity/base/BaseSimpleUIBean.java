@@ -18,18 +18,18 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     protected double z;
     protected int position;
     protected float fraction;
-    protected CharSequence fractionDescript;
+    protected CharSequence fractionDescriptor;
     protected boolean isSuccess;
     protected int state;
-    protected CharSequence stateDescript;
+    protected CharSequence stateDescriptor;
     protected int type;
-    protected CharSequence typeDescript;
+    protected CharSequence typeDescriptor;
     protected double width;
     protected double height;
     protected int code;
-    protected CharSequence codeDescript;
+    protected CharSequence codeDescriptor;
     protected int level;
-    protected CharSequence levelDescript;
+    protected CharSequence levelDescriptor;
     protected UniverseCallback universeCallback;
 
     public BaseSimpleUIBean() {
@@ -49,18 +49,18 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
                 ", z=" + z +
                 ", position=" + position +
                 ", fraction=" + fraction +
-                ", fractionDescript=" + fractionDescript +
+                ", fractionDescriptor=" + fractionDescriptor +
                 ", isSuccess=" + isSuccess +
                 ", state=" + state +
-                ", stateDescript=" + stateDescript +
+                ", stateDescriptor=" + stateDescriptor +
                 ", type=" + type +
-                ", typeDescript=" + typeDescript +
+                ", typeDescriptor=" + typeDescriptor +
                 ", width=" + width +
                 ", height=" + height +
                 ", code=" + code +
-                ", codeDescript=" + codeDescript +
+                ", codeDescriptor=" + codeDescriptor +
                 ", level=" + level +
-                ", levelDescript=" + levelDescript +
+                ", levelDescriptor=" + levelDescriptor +
                 ", tag=" + tag +
                 ", id=" + id +
                 ", primaryId=" + primaryId +
@@ -93,15 +93,15 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         if (number != null ? !number.equals(that.number) : that.number != null) return false;
         if (imageUrl != null ? !imageUrl.equals(that.imageUrl) : that.imageUrl != null)
             return false;
-        if (fractionDescript != null ? !fractionDescript.equals(that.fractionDescript) : that.fractionDescript != null)
+        if (fractionDescriptor != null ? !fractionDescriptor.equals(that.fractionDescriptor) : that.fractionDescriptor != null)
             return false;
-        if (stateDescript != null ? !stateDescript.equals(that.stateDescript) : that.stateDescript != null)
+        if (stateDescriptor != null ? !stateDescriptor.equals(that.stateDescriptor) : that.stateDescriptor != null)
             return false;
-        if (typeDescript != null ? !typeDescript.equals(that.typeDescript) : that.typeDescript != null)
+        if (typeDescriptor != null ? !typeDescriptor.equals(that.typeDescriptor) : that.typeDescriptor != null)
             return false;
-        if (codeDescript != null ? !codeDescript.equals(that.codeDescript) : that.codeDescript != null)
+        if (codeDescriptor != null ? !codeDescriptor.equals(that.codeDescriptor) : that.codeDescriptor != null)
             return false;
-        return levelDescript != null ? levelDescript.equals(that.levelDescript) : that.levelDescript == null;
+        return levelDescriptor != null ? levelDescriptor.equals(that.levelDescriptor) : that.levelDescriptor == null;
     }
 
     @Override
@@ -121,20 +121,20 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + position;
         result = 31 * result + (fraction != +0.0f ? Float.floatToIntBits(fraction) : 0);
-        result = 31 * result + (fractionDescript != null ? fractionDescript.hashCode() : 0);
+        result = 31 * result + (fractionDescriptor != null ? fractionDescriptor.hashCode() : 0);
         result = 31 * result + (isSuccess ? 1 : 0);
         result = 31 * result + state;
-        result = 31 * result + (stateDescript != null ? stateDescript.hashCode() : 0);
+        result = 31 * result + (stateDescriptor != null ? stateDescriptor.hashCode() : 0);
         result = 31 * result + type;
-        result = 31 * result + (typeDescript != null ? typeDescript.hashCode() : 0);
+        result = 31 * result + (typeDescriptor != null ? typeDescriptor.hashCode() : 0);
         temp = Double.doubleToLongBits(width);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(height);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + code;
-        result = 31 * result + (codeDescript != null ? codeDescript.hashCode() : 0);
+        result = 31 * result + (codeDescriptor != null ? codeDescriptor.hashCode() : 0);
         result = 31 * result + level;
-        result = 31 * result + (levelDescript != null ? levelDescript.hashCode() : 0);
+        result = 31 * result + (levelDescriptor != null ? levelDescriptor.hashCode() : 0);
         return result;
     }
 
@@ -249,13 +249,13 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     }
 
     @Override
-    public CharSequence getFractionDescript() {
-        return fractionDescript;
+    public CharSequence getFractionDescriptor() {
+        return fractionDescriptor;
     }
 
     @Override
-    public T setFractionDescript(CharSequence fractionDescript) {
-        this.fractionDescript = fractionDescript;
+    public T setFractionDescriptor(CharSequence fractionDescriptor) {
+        this.fractionDescriptor = fractionDescriptor;
         return (T) this;
     }
 
@@ -282,13 +282,13 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     }
 
     @Override
-    public CharSequence getStateDescript() {
-        return stateDescript;
+    public CharSequence getStateDescriptor() {
+        return stateDescriptor;
     }
 
     @Override
-    public T setStateDescript(CharSequence stateDescript) {
-        this.stateDescript = stateDescript;
+    public T setStateDescriptor(CharSequence stateDescriptor) {
+        this.stateDescriptor = stateDescriptor;
         return (T) this;
     }
 
@@ -304,13 +304,13 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     }
 
     @Override
-    public CharSequence getTypeDescript() {
-        return typeDescript;
+    public CharSequence getTypeDescriptor() {
+        return typeDescriptor;
     }
 
     @Override
-    public T setTypeDescript(CharSequence typeDescript) {
-        this.typeDescript = typeDescript;
+    public T setTypeDescriptor(CharSequence typeDescriptor) {
+        this.typeDescriptor = typeDescriptor;
         return (T) this;
     }
 
@@ -348,13 +348,13 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     }
 
     @Override
-    public CharSequence getCodeDescript() {
-        return codeDescript;
+    public CharSequence getCodeDescriptor() {
+        return codeDescriptor;
     }
 
     @Override
-    public T setCodeDescript(CharSequence codeDescript) {
-        this.codeDescript = codeDescript;
+    public T setCodeDescriptor(CharSequence codeDescriptor) {
+        this.codeDescriptor = codeDescriptor;
         return (T) this;
     }
 
@@ -370,13 +370,13 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     }
 
     @Override
-    public CharSequence getLevelDescript() {
-        return levelDescript;
+    public CharSequence getLevelDescriptor() {
+        return levelDescriptor;
     }
 
     @Override
-    public T setLevelDescript(CharSequence levelDescript) {
-        this.levelDescript = levelDescript;
+    public T setLevelDescriptor(CharSequence levelDescriptor) {
+        this.levelDescriptor = levelDescriptor;
         return (T) this;
     }
 
@@ -423,43 +423,43 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         dest.writeDouble(this.z);
         dest.writeInt(this.position);
         dest.writeFloat(this.fraction);
-        if (fractionDescript instanceof Parcelable)
-            dest.writeParcelable((Parcelable) fractionDescript, flags);
-        else    if (fractionDescript instanceof Serializable)
-            dest.writeSerializable((Serializable) fractionDescript);
+        if (fractionDescriptor instanceof Parcelable)
+            dest.writeParcelable((Parcelable) fractionDescriptor, flags);
+        else    if (fractionDescriptor instanceof Serializable)
+            dest.writeSerializable((Serializable) fractionDescriptor);
         else
-            dest.writeString(fractionDescript == null?null: fractionDescript.toString());
+            dest.writeString(fractionDescriptor == null?null: fractionDescriptor.toString());
         dest.writeByte(this.isSuccess ? (byte) 1 : (byte) 0);
         dest.writeInt(this.state);
-        if (stateDescript instanceof Parcelable)
-            dest.writeParcelable((Parcelable) stateDescript, flags);
-        else    if (stateDescript instanceof Serializable)
-            dest.writeSerializable((Serializable) stateDescript);
+        if (stateDescriptor instanceof Parcelable)
+            dest.writeParcelable((Parcelable) stateDescriptor, flags);
+        else    if (stateDescriptor instanceof Serializable)
+            dest.writeSerializable((Serializable) stateDescriptor);
         else
-            dest.writeString(stateDescript == null?null:stateDescript.toString());
+            dest.writeString(stateDescriptor == null?null:stateDescriptor.toString());
         dest.writeInt(this.type);
-        if (typeDescript instanceof Parcelable)
-            dest.writeParcelable((Parcelable) typeDescript, flags);
-        else    if (typeDescript instanceof Serializable)
-            dest.writeSerializable((Serializable) typeDescript);
+        if (typeDescriptor instanceof Parcelable)
+            dest.writeParcelable((Parcelable) typeDescriptor, flags);
+        else    if (typeDescriptor instanceof Serializable)
+            dest.writeSerializable((Serializable) typeDescriptor);
         else
-            dest.writeString(typeDescript == null?null:typeDescript.toString());
+            dest.writeString(typeDescriptor == null?null:typeDescriptor.toString());
         dest.writeDouble(this.width);
         dest.writeDouble(this.height);
         dest.writeInt(this.code);
-        if (codeDescript instanceof Parcelable)
-            dest.writeParcelable((Parcelable) codeDescript, flags);
-        else    if (codeDescript instanceof Serializable)
-            dest.writeSerializable((Serializable) codeDescript);
+        if (codeDescriptor instanceof Parcelable)
+            dest.writeParcelable((Parcelable) codeDescriptor, flags);
+        else    if (codeDescriptor instanceof Serializable)
+            dest.writeSerializable((Serializable) codeDescriptor);
         else
-            dest.writeString(codeDescript == null?null:codeDescript.toString());
+            dest.writeString(codeDescriptor == null?null:codeDescriptor.toString());
         dest.writeInt(this.level);
-        if (levelDescript instanceof Parcelable)
-            dest.writeParcelable((Parcelable) levelDescript, flags);
-        else    if (levelDescript instanceof Serializable)
-            dest.writeSerializable((Serializable) levelDescript);
+        if (levelDescriptor instanceof Parcelable)
+            dest.writeParcelable((Parcelable) levelDescriptor, flags);
+        else    if (levelDescriptor instanceof Serializable)
+            dest.writeSerializable((Serializable) levelDescriptor);
         else
-            dest.writeString(levelDescript == null?null:levelDescript.toString());
+            dest.writeString(levelDescriptor == null?null:levelDescriptor.toString());
     }
 
     protected BaseSimpleUIBean(Parcel in) {
@@ -484,43 +484,43 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         this.z = in.readDouble();
         this.position = in.readInt();
         this.fraction = in.readFloat();
-        if (fractionDescript instanceof Parcelable)
-            this.fractionDescript = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (fractionDescript instanceof Serializable)
-            this.fractionDescript = (CharSequence) in.readSerializable();
+        if (fractionDescriptor instanceof Parcelable)
+            this.fractionDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (fractionDescriptor instanceof Serializable)
+            this.fractionDescriptor = (CharSequence) in.readSerializable();
         else
-            this.fractionDescript = in.readString();
+            this.fractionDescriptor = in.readString();
         this.isSuccess = in.readByte() != 0;
         this.state = in.readInt();
-        if (stateDescript instanceof Parcelable)
-            this.stateDescript = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (stateDescript instanceof Serializable)
-            this.stateDescript = (CharSequence) in.readSerializable();
+        if (stateDescriptor instanceof Parcelable)
+            this.stateDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (stateDescriptor instanceof Serializable)
+            this.stateDescriptor = (CharSequence) in.readSerializable();
         else
-            this.stateDescript = in.readString();
+            this.stateDescriptor = in.readString();
         this.type = in.readInt();
-        if (typeDescript instanceof Parcelable)
-            this.typeDescript = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (typeDescript instanceof Serializable)
-            this.typeDescript = (CharSequence) in.readSerializable();
+        if (typeDescriptor instanceof Parcelable)
+            this.typeDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (typeDescriptor instanceof Serializable)
+            this.typeDescriptor = (CharSequence) in.readSerializable();
         else
-            this.typeDescript = in.readString();
+            this.typeDescriptor = in.readString();
         this.width = in.readDouble();
         this.height = in.readDouble();
         this.code = in.readInt();
-        if (codeDescript instanceof Parcelable)
-            this.codeDescript = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (codeDescript instanceof Serializable)
-            this.codeDescript = (CharSequence) in.readSerializable();
+        if (codeDescriptor instanceof Parcelable)
+            this.codeDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (codeDescriptor instanceof Serializable)
+            this.codeDescriptor = (CharSequence) in.readSerializable();
         else
-            this.codeDescript = in.readString();
+            this.codeDescriptor = in.readString();
         this.level = in.readInt();
-        if (levelDescript instanceof Parcelable)
-            this.levelDescript = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (levelDescript instanceof Serializable)
-            this.levelDescript = (CharSequence) in.readSerializable();
+        if (levelDescriptor instanceof Parcelable)
+            this.levelDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (levelDescriptor instanceof Serializable)
+            this.levelDescriptor = (CharSequence) in.readSerializable();
         else
-            this.levelDescript = in.readString();
+            this.levelDescriptor = in.readString();
     }
 
     public static final Creator<BaseSimpleUIBean> CREATOR = new Creator<BaseSimpleUIBean>() {
