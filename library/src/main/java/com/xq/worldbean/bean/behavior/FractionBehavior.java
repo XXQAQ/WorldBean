@@ -28,7 +28,7 @@ public interface FractionBehavior<T extends FractionBehavior> extends BaseBehavi
         return setFraction(fraction);
     }
 
-    //对进度值的描述
+    //对当前百分比进度值的描述
     default CharSequence getFractionDescript(){
         return null;
     }

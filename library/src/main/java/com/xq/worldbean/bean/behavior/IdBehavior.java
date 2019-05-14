@@ -40,4 +40,30 @@ public interface IdBehavior<T extends IdBehavior> extends Serializable, Parcelab
         return (T) this;
     }
 
+    //有些服务器的id字段是String类型，真心很奇葩，无力吐槽只能做个额外兼容，因为太折磨人所以我定义的bean不准备实现以下接口
+    //如果你的服务器没有上述情况，那么请无视以下方法
+    default String getStringId(){
+        return null;
+    }
+
+    default String getStringId(String role){
+        return getStringId();
+    }
+
+    default T setStringId(String id){
+        return (T) this;
+    }
+
+    default T setStringId(String id,String role){
+        return setStringId(id);
+    }
+
+    default String getStringPrimaryId(){
+        return null;
+    }
+
+    default T setStringPrimaryId(int id){
+        return (T) this;
+    }
+
 }
