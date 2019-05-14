@@ -378,6 +378,11 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     }
 
     @Override
+    public boolean isOn() {
+        return getState() > 0;
+    }
+
+    @Override
     public T setOn(boolean isOn){
         return setState(isOn?1:0);
     }
