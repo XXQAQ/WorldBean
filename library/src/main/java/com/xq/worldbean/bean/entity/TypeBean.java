@@ -10,7 +10,15 @@ public class TypeBean extends BaseTypeBean<TypeBean> {
         super(type);
     }
 
+    public TypeBean(int type, CharSequence typeDescript) {
+        super(type, typeDescript);
+    }
+
     public TypeBean(int id, int type) {
         super(id, type);
+    }
+
+    public TypeBean(int id, int type, CharSequence typeDescript) {
+        super(id, type, typeDescript);
     }
 }

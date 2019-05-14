@@ -28,4 +28,21 @@ public interface TypeBehavior<T extends TypeBehavior> extends BaseBehavior<T> {
         return setType(type);
     }
 
+    //对类型的描述
+    default CharSequence getTypeDescript(){
+        return null;
+    }
+
+    default CharSequence getTypeDescript(String role){
+        return getTypeDescript();
+    }
+
+    default T setTypeDescript(CharSequence descript){
+        return (T)this;
+    }
+
+    default T setTypeDescript(CharSequence descript,String role){
+        return setTypeDescript(descript);
+    }
+
 }

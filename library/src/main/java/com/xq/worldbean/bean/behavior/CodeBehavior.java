@@ -28,4 +28,20 @@ public interface CodeBehavior<T extends CodeBehavior> extends BaseBehavior<T> {
         return setCode(code);
     }
 
+    //对Code的描述
+    default CharSequence getCodeDescript(){
+        return null;
+    }
+
+    default CharSequence getCodeDescript(String role){
+        return getCodeDescript();
+    }
+
+    default T setCodeDescript(CharSequence descript){
+        return (T)this;
+    }
+
+    default T setCodeDescript(CharSequence descript,String role){
+        return setCodeDescript(descript);
+    }
 }

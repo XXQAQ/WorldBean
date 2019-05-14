@@ -23,9 +23,13 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     protected int state;
     protected CharSequence stateDescript;
     protected int type;
+    protected CharSequence typeDescript;
     protected double width;
     protected double height;
     protected int code;
+    protected CharSequence codeDescript;
+    protected int level;
+    protected CharSequence levelDescript;
     protected UniverseCallback universeCallback;
 
     public BaseSimpleUIBean() {
@@ -50,9 +54,13 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
                 ", state=" + state +
                 ", stateDescript=" + stateDescript +
                 ", type=" + type +
+                ", typeDescript=" + typeDescript +
                 ", width=" + width +
                 ", height=" + height +
                 ", code=" + code +
+                ", codeDescript=" + codeDescript +
+                ", level=" + level +
+                ", levelDescript=" + levelDescript +
                 ", tag=" + tag +
                 ", id=" + id +
                 ", primaryId=" + primaryId +
@@ -79,6 +87,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         if (Double.compare(that.width, width) != 0) return false;
         if (Double.compare(that.height, height) != 0) return false;
         if (code != that.code) return false;
+        if (level != that.level) return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
         if (content != null ? !content.equals(that.content) : that.content != null) return false;
         if (number != null ? !number.equals(that.number) : that.number != null) return false;
@@ -86,7 +95,13 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
             return false;
         if (fractionDescript != null ? !fractionDescript.equals(that.fractionDescript) : that.fractionDescript != null)
             return false;
-        return stateDescript != null ? stateDescript.equals(that.stateDescript) : that.stateDescript == null;
+        if (stateDescript != null ? !stateDescript.equals(that.stateDescript) : that.stateDescript != null)
+            return false;
+        if (typeDescript != null ? !typeDescript.equals(that.typeDescript) : that.typeDescript != null)
+            return false;
+        if (codeDescript != null ? !codeDescript.equals(that.codeDescript) : that.codeDescript != null)
+            return false;
+        return levelDescript != null ? levelDescript.equals(that.levelDescript) : that.levelDescript == null;
     }
 
     @Override
@@ -111,11 +126,15 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         result = 31 * result + state;
         result = 31 * result + (stateDescript != null ? stateDescript.hashCode() : 0);
         result = 31 * result + type;
+        result = 31 * result + (typeDescript != null ? typeDescript.hashCode() : 0);
         temp = Double.doubleToLongBits(width);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(height);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + code;
+        result = 31 * result + (codeDescript != null ? codeDescript.hashCode() : 0);
+        result = 31 * result + level;
+        result = 31 * result + (levelDescript != null ? levelDescript.hashCode() : 0);
         return result;
     }
 
@@ -285,6 +304,17 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     }
 
     @Override
+    public CharSequence getTypeDescript() {
+        return typeDescript;
+    }
+
+    @Override
+    public T setTypeDescript(CharSequence typeDescript) {
+        this.typeDescript = typeDescript;
+        return (T) this;
+    }
+
+    @Override
     public double getWidth() {
         return width;
     }
@@ -314,6 +344,39 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     @Override
     public T setCode(int code) {
         this.code = code;
+        return (T) this;
+    }
+
+    @Override
+    public CharSequence getCodeDescript() {
+        return codeDescript;
+    }
+
+    @Override
+    public T setCodeDescript(CharSequence codeDescript) {
+        this.codeDescript = codeDescript;
+        return (T) this;
+    }
+
+    @Override
+    public int getLevel() {
+        return level;
+    }
+
+    @Override
+    public T setLevel(int level) {
+        this.level = level;
+        return (T) this;
+    }
+
+    @Override
+    public CharSequence getLevelDescript() {
+        return levelDescript;
+    }
+
+    @Override
+    public T setLevelDescript(CharSequence levelDescript) {
+        this.levelDescript = levelDescript;
         return (T) this;
     }
 
@@ -375,9 +438,28 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         else
             dest.writeString(stateDescript == null?null:stateDescript.toString());
         dest.writeInt(this.type);
+        if (typeDescript instanceof Parcelable)
+            dest.writeParcelable((Parcelable) typeDescript, flags);
+        else    if (typeDescript instanceof Serializable)
+            dest.writeSerializable((Serializable) typeDescript);
+        else
+            dest.writeString(typeDescript == null?null:typeDescript.toString());
         dest.writeDouble(this.width);
         dest.writeDouble(this.height);
         dest.writeInt(this.code);
+        if (codeDescript instanceof Parcelable)
+            dest.writeParcelable((Parcelable) codeDescript, flags);
+        else    if (codeDescript instanceof Serializable)
+            dest.writeSerializable((Serializable) codeDescript);
+        else
+            dest.writeString(codeDescript == null?null:codeDescript.toString());
+        dest.writeInt(this.level);
+        if (levelDescript instanceof Parcelable)
+            dest.writeParcelable((Parcelable) levelDescript, flags);
+        else    if (levelDescript instanceof Serializable)
+            dest.writeSerializable((Serializable) levelDescript);
+        else
+            dest.writeString(levelDescript == null?null:levelDescript.toString());
     }
 
     protected BaseSimpleUIBean(Parcel in) {
@@ -417,9 +499,28 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         else
             this.stateDescript = in.readString();
         this.type = in.readInt();
+        if (typeDescript instanceof Parcelable)
+            this.typeDescript = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (typeDescript instanceof Serializable)
+            this.typeDescript = (CharSequence) in.readSerializable();
+        else
+            this.typeDescript = in.readString();
         this.width = in.readDouble();
         this.height = in.readDouble();
         this.code = in.readInt();
+        if (codeDescript instanceof Parcelable)
+            this.codeDescript = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (codeDescript instanceof Serializable)
+            this.codeDescript = (CharSequence) in.readSerializable();
+        else
+            this.codeDescript = in.readString();
+        this.level = in.readInt();
+        if (levelDescript instanceof Parcelable)
+            this.levelDescript = in.readParcelable(CharSequence.class.getClassLoader());
+        else    if (levelDescript instanceof Serializable)
+            this.levelDescript = (CharSequence) in.readSerializable();
+        else
+            this.levelDescript = in.readString();
     }
 
     public static final Creator<BaseSimpleUIBean> CREATOR = new Creator<BaseSimpleUIBean>() {

@@ -28,7 +28,10 @@ public interface LevelBehavior<T extends LevelBehavior> extends BaseBehavior<T>{
         return setLevel(level);
     }
 
-    public CharSequence getLevelDescript();
+    //对等级的描述
+    default CharSequence getLevelDescript() {
+        return null;
+    }
 
     default CharSequence getLevelDescript(String role) {
         return getLevelDescript();

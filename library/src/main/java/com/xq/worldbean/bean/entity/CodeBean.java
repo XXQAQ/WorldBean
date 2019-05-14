@@ -10,7 +10,15 @@ public class CodeBean extends BaseCodeBean<CodeBean> {
         super(code);
     }
 
+    public CodeBean(int code, CharSequence codeDescript) {
+        super(code, codeDescript);
+    }
+
     public CodeBean(int id, int code) {
         super(id, code);
+    }
+
+    public CodeBean(int id, int code, CharSequence codeDescript) {
+        super(id, code, codeDescript);
     }
 }
