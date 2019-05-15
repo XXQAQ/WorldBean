@@ -1,20 +1,8 @@
 package com.xq.worldbean.bean.behavior;
 
-import android.os.Parcel;
-
 import java.util.List;
 
 public interface ListBehavior<T extends ListBehavior> extends BaseBehavior<T>{
-
-    @Override
-    default int describeContents(){
-        return 0;
-    }
-
-    @Override
-    default void writeToParcel(Parcel dest, int flags) {
-
-    }
 
     public List getList();
 

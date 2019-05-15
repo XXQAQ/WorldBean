@@ -1,6 +1,20 @@
 package com.xq.worldbean.bean.behavior;
 
-public interface TagBehavior<T extends TagBehavior> {
+import android.os.Parcel;
+import android.os.Parcelable;
+import java.io.Serializable;
+
+public interface TagBehavior<T extends TagBehavior> extends Serializable, Parcelable {
+
+    @Override
+    default int describeContents() {
+        return 0;
+    }
+
+    @Override
+    default void writeToParcel(Parcel dest, int flags) {
+
+    }
 
     public Object getTag();
 

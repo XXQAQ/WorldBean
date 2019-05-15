@@ -1,18 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
-import android.os.Parcel;
 
 public interface SwitchStateBehavior<T extends SwitchStateBehavior> extends StateBehavior<T>{
-
-    @Override
-    default int describeContents() {
-        return 0;
-    }
-
-    @Override
-    default void writeToParcel(Parcel dest, int flags) {
-
-    }
 
     //默认 state>0 的情况下标识为on，如果判断逻辑不同或需要变量单独处理则请重写此方法
     default boolean isOn() {
