@@ -18,6 +18,6 @@ public interface NewPromptBehavior<T extends NewPromptBehavior> extends Serializ
 
     public int getNewPrompt();
 
-    public T setNewPrompt(int unreadPrompt);
+    public T setNewPrompt(int newPrompt);
 
 }
