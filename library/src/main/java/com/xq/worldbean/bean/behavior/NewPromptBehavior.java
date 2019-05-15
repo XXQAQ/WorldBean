@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import java.io.Serializable;
 
-public interface UnreadPromptBehavior<T extends UnreadPromptBehavior> extends Serializable, Parcelable {
+public interface NewPromptBehavior<T extends NewPromptBehavior> extends Serializable, Parcelable {
 
     @Override
     default int describeContents() {
@@ -16,8 +16,8 @@ public interface UnreadPromptBehavior<T extends UnreadPromptBehavior> extends Se
 
     }
 
-    public int getUnreadPrompt();
+    public int getNewPrompt();
 
-    public T setUnreadPrompt(int unreadPrompt);
+    public T setNewPrompt(int unreadPrompt);
 
 }

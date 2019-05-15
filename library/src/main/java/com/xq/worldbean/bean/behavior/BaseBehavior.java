@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import android.os.Parcel;
 
-public interface BaseBehavior<T extends BaseBehavior> extends IdBehavior<T>,TagBehavior<T>,UnreadPromptBehavior<T> {
+public interface BaseBehavior<T extends BaseBehavior> extends IdBehavior<T>,TagBehavior<T>{
 
     @Override
     default int describeContents() {
@@ -22,16 +22,6 @@ public interface BaseBehavior<T extends BaseBehavior> extends IdBehavior<T>,TagB
     @Override
     default int getId() {
         return 0;
-    }
-
-    @Override
-    default int getUnreadPrompt() {
-        return 0;
-    }
-
-    @Override
-    default T setUnreadPrompt(int unreadPrompt) {
-        return null;
     }
 
 }
