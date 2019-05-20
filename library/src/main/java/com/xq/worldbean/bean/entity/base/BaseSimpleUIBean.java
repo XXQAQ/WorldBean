@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> implements SimpleUIBehavior<T> {
 
+    protected int newPrompt;
     protected CharSequence title;
     protected CharSequence content;
     protected Number number;
@@ -39,7 +40,8 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     @Override
     public String toString() {
         return "BaseSimpleUIBean{" +
-                "title=" + title +
+                "newPrompt=" + newPrompt +
+                ", title=" + title +
                 ", content=" + content +
                 ", number=" + number +
                 ", imageRes=" + imageRes +
@@ -72,6 +74,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
 
         BaseSimpleUIBean that = (BaseSimpleUIBean) o;
 
+        if (newPrompt != that.newPrompt) return false;
         if (imageRes != that.imageRes) return false;
         if (Double.compare(that.x, x) != 0) return false;
         if (Double.compare(that.y, y) != 0) return false;
@@ -105,6 +108,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     public int hashCode() {
         int result = super.hashCode();
         long temp;
+        result = 31 * result + newPrompt;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (number != null ? number.hashCode() : 0);
@@ -133,6 +137,17 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         result = 31 * result + level;
         result = 31 * result + (levelDescriptor != null ? levelDescriptor.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public int getNewPrompt() {
+        return newPrompt;
+    }
+
+    @Override
+    public T setNewPrompt(int newPrompt) {
+        this.newPrompt = newPrompt;
+        return (T) this;
     }
 
     @Override
@@ -405,6 +420,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
+        dest.writeInt(newPrompt);
         if (title instanceof Parcelable)
             dest.writeParcelable((Parcelable) title, flags);
         else    if (title instanceof Serializable)
@@ -466,6 +482,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
 
     protected BaseSimpleUIBean(Parcel in) {
         super(in);
+        this.newPrompt = in.readInt();
         if (title instanceof Parcelable)
             this.title = in.readParcelable(CharSequence.class.getClassLoader());
         else    if (title instanceof Serializable)
