@@ -1,19 +1,8 @@
 package com.xq.worldbean.bean.behavior;
 
-import android.os.Parcel;
 import com.xq.worldbean.util.callback.UniverseCallback;
 
 public interface SimpleUIBehavior<T extends SimpleUIBehavior> extends NewPromptBehavior<T>,TitleBehavior<T>,ContentBehavior<T>,NumberBehavior<T>,ImageBehavior<T>,CoordinateBehavior<T>,PositionBehavior<T>,FractionBehavior<T>,SuccessBehavior<T>,SwitchStateBehavior<T>,TypeBehavior<T>,SizeBehavior<T>,CodeBehavior<T>,LevelBehavior<T>,UniverseCallback {
-
-    @Override
-    default int describeContents() {
-        return 0;
-    }
-
-    @Override
-    default void writeToParcel(Parcel dest, int flags) {
-
-    }
 
     @Override
     default int getNewPrompt() {

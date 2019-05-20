@@ -6,7 +6,7 @@ import com.xq.worldbean.bean.behavior.BaseBehavior;
 
 import java.io.Serializable;
 
-public class BaseBean<T extends BaseBean> implements BaseBehavior<T> {
+public class BaseBean<T extends BaseBean> implements BaseBehavior<T>,Parcelable {
 
     protected Object tag;
     protected int id;
