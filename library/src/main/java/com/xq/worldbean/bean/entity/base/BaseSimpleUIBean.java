@@ -3,7 +3,7 @@ package com.xq.worldbean.bean.entity.base;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.SimpleUIBehavior;
-import com.xq.worldbean.util.callback.UniverseCallback;
+import com.xq.worldbean.util.callback.SimpleUICallback;
 import java.io.Serializable;
 
 public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> implements SimpleUIBehavior<T> {
@@ -31,7 +31,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     protected CharSequence codeDescriptor;
     protected int level;
     protected CharSequence levelDescriptor;
-    protected UniverseCallback universeCallback;
+    protected SimpleUICallback simpleUICallback;
 
     public BaseSimpleUIBean() {
 
@@ -402,14 +402,15 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return setState(isOn?1:0);
     }
 
-    public T setUniverseCallback(UniverseCallback universeCallback) {
-        this.universeCallback = universeCallback;
+    public T setSimpleUICallback(SimpleUICallback simpleUICallback) {
+        this.simpleUICallback = simpleUICallback;
         return (T) this;
     }
 
+    @Deprecated
     @Override
-    public void onCallback(Object... objects) {
-        if (universeCallback != null)   universeCallback.onCallback();
+    public void onCallback(SimpleUIBehavior behavior) {
+        if (simpleUICallback != null)   simpleUICallback.onCallback(behavior);
     }
 
     @Override

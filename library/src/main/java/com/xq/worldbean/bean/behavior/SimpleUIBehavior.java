@@ -1,8 +1,8 @@
 package com.xq.worldbean.bean.behavior;
 
-import com.xq.worldbean.util.callback.UniverseCallback;
+import com.xq.worldbean.util.callback.SimpleUICallback;
 
-public interface SimpleUIBehavior<T extends SimpleUIBehavior> extends NewPromptBehavior<T>,TitleBehavior<T>,ContentBehavior<T>,NumberBehavior<T>,ImageBehavior<T>,CoordinateBehavior<T>,PositionBehavior<T>,FractionBehavior<T>,SuccessBehavior<T>,SwitchStateBehavior<T>,TypeBehavior<T>,SizeBehavior<T>,CodeBehavior<T>,LevelBehavior<T>,UniverseCallback {
+public interface SimpleUIBehavior<T extends SimpleUIBehavior> extends NewPromptBehavior<T>,TitleBehavior<T>,ContentBehavior<T>,NumberBehavior<T>,ImageBehavior<T>,CoordinateBehavior<T>,PositionBehavior<T>,FractionBehavior<T>,SuccessBehavior<T>,SwitchStateBehavior<T>,TypeBehavior<T>,SizeBehavior<T>,CodeBehavior<T>,LevelBehavior<T>,SimpleUICallback {
 
     @Override
     default int getNewPrompt() {
@@ -84,8 +84,13 @@ public interface SimpleUIBehavior<T extends SimpleUIBehavior> extends NewPromptB
         return 0;
     }
 
+    default void onCallback() {
+        onCallback(this);
+    }
+
+    @Deprecated
     @Override
-    default void onCallback(Object... objects) {
+    default void onCallback(SimpleUIBehavior behavior) {
 
     }
 }
