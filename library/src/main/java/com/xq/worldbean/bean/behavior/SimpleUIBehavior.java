@@ -84,6 +84,10 @@ public interface SimpleUIBehavior<T extends SimpleUIBehavior> extends NewPromptB
         return 0;
     }
 
+    default T setSimpleUICallback(SimpleUICallback simpleUICallback) {
+        return (T) this;
+    }
+
     default void onCallback() {
         onCallback(this);
     }

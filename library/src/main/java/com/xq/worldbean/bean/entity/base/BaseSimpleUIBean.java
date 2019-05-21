@@ -402,6 +402,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         return setState(isOn?1:0);
     }
 
+    @Override
     public T setSimpleUICallback(SimpleUICallback simpleUICallback) {
         this.simpleUICallback = simpleUICallback;
         return (T) this;
