@@ -24,17 +24,6 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implemen
         this.stateDescriptor = stateDescriptor;
     }
 
-    public BaseStateBean(int id, int state) {
-        super(id);
-        this.state = state;
-    }
-
-    public BaseStateBean(int id, int state, CharSequence stateDescriptor) {
-        super(id);
-        this.state = state;
-        this.stateDescriptor = stateDescriptor;
-    }
-
     @Override
     public String toString() {
         return "BaseStateBean{" +

@@ -22,17 +22,6 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements
         this.codeDescriptor = codeDescriptor;
     }
 
-    public BaseCodeBean(int id, int code) {
-        super(id);
-        this.code = code;
-    }
-
-    public BaseCodeBean(int id, int code, CharSequence codeDescriptor) {
-        super(id);
-        this.code = code;
-        this.codeDescriptor = codeDescriptor;
-    }
-
     @Override
     public String toString() {
         return "BaseCodeBean{" +

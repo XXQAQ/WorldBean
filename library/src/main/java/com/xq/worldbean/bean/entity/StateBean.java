@@ -13,12 +13,4 @@ public class StateBean extends BaseStateBean<StateBean> {
     public StateBean(int state, CharSequence stateDescriptor) {
         super(state, stateDescriptor);
     }
-
-    public StateBean(int id, int state) {
-        super(id, state);
-    }
-
-    public StateBean(int id, int state, CharSequence stateDescriptor) {
-        super(id, state, stateDescriptor);
-    }
 }

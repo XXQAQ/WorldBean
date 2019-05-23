@@ -8,8 +8,8 @@ public interface BaseBehavior<T extends BaseBehavior> extends IdBehavior<T>,TagB
     }
 
     @Override
-    default int getId() {
-        return 0;
+    default String getId() {
+        return null;
     }
 
 }

@@ -10,7 +10,7 @@ public class SizeBean extends BaseSizeBean<SizeBean> {
         super(width, height);
     }
 
-    public SizeBean(int id, double width, double height) {
-        super(id, width, height);
+    public SizeBean(double size) {
+        super(size);
     }
 }

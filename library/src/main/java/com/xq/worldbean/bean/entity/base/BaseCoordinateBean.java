@@ -18,13 +18,6 @@ public class BaseCoordinateBean<T extends BaseCoordinateBean> extends BaseBean<T
         this.z = z;
     }
 
-    public BaseCoordinateBean(int id, double x, double y, double z) {
-        super(id);
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
-
     @Override
     public String toString() {
         return "BaseCoordinateBean{" +

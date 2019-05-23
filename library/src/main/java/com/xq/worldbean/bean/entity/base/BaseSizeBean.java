@@ -9,6 +9,8 @@ public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements
     protected double width;
     protected double height;
 
+    protected double size;
+
     public BaseSizeBean() {
     }
 
@@ -17,10 +19,8 @@ public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements
         this.height = height;
     }
 
-    public BaseSizeBean(int id, double width, double height) {
-        super(id);
-        this.width = width;
-        this.height = height;
+    public BaseSizeBean(double size) {
+        this.size = size;
     }
 
     @Override
@@ -28,6 +28,7 @@ public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements
         return "BaseSizeBean{" +
                 "width=" + width +
                 ", height=" + height +
+                ", size=" + size +
                 '}';
     }
 
@@ -40,7 +41,8 @@ public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements
         BaseSizeBean that = (BaseSizeBean) o;
 
         if (Double.compare(that.width, width) != 0) return false;
-        return Double.compare(that.height, height) == 0;
+        if (Double.compare(that.height, height) != 0) return false;
+        return Double.compare(that.size, size) == 0;
     }
 
     @Override
@@ -50,6 +52,8 @@ public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements
         temp = Double.doubleToLongBits(width);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(height);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(size);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
@@ -77,6 +81,17 @@ public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements
     }
 
     @Override
+    public double getSize() {
+        return size;
+    }
+
+    @Override
+    public T setSize(double size) {
+        this.size = size;
+        return (T) this;
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }
@@ -86,12 +101,14 @@ public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements
         super.writeToParcel(dest, flags);
         dest.writeDouble(this.width);
         dest.writeDouble(this.height);
+        dest.writeDouble(this.size);
     }
 
     protected BaseSizeBean(Parcel in) {
         super(in);
         this.width = in.readDouble();
         this.height = in.readDouble();
+        this.size = in.readDouble();
     }
 
     public static final Creator<BaseSizeBean> CREATOR = new Creator<BaseSizeBean>() {

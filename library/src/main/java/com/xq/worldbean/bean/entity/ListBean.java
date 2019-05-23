@@ -11,8 +11,4 @@ public class ListBean extends BaseListBean<ListBean> {
     public ListBean(List list) {
         super(list);
     }
-
-    public ListBean(int id, List list) {
-        super(id, list);
-    }
 }

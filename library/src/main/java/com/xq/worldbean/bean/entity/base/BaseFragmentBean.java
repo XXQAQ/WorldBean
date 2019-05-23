@@ -21,17 +21,6 @@ public class BaseFragmentBean<T extends BaseFragmentBean> extends BaseBean<T> im
         this.fragmentArguments = fragmentArguments;
     }
 
-    public BaseFragmentBean(int id, String fragmentName) {
-        super(id);
-        this.fragmentName = fragmentName;
-    }
-
-    public BaseFragmentBean(int id, String fragmentName, Bundle fragmentArguments) {
-        super(id);
-        this.fragmentName = fragmentName;
-        this.fragmentArguments = fragmentArguments;
-    }
-
     @Override
     public String toString() {
         return "BaseFragmentBean{" +

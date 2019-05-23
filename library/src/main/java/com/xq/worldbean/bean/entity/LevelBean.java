@@ -13,12 +13,4 @@ public class LevelBean extends BaseLevel<LevelBean> {
     public LevelBean(int level, CharSequence levelDescriptor) {
         super(level, levelDescriptor);
     }
-
-    public LevelBean(int id, int level) {
-        super(id, level);
-    }
-
-    public LevelBean(int id, int level, CharSequence levelDescriptor) {
-        super(id, level, levelDescriptor);
-    }
 }

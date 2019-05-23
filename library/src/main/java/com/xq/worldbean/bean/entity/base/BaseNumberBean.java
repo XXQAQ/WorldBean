@@ -15,11 +15,6 @@ public class BaseNumberBean<T extends BaseNumberBean> extends BaseBean<T> implem
         this.number = number;
     }
 
-    public BaseNumberBean(int id, Number number) {
-        super(id);
-        this.number = number;
-    }
-
     @Override
     public String toString() {
         return "BaseNumberBean{" +

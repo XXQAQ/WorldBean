@@ -13,12 +13,4 @@ public class ImageBean extends BaseImageBean<ImageBean> {
     public ImageBean(String imageUrl) {
         super(imageUrl);
     }
-
-    public ImageBean(int id, int imageRes) {
-        super(id, imageRes);
-    }
-
-    public ImageBean(int id, String imageUrl) {
-        super(id, imageUrl);
-    }
 }

@@ -16,11 +16,6 @@ public class BaseSuccessBean<T extends BaseSuccessBean> extends BaseBean<T> impl
         this.isSuccess = isSuccess;
     }
 
-    public BaseSuccessBean(int id, boolean isSuccess) {
-        super(id);
-        this.isSuccess = isSuccess;
-    }
-
     @Override
     public String toString() {
         return "BaseSuccessBean{" +

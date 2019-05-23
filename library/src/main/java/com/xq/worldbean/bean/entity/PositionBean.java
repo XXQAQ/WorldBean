@@ -9,8 +9,4 @@ public class PositionBean extends BasePositionBean<PositionBean> {
     public PositionBean(int position) {
         super(position);
     }
-
-    public PositionBean(int id, int position) {
-        super(id, position);
-    }
 }

@@ -23,17 +23,6 @@ public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends Base
         this.fragmentArguments = fragmentArguments;
     }
 
-    public BaseFragmentTitleBean(int id, CharSequence title, String fragmentName) {
-        super(id, title);
-        this.fragmentName = fragmentName;
-    }
-
-    public BaseFragmentTitleBean(int id, CharSequence title, String fragmentName, Bundle fragmentArguments) {
-        super(id, title);
-        this.fragmentName = fragmentName;
-        this.fragmentArguments = fragmentArguments;
-    }
-
     @Override
     public String toString() {
         return "BaseFragmentTitleBean{" +

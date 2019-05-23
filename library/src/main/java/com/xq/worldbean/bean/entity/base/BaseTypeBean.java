@@ -22,17 +22,6 @@ public class BaseTypeBean<T extends BaseTypeBean> extends BaseBean<T> implements
         this.typeDescriptor = typeDescriptor;
     }
 
-    public BaseTypeBean(int id, int type) {
-        super(id);
-        this.type = type;
-    }
-
-    public BaseTypeBean(int id, int type, CharSequence typeDescriptor) {
-        super(id);
-        this.type = type;
-        this.typeDescriptor = typeDescriptor;
-    }
-
     @Override
     public String toString() {
         return "BaseTypeBean{" +

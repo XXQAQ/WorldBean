@@ -31,4 +31,19 @@ public interface SizeBehavior<T extends SizeBehavior> extends BaseBehavior<T> {
         return setHeight(height);
     }
 
+    public double getSize();
+
+    default double getSize(String role) {
+        return getSize();
+    }
+
+    default T setSize(double size) {
+        return (T) this;
+    }
+
+    default T setSize(double size, String role) {
+        setSize(size);
+        return (T) this;
+    }
+
 }

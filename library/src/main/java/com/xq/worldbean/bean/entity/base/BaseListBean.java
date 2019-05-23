@@ -16,11 +16,6 @@ public class BaseListBean<T extends BaseListBean> extends BaseBean<T> implements
         this.list = list;
     }
 
-    public BaseListBean(int id, List list) {
-        super(id);
-        this.list = list;
-    }
-
     @Override
     public String toString() {
         return "BaseListBean{" +

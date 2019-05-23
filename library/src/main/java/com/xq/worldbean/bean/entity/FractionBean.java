@@ -13,12 +13,4 @@ public class FractionBean extends BaseFractionBean<FractionBean> {
     public FractionBean(float fraction, CharSequence fractionDescriptor) {
         super(fraction, fractionDescriptor);
     }
-
-    public FractionBean(int id, float fraction) {
-        super(id, fraction);
-    }
-
-    public FractionBean(int id, float fraction, CharSequence fractionDescriptor) {
-        super(id, fraction, fractionDescriptor);
-    }
 }

@@ -16,11 +16,6 @@ public class BaseTitleBean<T extends BaseTitleBean> extends BaseBean<T> implemen
         this.title = title;
     }
 
-    public BaseTitleBean(int id, CharSequence title) {
-        super(id);
-        this.title = title;
-    }
-
     @Override
     public String toString() {
         return "BaseTitleBean{" +

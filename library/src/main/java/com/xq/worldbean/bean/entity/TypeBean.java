@@ -13,12 +13,4 @@ public class TypeBean extends BaseTypeBean<TypeBean> {
     public TypeBean(int type, CharSequence typeDescriptor) {
         super(type, typeDescriptor);
     }
-
-    public TypeBean(int id, int type) {
-        super(id, type);
-    }
-
-    public TypeBean(int id, int type, CharSequence typeDescriptor) {
-        super(id, type, typeDescriptor);
-    }
 }

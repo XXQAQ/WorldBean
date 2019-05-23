@@ -15,11 +15,6 @@ public class BasePositionBean<T extends BasePositionBean> extends BaseBean<T> im
         this.position = position;
     }
 
-    public BasePositionBean(int id, int position) {
-        super(id);
-        this.position = position;
-    }
-
     @Override
     public String toString() {
         return "BasePositionBean{" +

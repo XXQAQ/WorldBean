@@ -9,8 +9,4 @@ public class SuccessBean extends BaseSuccessBean<SuccessBean> {
     public SuccessBean(boolean isSuccess) {
         super(isSuccess);
     }
-
-    public SuccessBean(int id, boolean isSuccess) {
-        super(id, isSuccess);
-    }
 }

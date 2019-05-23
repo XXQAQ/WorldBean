@@ -9,22 +9,18 @@ import java.io.Serializable;
 public class BaseBean<T extends BaseBean> implements BaseBehavior<T>,Parcelable {
 
     protected Object tag;
-    protected int id;
-    protected int primaryId;
+    protected String id;
+    protected String foreignId;
 
     public BaseBean() {
-    }
-
-    public BaseBean(int id) {
-        this.id = id;
     }
 
     @Override
     public String toString() {
         return "BaseBean{" +
                 "tag=" + tag +
-                ", id=" + id +
-                ", primaryId=" + primaryId +
+                ", id='" + id + '\'' +
+                ", foreignId='" + foreignId + '\'' +
                 '}';
     }
 
@@ -35,16 +31,16 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T>,Parcelable 
 
         BaseBean that = (BaseBean) o;
 
-        if (id != that.id) return false;
-        if (primaryId != that.primaryId) return false;
-        return tag != null ? tag.equals(that.tag) : that.tag == null;
+        if (tag != null ? !tag.equals(that.tag) : that.tag != null) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        return foreignId != null ? foreignId.equals(that.foreignId) : that.foreignId == null;
     }
 
     @Override
     public int hashCode() {
         int result = tag != null ? tag.hashCode() : 0;
-        result = 31 * result + id;
-        result = 31 * result + primaryId;
+        result = 31 * result + (id != null ? id.hashCode() : 0);
+        result = 31 * result + (foreignId != null ? foreignId.hashCode() : 0);
         return result;
     }
 
@@ -60,24 +56,24 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T>,Parcelable 
     }
 
     @Override
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     @Override
-    public T setId(int id) {
+    public T setId(String id) {
         this.id = id;
         return (T) this;
     }
 
     @Override
-    public int getPrimaryId() {
-        return primaryId;
+    public String getForeignId() {
+        return foreignId;
     }
 
     @Override
-    public T setPrimaryId(int primaryId) {
-        this.primaryId = primaryId;
+    public T setForeignId(String foreignId) {
+        this.foreignId = foreignId;
         return (T) this;
     }
 
@@ -92,8 +88,8 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T>,Parcelable 
             dest.writeParcelable((Parcelable) tag, flags);
         else    if (tag instanceof Serializable)
             dest.writeSerializable((Serializable) tag);
-        dest.writeInt(id);
-        dest.writeInt(primaryId);
+        dest.writeString(id);
+        dest.writeString(foreignId);
     }
 
     protected BaseBean(Parcel in) {
@@ -101,8 +97,8 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T>,Parcelable 
             this.tag = in.readParcelable(Object.class.getClassLoader());
         else    if (tag instanceof Serializable)
             this.tag = in.readSerializable();
-        this.id = in.readInt();
-        this.primaryId = in.readInt();
+        this.id = in.readString();
+        this.foreignId = in.readString();
     }
 
     public static final Parcelable.Creator<BaseBean> CREATOR = new Parcelable.Creator<BaseBean>() {

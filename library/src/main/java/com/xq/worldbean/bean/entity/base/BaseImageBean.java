@@ -19,16 +19,6 @@ public class BaseImageBean<T extends BaseImageBean> extends BaseBean<T> implemen
         this.imageUrl = imageUrl;
     }
 
-    public BaseImageBean(int id, int imageRes) {
-        super(id);
-        this.imageRes = imageRes;
-    }
-
-    public BaseImageBean(int id, String imageUrl) {
-        super(id);
-        this.imageUrl = imageUrl;
-    }
-
     @Override
     public String toString() {
         return "BaseImageBean{" +

@@ -22,17 +22,6 @@ public class BaseLevel<T extends BaseLevel> extends BaseBean<T> implements Level
         this.levelDescriptor = levelDescriptor;
     }
 
-    public BaseLevel(int id, int level) {
-        super(id);
-        this.level = level;
-    }
-
-    public BaseLevel(int id, int level, CharSequence levelDescriptor) {
-        super(id);
-        this.level = level;
-        this.levelDescriptor = levelDescriptor;
-    }
-
     @Override
     public String toString() {
         return "BaseLevel{" +

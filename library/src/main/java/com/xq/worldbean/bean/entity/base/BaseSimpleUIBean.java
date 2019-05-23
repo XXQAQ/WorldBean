@@ -27,6 +27,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     protected CharSequence typeDescriptor;
     protected double width;
     protected double height;
+    protected double size;
     protected int code;
     protected CharSequence codeDescriptor;
     protected int level;
@@ -59,6 +60,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
                 ", typeDescriptor=" + typeDescriptor +
                 ", width=" + width +
                 ", height=" + height +
+                ", size=" + size +
                 ", code=" + code +
                 ", codeDescriptor=" + codeDescriptor +
                 ", level=" + level +
@@ -86,6 +88,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         if (type != that.type) return false;
         if (Double.compare(that.width, width) != 0) return false;
         if (Double.compare(that.height, height) != 0) return false;
+        if (Double.compare(that.size, size) != 0) return false;
         if (code != that.code) return false;
         if (level != that.level) return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
@@ -131,6 +134,8 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         temp = Double.doubleToLongBits(width);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(height);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(size);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + code;
         result = 31 * result + (codeDescriptor != null ? codeDescriptor.hashCode() : 0);
@@ -349,6 +354,17 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     }
 
     @Override
+    public double getSize() {
+        return size;
+    }
+
+    @Override
+    public T setSize(double size) {
+        this.size = size;
+        return (T) this;
+    }
+
+    @Override
     public int getCode() {
         return code;
     }
@@ -466,6 +482,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
             dest.writeString(typeDescriptor == null?null:typeDescriptor.toString());
         dest.writeDouble(this.width);
         dest.writeDouble(this.height);
+        dest.writeDouble(this.size);
         dest.writeInt(this.code);
         if (codeDescriptor instanceof Parcelable)
             dest.writeParcelable((Parcelable) codeDescriptor, flags);
@@ -528,6 +545,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
             this.typeDescriptor = in.readString();
         this.width = in.readDouble();
         this.height = in.readDouble();
+        this.size = in.readDouble();
         this.code = in.readInt();
         if (codeDescriptor instanceof Parcelable)
             this.codeDescriptor = in.readParcelable(CharSequence.class.getClassLoader());

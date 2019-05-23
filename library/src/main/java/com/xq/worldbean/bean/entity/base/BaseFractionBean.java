@@ -22,17 +22,6 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> im
         this.fractionDescriptor = fractionDescriptor;
     }
 
-    public BaseFractionBean(int id, float fraction) {
-        super(id);
-        this.fraction = fraction;
-    }
-
-    public BaseFractionBean(int id, float fraction, CharSequence fractionDescriptor) {
-        super(id);
-        this.fraction = fraction;
-        this.fractionDescriptor = fractionDescriptor;
-    }
-
     @Override
     public String toString() {
         return "BaseFractionBean{" +
