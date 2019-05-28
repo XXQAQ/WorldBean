@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.SimpleUIBehavior;
 import com.xq.worldbean.util.callback.SimpleUICallback;
 import java.io.Serializable;
+import java.util.List;
 
 public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> implements SimpleUIBehavior<T> {
 
@@ -14,6 +15,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     protected Number number;
     protected int imageRes;
     protected String imageUrl;
+    protected List list;
     protected double x;
     protected double y;
     protected double z;
@@ -47,6 +49,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
                 ", number=" + number +
                 ", imageRes=" + imageRes +
                 ", imageUrl='" + imageUrl + '\'' +
+                ", list=" + list +
                 ", x=" + x +
                 ", y=" + y +
                 ", z=" + z +
@@ -96,6 +99,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         if (number != null ? !number.equals(that.number) : that.number != null) return false;
         if (imageUrl != null ? !imageUrl.equals(that.imageUrl) : that.imageUrl != null)
             return false;
+        if (list != null ? !list.equals(that.list) : that.list != null) return false;
         if (fractionDescriptor != null ? !fractionDescriptor.equals(that.fractionDescriptor) : that.fractionDescriptor != null)
             return false;
         if (stateDescriptor != null ? !stateDescriptor.equals(that.stateDescriptor) : that.stateDescriptor != null)
@@ -117,6 +121,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         result = 31 * result + (number != null ? number.hashCode() : 0);
         result = 31 * result + imageRes;
         result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
+        result = 31 * result + (list != null ? list.hashCode() : 0);
         temp = Double.doubleToLongBits(x);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(y);
@@ -207,6 +212,17 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     @Override
     public T setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+        return (T) this;
+    }
+
+    @Override
+    public List getList() {
+        return list;
+    }
+
+    @Override
+    public T setList(List list) {
+        this.list = list;
         return (T) this;
     }
 
@@ -454,6 +470,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         dest.writeSerializable(this.number);
         dest.writeInt(this.imageRes);
         dest.writeString(this.imageUrl);
+        dest.writeSerializable((Serializable) this.list);
         dest.writeDouble(this.x);
         dest.writeDouble(this.y);
         dest.writeDouble(this.z);
@@ -517,6 +534,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         this.number = (Number) in.readSerializable();
         this.imageRes = in.readInt();
         this.imageUrl = in.readString();
+        this.list = (List) in.readSerializable();
         this.x = in.readDouble();
         this.y = in.readDouble();
         this.z = in.readDouble();
