@@ -86,6 +86,11 @@ public interface SimpleUIBehavior<T extends SimpleUIBehavior> extends NewPromptB
     }
 
     @Override
+    default double getSize() {
+        return 0;
+    }
+
+    @Override
     default int getCode() {
         return 0;
     }
