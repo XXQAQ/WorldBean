@@ -21,6 +21,8 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     protected double y;
     protected double z;
     protected int position;
+    protected int startPosition;
+    protected int endPosition;
     protected float fraction;
     protected CharSequence fractionDescriptor;
     protected boolean isSuccess;
@@ -35,7 +37,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     protected CharSequence codeDescriptor;
     protected int level;
     protected CharSequence levelDescriptor;
-    protected SimpleUICallback simpleUICallback;
+    protected SimpleUICallback callback;
 
     public BaseSimpleUIBean() {
 
@@ -56,6 +58,8 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
                 ", y=" + y +
                 ", z=" + z +
                 ", position=" + position +
+                ", startPosition=" + startPosition +
+                ", endPosition=" + endPosition +
                 ", fraction=" + fraction +
                 ", fractionDescriptor=" + fractionDescriptor +
                 ", isSuccess=" + isSuccess +
@@ -87,6 +91,8 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         if (Double.compare(that.y, y) != 0) return false;
         if (Double.compare(that.z, z) != 0) return false;
         if (position != that.position) return false;
+        if (startPosition != that.startPosition) return false;
+        if (endPosition != that.endPosition) return false;
         if (Float.compare(that.fraction, fraction) != 0) return false;
         if (isSuccess != that.isSuccess) return false;
         if (state != that.state) return false;
@@ -133,6 +139,8 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         temp = Double.doubleToLongBits(z);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + position;
+        result = 31 * result + startPosition;
+        result = 31 * result + endPosition;
         result = 31 * result + (fraction != +0.0f ? Float.floatToIntBits(fraction) : 0);
         result = 31 * result + (fractionDescriptor != null ? fractionDescriptor.hashCode() : 0);
         result = 31 * result + (isSuccess ? 1 : 0);
@@ -282,6 +290,28 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     @Override
     public T setPosition(int position) {
         this.position = position;
+        return (T) this;
+    }
+
+    @Override
+    public int getStartPosition() {
+        return startPosition;
+    }
+
+    @Override
+    public T setStartPosition(int startPosition) {
+        this.startPosition = startPosition;
+        return (T) this;
+    }
+
+    @Override
+    public int getEndPosition() {
+        return endPosition;
+    }
+
+    @Override
+    public T setEndPosition(int endPosition) {
+        this.endPosition = endPosition;
         return (T) this;
     }
 
@@ -450,15 +480,14 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     }
 
     @Override
-    public T setSimpleUICallback(SimpleUICallback simpleUICallback) {
-        this.simpleUICallback = simpleUICallback;
-        return (T) this;
+    public SimpleUICallback getCallback() {
+        return callback;
     }
 
-    @Deprecated
     @Override
-    public void onCallback(SimpleUIBehavior behavior) {
-        if (simpleUICallback != null)   simpleUICallback.onCallback(behavior);
+    public T setCallback(SimpleUICallback callback) {
+        this.callback = callback;
+        return (T) this;
     }
 
     @Override
@@ -491,6 +520,8 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         dest.writeDouble(this.y);
         dest.writeDouble(this.z);
         dest.writeInt(this.position);
+        dest.writeInt(this.startPosition);
+        dest.writeInt(this.endPosition);
         dest.writeFloat(this.fraction);
         if (fractionDescriptor instanceof Parcelable)
             dest.writeParcelable((Parcelable) fractionDescriptor, flags);
@@ -556,6 +587,8 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         this.y = in.readDouble();
         this.z = in.readDouble();
         this.position = in.readInt();
+        this.startPosition = in.readInt();
+        this.endPosition = in.readInt();
         this.fraction = in.readFloat();
         if (fractionDescriptor instanceof Parcelable)
             this.fractionDescriptor = in.readParcelable(CharSequence.class.getClassLoader());

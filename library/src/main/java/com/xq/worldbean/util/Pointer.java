@@ -37,7 +37,7 @@ public class Pointer<T> implements Serializable , Parcelable {
         return t;
     }
 
-    public Pointer set(T t){
+    public Pointer<T> set(T t){
         this.t = t;
         return this;
     }

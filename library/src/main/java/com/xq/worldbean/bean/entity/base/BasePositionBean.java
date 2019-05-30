@@ -7,6 +7,8 @@ import com.xq.worldbean.bean.behavior.PositionBehavior;
 public class BasePositionBean<T extends BasePositionBean> extends BaseBean<T> implements PositionBehavior<T> {
 
     protected int position;
+    protected int startPosition;
+    protected int endPosition;
 
     public BasePositionBean() {
     }
@@ -19,6 +21,8 @@ public class BasePositionBean<T extends BasePositionBean> extends BaseBean<T> im
     public String toString() {
         return "BasePositionBean{" +
                 "position=" + position +
+                ", startPosition=" + startPosition +
+                ", endPosition=" + endPosition +
                 '}';
     }
 
@@ -30,13 +34,17 @@ public class BasePositionBean<T extends BasePositionBean> extends BaseBean<T> im
 
         BasePositionBean that = (BasePositionBean) o;
 
-        return position == that.position;
+        if (position != that.position) return false;
+        if (startPosition != that.startPosition) return false;
+        return endPosition == that.endPosition;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + position;
+        result = 31 * result + startPosition;
+        result = 31 * result + endPosition;
         return result;
     }
 
@@ -52,6 +60,28 @@ public class BasePositionBean<T extends BasePositionBean> extends BaseBean<T> im
     }
 
     @Override
+    public int getStartPosition() {
+        return startPosition;
+    }
+
+    @Override
+    public T setStartPosition(int startPosition) {
+        this.startPosition = startPosition;
+        return (T) this;
+    }
+
+    @Override
+    public int getEndPosition() {
+        return endPosition;
+    }
+
+    @Override
+    public T setEndPosition(int endPosition) {
+        this.endPosition = endPosition;
+        return (T) this;
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }
@@ -60,11 +90,15 @@ public class BasePositionBean<T extends BasePositionBean> extends BaseBean<T> im
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeInt(this.position);
+        dest.writeInt(this.startPosition);
+        dest.writeInt(this.endPosition);
     }
 
     protected BasePositionBean(Parcel in) {
         super(in);
         this.position = in.readInt();
+        this.startPosition = in.readInt();
+        this.endPosition = in.readInt();
     }
 
     public static final Creator<BasePositionBean> CREATOR = new Creator<BasePositionBean>() {
