@@ -16,7 +16,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     protected int imageRes;
     protected String imageUrl;
     protected List list;
-    protected String linked;
+    protected String link;
     protected double x;
     protected double y;
     protected double z;
@@ -51,7 +51,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
                 ", imageRes=" + imageRes +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", list=" + list +
-                ", linked='" + linked + '\'' +
+                ", link='" + link + '\'' +
                 ", x=" + x +
                 ", y=" + y +
                 ", z=" + z +
@@ -102,7 +102,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         if (imageUrl != null ? !imageUrl.equals(that.imageUrl) : that.imageUrl != null)
             return false;
         if (list != null ? !list.equals(that.list) : that.list != null) return false;
-        if (linked != null ? !linked.equals(that.linked) : that.linked != null) return false;
+        if (link != null ? !link.equals(that.link) : that.link != null) return false;
         if (fractionDescriptor != null ? !fractionDescriptor.equals(that.fractionDescriptor) : that.fractionDescriptor != null)
             return false;
         if (stateDescriptor != null ? !stateDescriptor.equals(that.stateDescriptor) : that.stateDescriptor != null)
@@ -125,7 +125,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         result = 31 * result + imageRes;
         result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
         result = 31 * result + (list != null ? list.hashCode() : 0);
-        result = 31 * result + (linked != null ? linked.hashCode() : 0);
+        result = 31 * result + (link != null ? link.hashCode() : 0);
         temp = Double.doubleToLongBits(x);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(y);
@@ -231,13 +231,13 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     }
 
     @Override
-    public String getLinked() {
-        return linked;
+    public String getLink() {
+        return link;
     }
 
     @Override
-    public T setLinked(String linked) {
-        this.linked = linked;
+    public T setLink(String link) {
+        this.link = link;
         return (T) this;
     }
 
@@ -486,7 +486,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         dest.writeInt(this.imageRes);
         dest.writeString(this.imageUrl);
         dest.writeSerializable((Serializable) this.list);
-        dest.writeString(this.linked);
+        dest.writeString(this.link);
         dest.writeDouble(this.x);
         dest.writeDouble(this.y);
         dest.writeDouble(this.z);
@@ -551,7 +551,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         this.imageRes = in.readInt();
         this.imageUrl = in.readString();
         this.list = (List) in.readSerializable();
-        this.linked = in.readString();
+        this.link = in.readString();
         this.x = in.readDouble();
         this.y = in.readDouble();
         this.z = in.readDouble();

@@ -3,7 +3,7 @@ package com.xq.worldbean.bean.behavior;
 import com.xq.worldbean.util.callback.SimpleUICallback;
 import java.util.List;
 
-public interface SimpleUIBehavior<T extends SimpleUIBehavior> extends NewPromptBehavior<T>,TitleBehavior<T>,ContentBehavior<T>,NumberBehavior<T>,ImageBehavior<T>,ListBehavior<T>,LinkedBehavior<T>,CoordinateBehavior<T>,PositionBehavior<T>,FractionBehavior<T>,SuccessBehavior<T>,SwitchStateBehavior<T>,TypeBehavior<T>,SizeBehavior<T>,CodeBehavior<T>,LevelBehavior<T>,SimpleUICallback {
+public interface SimpleUIBehavior<T extends SimpleUIBehavior> extends NewPromptBehavior<T>,TitleBehavior<T>,ContentBehavior<T>,NumberBehavior<T>,ImageBehavior<T>,ListBehavior<T>, LinkBehavior<T>,CoordinateBehavior<T>,PositionBehavior<T>,FractionBehavior<T>,SuccessBehavior<T>,SwitchStateBehavior<T>,TypeBehavior<T>,SizeBehavior<T>,CodeBehavior<T>,LevelBehavior<T>,SimpleUICallback {
 
     @Override
     default int getNewPrompt() {
@@ -31,7 +31,7 @@ public interface SimpleUIBehavior<T extends SimpleUIBehavior> extends NewPromptB
     }
 
     @Override
-    default String getLinked() {
+    default String getLink() {
         return null;
     }
 
