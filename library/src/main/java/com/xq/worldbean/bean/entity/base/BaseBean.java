@@ -94,7 +94,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T>,Parcelable 
 
     protected BaseBean(Parcel in) {
         if (tag instanceof Parcelable)
-            this.tag = in.readParcelable(Object.class.getClassLoader());
+            this.tag = in.readParcelable(tag.getClass().getClassLoader());
         else    if (tag instanceof Serializable)
             this.tag = in.readSerializable();
         this.id = in.readString();
