@@ -23,8 +23,16 @@ public interface IdBehavior<T extends IdBehavior> extends Serializable{
         return null;
     }
 
+    default String getForeignId(String role){
+        return getForeignId();
+    }
+
     default T setForeignId(String id){
         return (T) this;
+    }
+
+    default T setForeignId(String id,String role){
+        return setForeignId(id);
     }
 
 }

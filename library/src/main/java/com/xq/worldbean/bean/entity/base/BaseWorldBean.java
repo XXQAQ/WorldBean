@@ -2,12 +2,12 @@ package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.xq.worldbean.bean.behavior.SimpleUIBehavior;
-import com.xq.worldbean.util.callback.SimpleUICallback;
+import com.xq.worldbean.bean.behavior.WorldBehavior;
+import com.xq.worldbean.util.callback.WorldCallback;
 import java.io.Serializable;
 import java.util.List;
 
-public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> implements SimpleUIBehavior<T> {
+public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implements WorldBehavior<T> {
 
     protected int newPrompt;
     protected CharSequence title;
@@ -37,15 +37,15 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     protected CharSequence codeDescriptor;
     protected int level;
     protected CharSequence levelDescriptor;
-    protected SimpleUICallback callback;
+    protected WorldCallback callback;
 
-    public BaseSimpleUIBean() {
+    public BaseWorldBean() {
 
     }
 
     @Override
     public String toString() {
-        return "BaseSimpleUIBean{" +
+        return "BaseWorldBean{" +
                 "newPrompt=" + newPrompt +
                 ", title=" + title +
                 ", content=" + content +
@@ -83,7 +83,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        BaseSimpleUIBean that = (BaseSimpleUIBean) o;
+        BaseWorldBean that = (BaseWorldBean) o;
 
         if (newPrompt != that.newPrompt) return false;
         if (imageRes != that.imageRes) return false;
@@ -480,12 +480,12 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
     }
 
     @Override
-    public SimpleUICallback getCallback() {
+    public WorldCallback getCallback() {
         return callback;
     }
 
     @Override
-    public T setCallback(SimpleUICallback callback) {
+    public T setCallback(WorldCallback callback) {
         this.callback = callback;
         return (T) this;
     }
@@ -563,7 +563,7 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
             dest.writeString(levelDescriptor == null?null:levelDescriptor.toString());
     }
 
-    protected BaseSimpleUIBean(Parcel in) {
+    protected BaseWorldBean(Parcel in) {
         super(in);
         this.newPrompt = in.readInt();
         if (title instanceof Parcelable)
@@ -630,15 +630,15 @@ public class BaseSimpleUIBean<T extends BaseSimpleUIBean> extends BaseBean<T> im
             this.levelDescriptor = in.readString();
     }
 
-    public static final Creator<BaseSimpleUIBean> CREATOR = new Creator<BaseSimpleUIBean>() {
+    public static final Creator<BaseWorldBean> CREATOR = new Creator<BaseWorldBean>() {
         @Override
-        public BaseSimpleUIBean createFromParcel(Parcel source) {
-            return new BaseSimpleUIBean(source);
+        public BaseWorldBean createFromParcel(Parcel source) {
+            return new BaseWorldBean(source);
         }
 
         @Override
-        public BaseSimpleUIBean[] newArray(int size) {
-            return new BaseSimpleUIBean[size];
+        public BaseWorldBean[] newArray(int size) {
+            return new BaseWorldBean[size];
         }
     };
 }
