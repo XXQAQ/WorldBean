@@ -1,6 +1,6 @@
 package com.xq.worldbean.bean.behavior;
 
-import com.xq.worldbean.util.callback.WorldCallback;
+import com.xq.worldbean.util.callback.TCallback;
 import java.util.List;
 
 public interface WorldBehavior<T extends WorldBehavior> extends NewPromptBehavior<T>,TitleBehavior<T>,ContentBehavior<T>,NumberBehavior<T>,ImageBehavior<T>,ListBehavior<T>, LinkBehavior<T>,CoordinateBehavior<T>,PositionBehavior<T>,FractionBehavior<T>,SuccessBehavior<T>,SwitchStateBehavior<T>,TypeBehavior<T>,SizeBehavior<T>,CodeBehavior<T>,LevelBehavior<T>{
@@ -106,6 +106,10 @@ public interface WorldBehavior<T extends WorldBehavior> extends NewPromptBehavio
 
     default T setCallback(WorldCallback callback) {
         return (T) this;
+    }
+
+    public static interface WorldCallback extends TCallback<WorldBehavior> {
+
     }
 
 }

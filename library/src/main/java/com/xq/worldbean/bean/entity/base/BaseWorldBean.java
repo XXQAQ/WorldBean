@@ -3,7 +3,6 @@ package com.xq.worldbean.bean.entity.base;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.WorldBehavior;
-import com.xq.worldbean.util.callback.WorldCallback;
 import java.io.Serializable;
 import java.util.List;
 
