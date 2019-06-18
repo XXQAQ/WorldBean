@@ -3,6 +3,7 @@ package com.xq.worldbean.bean.entity.base;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.BaseBehavior;
+import com.xq.worldbean.util.callback.TCallback;
 
 import java.io.Serializable;
 
@@ -11,6 +12,7 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T>,Parcelable 
     protected Object tag;
     protected String id;
     protected String foreignId;
+    protected TCallback<T> callback;
 
     public BaseBean() {
     }
@@ -74,6 +76,17 @@ public class BaseBean<T extends BaseBean> implements BaseBehavior<T>,Parcelable 
     @Override
     public T setForeignId(String foreignId) {
         this.foreignId = foreignId;
+        return (T) this;
+    }
+
+    @Override
+    public TCallback<T> getCallback() {
+        return callback;
+    }
+
+    @Override
+    public T setCallback(TCallback<T> callback) {
+        this.callback = callback;
         return (T) this;
     }
 
