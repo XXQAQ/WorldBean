@@ -1,8 +1,6 @@
 package com.xq.worldbean.bean.behavior;
 
-import java.io.Serializable;
-
-public interface TagBehavior<T extends TagBehavior> extends Serializable{
+public interface TagBehavior<T extends TagBehavior> extends SoulBehavior<T>{
 
     public Object getTag();
 

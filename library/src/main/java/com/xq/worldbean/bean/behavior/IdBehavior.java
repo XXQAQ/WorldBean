@@ -1,8 +1,6 @@
 package com.xq.worldbean.bean.behavior;
 
-import java.io.Serializable;
-
-public interface IdBehavior<T extends IdBehavior> extends Serializable{
+public interface IdBehavior<T extends IdBehavior> extends SoulBehavior<T>{
 
     public String getId();
 

@@ -36,7 +36,6 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     protected CharSequence codeDescriptor;
     protected int level;
     protected CharSequence levelDescriptor;
-    protected WorldCallback callback;
 
     public BaseWorldBean() {
 
@@ -476,17 +475,6 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     @Override
     public T setOn(boolean isOn){
         return setState(isOn?1:0);
-    }
-
-    @Override
-    public WorldCallback getCallback() {
-        return callback;
-    }
-
-    @Override
-    public T setCallback(WorldCallback callback) {
-        this.callback = callback;
-        return (T) this;
     }
 
     @Override
