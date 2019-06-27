@@ -83,6 +83,7 @@ public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends Base
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeString(this.fragmentName);
+        if (fragmentArguments == null)  fragmentArguments = new Bundle();
         dest.writeBundle(this.fragmentArguments);
     }
 
