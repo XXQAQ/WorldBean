@@ -468,16 +468,6 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public boolean isOn() {
-        return getState() > 0;
-    }
-
-    @Override
-    public T setOn(boolean isOn){
-        return setState(isOn?1:0);
-    }
-
-    @Override
     public int describeContents() {
         return 0;
     }

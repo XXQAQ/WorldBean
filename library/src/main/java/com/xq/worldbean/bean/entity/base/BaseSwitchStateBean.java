@@ -23,14 +23,4 @@ public class BaseSwitchStateBean<T extends BaseSwitchStateBean> extends BaseStat
         super(isOn?1:0, stateDescriptor);
     }
 
-    @Override
-    public boolean isOn() {
-        return getState() > 0;
-    }
-
-    @Override
-    public T setOn(boolean isOn){
-        return (T) setState(isOn?1:0);
-    }
-
 }

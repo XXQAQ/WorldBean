@@ -22,7 +22,7 @@ public interface SwitchStateBehavior<T extends SwitchStateBehavior> extends Stat
     }
 
     default T setOn(boolean isOn){
-        return (T)this;
+        return setState(isOn?1:0);
     }
 
     default T setOn(boolean isOn,String role){
