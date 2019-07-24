@@ -1,6 +1,6 @@
 package com.xq.worldbean.util;
 
-public class DefaultRoleConstants {
+public class RoleConstants {
 
     public static final String ROLE_LARGE = "role_large";
 
