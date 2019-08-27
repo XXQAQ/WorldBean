@@ -37,10 +37,10 @@ public class BaseBean implements BaseBehavior,Parcelable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BaseBean baseBean = (BaseBean) o;
+        BaseBean that = (BaseBean) o;
 
-        if (id != null ? !id.equals(baseBean.id) : baseBean.id != null) return false;
-        return foreignId != null ? foreignId.equals(baseBean.foreignId) : baseBean.foreignId == null;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        return foreignId != null ? foreignId.equals(that.foreignId) : that.foreignId == null;
     }
 
     @Override
