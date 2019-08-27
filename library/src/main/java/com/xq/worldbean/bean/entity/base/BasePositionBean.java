@@ -4,7 +4,7 @@ import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.PositionBehavior;
 
-public class BasePositionBean<T extends BasePositionBean> extends BaseBean<T> implements PositionBehavior<T> {
+public class BasePositionBean extends BaseBean implements PositionBehavior {
 
     protected int position;
     protected int startPosition;
@@ -54,9 +54,8 @@ public class BasePositionBean<T extends BasePositionBean> extends BaseBean<T> im
     }
 
     @Override
-    public T setPosition(int position) {
+    public void setPosition(int position) {
         this.position = position;
-        return (T) this;
     }
 
     @Override
@@ -65,9 +64,8 @@ public class BasePositionBean<T extends BasePositionBean> extends BaseBean<T> im
     }
 
     @Override
-    public T setStartPosition(int startPosition) {
+    public void setStartPosition(int startPosition) {
         this.startPosition = startPosition;
-        return (T) this;
     }
 
     @Override
@@ -76,9 +74,8 @@ public class BasePositionBean<T extends BasePositionBean> extends BaseBean<T> im
     }
 
     @Override
-    public T setEndPosition(int endPosition) {
+    public void setEndPosition(int endPosition) {
         this.endPosition = endPosition;
-        return (T) this;
     }
 
     @Override

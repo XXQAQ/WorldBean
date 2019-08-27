@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.os.Parcel;
 import com.xq.worldbean.bean.behavior.FragmentBehavior;
 
-public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends BaseTitleBean<T> implements FragmentBehavior<T> {
+public class BaseFragmentTitleBean extends BaseTitleBean implements FragmentBehavior {
 
     protected String fragmentName;
     protected Bundle fragmentArguments;
@@ -58,9 +58,8 @@ public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends Base
     }
 
     @Override
-    public T setFragmentName(String fragmentName) {
+    public void setFragmentName(String fragmentName) {
         this.fragmentName = fragmentName;
-        return (T) this;
     }
 
     @Override
@@ -69,9 +68,8 @@ public class BaseFragmentTitleBean<T extends BaseFragmentTitleBean> extends Base
     }
 
     @Override
-    public T setFragmentArguments(Bundle fragmentArguments) {
+    public void setFragmentArguments(Bundle fragmentArguments) {
         this.fragmentArguments = fragmentArguments;
-        return (T) this;
     }
 
     @Override

@@ -4,7 +4,7 @@ import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.NumberBehavior;
 
-public class BaseNumberBean<T extends BaseNumberBean> extends BaseBean<T> implements NumberBehavior<T> {
+public class BaseNumberBean extends BaseBean implements NumberBehavior {
 
     protected Number number;
 
@@ -46,9 +46,8 @@ public class BaseNumberBean<T extends BaseNumberBean> extends BaseBean<T> implem
     }
 
     @Override
-    public T setNumber(Number number) {
+    public void setNumber(Number number) {
         this.number = number;
-        return (T) this;
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface ContentBehavior<T extends ContentBehavior> extends BaseBehavior<T> {
+public interface ContentBehavior extends BaseBehavior{
 
     public CharSequence getContent();
 
@@ -9,12 +9,11 @@ public interface ContentBehavior<T extends ContentBehavior> extends BaseBehavior
         return getContent();
     }
 
-    default T setContent(CharSequence content){
-        return (T)this;
+    default void setContent(CharSequence content){
     }
 
-    default T setContent(CharSequence content,String role){
-        return setContent(content);
+    default void setContent(CharSequence content,String role){
+        setContent(content);
     }
 
 }

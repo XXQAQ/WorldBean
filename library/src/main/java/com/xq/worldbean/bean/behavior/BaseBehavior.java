@@ -1,6 +1,8 @@
 package com.xq.worldbean.bean.behavior;
 
-public interface BaseBehavior<T extends BaseBehavior> extends IdBehavior<T>,TagBehavior<T>{
+import com.xq.worldbean.util.callback.TCallback;
+
+public interface BaseBehavior extends IdBehavior,TagBehavior,SoulBehavior{
 
     @Override
     default Object getTag() {
@@ -9,6 +11,11 @@ public interface BaseBehavior<T extends BaseBehavior> extends IdBehavior<T>,TagB
 
     @Override
     default String getId() {
+        return null;
+    }
+
+    @Override
+    default TCallback getCallback(){
         return null;
     }
 

@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface NumberBehavior<T extends NumberBehavior> extends BaseBehavior<T> {
+public interface NumberBehavior extends BaseBehavior{
 
     public Number getNumber();
 
@@ -9,12 +9,11 @@ public interface NumberBehavior<T extends NumberBehavior> extends BaseBehavior<T
         return getNumber();
     }
 
-    default T setNumber(Number number){
-        return (T)this;
+    default void setNumber(Number number){
     }
 
-    default T setNumber(Number number,String role){
-        return setNumber(number);
+    default void setNumber(Number number,String role){
+        setNumber(number);
     }
 
 }

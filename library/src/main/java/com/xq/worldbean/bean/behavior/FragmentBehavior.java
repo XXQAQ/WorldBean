@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import java.lang.reflect.Constructor;
 
-public interface FragmentBehavior<T extends FragmentBehavior> extends BaseBehavior<T>{
+public interface FragmentBehavior extends BaseBehavior{
 
     default Fragment createFragment() {
         try {
@@ -23,12 +23,10 @@ public interface FragmentBehavior<T extends FragmentBehavior> extends BaseBehavi
 
     public Bundle getFragmentArguments();
 
-    default T setFragmentName(String fragmentName){
-        return (T)this;
+    default void setFragmentName(String fragmentName){
     }
 
-    default T setFragmentArguments(Bundle fragmentArguments){
-        return (T) this;
+    default void setFragmentArguments(Bundle fragmentArguments){
     }
 
 }

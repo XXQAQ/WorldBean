@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface StateBehavior<T extends StateBehavior> extends BaseBehavior<T> {
+public interface StateBehavior extends BaseBehavior{
 
     public int getState();
 
@@ -9,12 +9,11 @@ public interface StateBehavior<T extends StateBehavior> extends BaseBehavior<T> 
         return getState();
     }
 
-    default T setState(int state){
-        return (T)this;
+    default void setState(int state){
     }
 
-    default T setState(int state,String role){
-        return setState(state);
+    default void setState(int state,String role){
+        setState(state);
     }
 
     //对状态的描述
@@ -26,12 +25,11 @@ public interface StateBehavior<T extends StateBehavior> extends BaseBehavior<T> 
         return getStateDescriptor();
     }
 
-    default T setStateDescriptor(CharSequence descriptor){
-        return (T)this;
+    default void setStateDescriptor(CharSequence descriptor){
     }
 
-    default T setStateDescriptor(CharSequence descriptor,String role){
-        return setStateDescriptor(descriptor);
+    default void setStateDescriptor(CharSequence descriptor,String role){
+        setStateDescriptor(descriptor);
     }
 
 }

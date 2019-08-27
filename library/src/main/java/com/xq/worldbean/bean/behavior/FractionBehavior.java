@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface FractionBehavior<T extends FractionBehavior> extends BaseBehavior<T> {
+public interface FractionBehavior extends BaseBehavior{
 
     public float getFraction();
 
@@ -9,12 +9,11 @@ public interface FractionBehavior<T extends FractionBehavior> extends BaseBehavi
         return getFraction();
     }
 
-    default T setFraction(float fraction){
-        return (T)this;
+    default void setFraction(float fraction){
     }
 
-    default T setFraction(float fraction,String role){
-        return setFraction(fraction);
+    default void setFraction(float fraction,String role){
+        setFraction(fraction);
     }
 
     //对当前百分比进度值的描述
@@ -26,12 +25,11 @@ public interface FractionBehavior<T extends FractionBehavior> extends BaseBehavi
         return getFractionDescriptor();
     }
 
-    default T setFractionDescriptor(CharSequence descriptor){
-        return (T)this;
+    default void setFractionDescriptor(CharSequence descriptor){
     }
 
-    default T setFractionDescriptor(CharSequence descriptor,String role){
-        return setFractionDescriptor(descriptor);
+    default void setFractionDescriptor(CharSequence descriptor,String role){
+        setFractionDescriptor(descriptor);
     }
 
 }

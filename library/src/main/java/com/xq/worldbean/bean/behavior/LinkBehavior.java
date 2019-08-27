@@ -1,6 +1,6 @@
 package com.xq.worldbean.bean.behavior;
 
-public interface LinkBehavior<T extends LinkBehavior> extends BaseBehavior<T>{
+public interface LinkBehavior extends BaseBehavior{
 
     public String getLink();
 
@@ -8,12 +8,11 @@ public interface LinkBehavior<T extends LinkBehavior> extends BaseBehavior<T>{
         return getLink();
     }
 
-    default T setLink(String link) {
-        return (T) this;
+    default void setLink(String link) {
     }
 
-    default T setLink(String link, String role) {
-        return setLink(link);
+    default void setLink(String link, String role) {
+        setLink(link);
     }
 
 }

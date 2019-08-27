@@ -1,18 +1,18 @@
 package com.xq.worldbean.bean.entity.base;
 
+import android.graphics.drawable.Drawable;
 import android.os.Parcel;
-import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.WorldBehavior;
 import java.io.Serializable;
 import java.util.List;
 
-public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implements WorldBehavior<T> {
+public class BaseWorldBean extends BaseBean implements WorldBehavior {
 
     protected int newPrompt;
     protected CharSequence title;
     protected CharSequence content;
     protected Number number;
-    protected int imageRes;
+    protected Drawable imageDrawable;
     protected String imageUrl;
     protected List list;
     protected String link;
@@ -48,7 +48,7 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
                 ", title=" + title +
                 ", content=" + content +
                 ", number=" + number +
-                ", imageRes=" + imageRes +
+                ", imageDrawable=" + imageDrawable +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", list=" + list +
                 ", link='" + link + '\'' +
@@ -84,7 +84,7 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
         BaseWorldBean that = (BaseWorldBean) o;
 
         if (newPrompt != that.newPrompt) return false;
-        if (imageRes != that.imageRes) return false;
+        if (imageDrawable != null ? !imageDrawable.equals(that.imageDrawable) : that.imageDrawable != null) return false;
         if (Double.compare(that.x, x) != 0) return false;
         if (Double.compare(that.y, y) != 0) return false;
         if (Double.compare(that.z, z) != 0) return false;
@@ -126,7 +126,7 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (number != null ? number.hashCode() : 0);
-        result = 31 * result + imageRes;
+        result = 31 * result + (imageDrawable != null ? imageDrawable.hashCode() : 0);
         result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
         result = 31 * result + (list != null ? list.hashCode() : 0);
         result = 31 * result + (link != null ? link.hashCode() : 0);
@@ -165,9 +165,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setNewPrompt(int newPrompt) {
+    public void setNewPrompt(int newPrompt) {
         this.newPrompt = newPrompt;
-        return (T) this;
     }
 
     @Override
@@ -176,9 +175,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setTitle(CharSequence title) {
+    public void setTitle(CharSequence title) {
         this.title = title;
-        return (T) this;
     }
 
     @Override
@@ -187,9 +185,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setContent(CharSequence content) {
+    public void setContent(CharSequence content) {
         this.content = content;
-        return (T) this;
     }
 
     @Override
@@ -198,20 +195,18 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setNumber(Number number) {
+    public void setNumber(Number number) {
         this.number = number;
-        return (T) this;
     }
 
     @Override
-    public int getImageRes() {
-        return imageRes;
+    public Drawable getImageDrawable() {
+        return imageDrawable;
     }
 
     @Override
-    public T setImageRes(int imageRes) {
-        this.imageRes = imageRes;
-        return (T) this;
+    public void setImageDrawable(Drawable imageDrawable) {
+        this.imageDrawable = imageDrawable;
     }
 
     @Override
@@ -220,9 +215,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setImageUrl(String imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
-        return (T) this;
     }
 
     @Override
@@ -231,9 +225,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setList(List list) {
+    public void setList(List list) {
         this.list = list;
-        return (T) this;
     }
 
     @Override
@@ -242,9 +235,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setLink(String link) {
+    public void setLink(String link) {
         this.link = link;
-        return (T) this;
     }
 
     @Override
@@ -253,9 +245,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setX(double x) {
+    public void setX(double x) {
         this.x = x;
-        return (T) this;
     }
 
     @Override
@@ -264,9 +255,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setY(double y) {
+    public void setY(double y) {
         this.y = y;
-        return (T) this;
     }
 
     @Override
@@ -275,9 +265,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setZ(double z) {
+    public void setZ(double z) {
         this.z = z;
-        return (T) this;
     }
 
     @Override
@@ -286,9 +275,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setPosition(int position) {
+    public void setPosition(int position) {
         this.position = position;
-        return (T) this;
     }
 
     @Override
@@ -297,9 +285,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setStartPosition(int startPosition) {
+    public void setStartPosition(int startPosition) {
         this.startPosition = startPosition;
-        return (T) this;
     }
 
     @Override
@@ -308,9 +295,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setEndPosition(int endPosition) {
+    public void setEndPosition(int endPosition) {
         this.endPosition = endPosition;
-        return (T) this;
     }
 
     @Override
@@ -319,9 +305,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setFraction(float fraction) {
+    public void setFraction(float fraction) {
         this.fraction = fraction;
-        return (T) this;
     }
 
     @Override
@@ -330,9 +315,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setFractionDescriptor(CharSequence fractionDescriptor) {
+    public void setFractionDescriptor(CharSequence fractionDescriptor) {
         this.fractionDescriptor = fractionDescriptor;
-        return (T) this;
     }
 
     @Override
@@ -341,9 +325,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setSuccess(boolean success) {
+    public void setSuccess(boolean success) {
         isSuccess = success;
-        return (T) this;
     }
 
     @Override
@@ -352,9 +335,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setState(int state) {
+    public void setState(int state) {
         this.state = state;
-        return (T) this;
     }
 
     @Override
@@ -363,9 +345,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setStateDescriptor(CharSequence stateDescriptor) {
+    public void setStateDescriptor(CharSequence stateDescriptor) {
         this.stateDescriptor = stateDescriptor;
-        return (T) this;
     }
 
     @Override
@@ -374,9 +355,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setType(int type) {
+    public void setType(int type) {
         this.type = type;
-        return (T) this;
     }
 
     @Override
@@ -385,9 +365,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setTypeDescriptor(CharSequence typeDescriptor) {
+    public void setTypeDescriptor(CharSequence typeDescriptor) {
         this.typeDescriptor = typeDescriptor;
-        return (T) this;
     }
 
     @Override
@@ -396,9 +375,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setWidth(double width) {
+    public void setWidth(double width) {
         this.width = width;
-        return (T) this;
     }
 
     @Override
@@ -407,9 +385,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setHeight(double height) {
+    public void setHeight(double height) {
         this.height = height;
-        return (T) this;
     }
 
     @Override
@@ -418,9 +395,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setSize(double size) {
+    public void setSize(double size) {
         this.size = size;
-        return (T) this;
     }
 
     @Override
@@ -429,9 +405,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setCode(int code) {
+    public void setCode(int code) {
         this.code = code;
-        return (T) this;
     }
 
     @Override
@@ -440,9 +415,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setCodeDescriptor(CharSequence codeDescriptor) {
+    public void setCodeDescriptor(CharSequence codeDescriptor) {
         this.codeDescriptor = codeDescriptor;
-        return (T) this;
     }
 
     @Override
@@ -451,9 +425,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setLevel(int level) {
+    public void setLevel(int level) {
         this.level = level;
-        return (T) this;
     }
 
     @Override
@@ -462,9 +435,8 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setLevelDescriptor(CharSequence levelDescriptor) {
+    public void setLevelDescriptor(CharSequence levelDescriptor) {
         this.levelDescriptor = levelDescriptor;
-        return (T) this;
     }
 
     @Override
@@ -476,22 +448,12 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeInt(newPrompt);
-        if (title instanceof Parcelable)
-            dest.writeParcelable((Parcelable) title, flags);
-        else    if (title instanceof Serializable)
-            dest.writeSerializable((Serializable) title);
-        else
-            dest.writeString(title == null?null:title.toString());
-        if (content instanceof Parcelable)
-            dest.writeParcelable((Parcelable) content, flags);
-        else    if (content instanceof Serializable)
-            dest.writeSerializable((Serializable) content);
-        else
-            dest.writeString(content == null?null:content.toString());
+        writeObject(dest,flags,title);
+        writeObject(dest,flags,content);
         dest.writeSerializable(this.number);
-        dest.writeInt(this.imageRes);
         dest.writeString(this.imageUrl);
-        dest.writeSerializable((Serializable) this.list);
+        writeDrawable(dest,imageDrawable);
+        dest.writeSerializable((Serializable) list);
         dest.writeString(this.link);
         dest.writeDouble(this.x);
         dest.writeDouble(this.y);
@@ -500,64 +462,29 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
         dest.writeInt(this.startPosition);
         dest.writeInt(this.endPosition);
         dest.writeFloat(this.fraction);
-        if (fractionDescriptor instanceof Parcelable)
-            dest.writeParcelable((Parcelable) fractionDescriptor, flags);
-        else    if (fractionDescriptor instanceof Serializable)
-            dest.writeSerializable((Serializable) fractionDescriptor);
-        else
-            dest.writeString(fractionDescriptor == null?null: fractionDescriptor.toString());
+        writeObject(dest,flags,fractionDescriptor);
         dest.writeByte(this.isSuccess ? (byte) 1 : (byte) 0);
         dest.writeInt(this.state);
-        if (stateDescriptor instanceof Parcelable)
-            dest.writeParcelable((Parcelable) stateDescriptor, flags);
-        else    if (stateDescriptor instanceof Serializable)
-            dest.writeSerializable((Serializable) stateDescriptor);
-        else
-            dest.writeString(stateDescriptor == null?null:stateDescriptor.toString());
+        writeObject(dest,flags,stateDescriptor);
         dest.writeInt(this.type);
-        if (typeDescriptor instanceof Parcelable)
-            dest.writeParcelable((Parcelable) typeDescriptor, flags);
-        else    if (typeDescriptor instanceof Serializable)
-            dest.writeSerializable((Serializable) typeDescriptor);
-        else
-            dest.writeString(typeDescriptor == null?null:typeDescriptor.toString());
+        writeObject(dest,flags,typeDescriptor);
         dest.writeDouble(this.width);
         dest.writeDouble(this.height);
         dest.writeDouble(this.size);
         dest.writeInt(this.code);
-        if (codeDescriptor instanceof Parcelable)
-            dest.writeParcelable((Parcelable) codeDescriptor, flags);
-        else    if (codeDescriptor instanceof Serializable)
-            dest.writeSerializable((Serializable) codeDescriptor);
-        else
-            dest.writeString(codeDescriptor == null?null:codeDescriptor.toString());
+        writeObject(dest,flags,codeDescriptor);
         dest.writeInt(this.level);
-        if (levelDescriptor instanceof Parcelable)
-            dest.writeParcelable((Parcelable) levelDescriptor, flags);
-        else    if (levelDescriptor instanceof Serializable)
-            dest.writeSerializable((Serializable) levelDescriptor);
-        else
-            dest.writeString(levelDescriptor == null?null:levelDescriptor.toString());
+        writeObject(dest,flags,levelDescriptor);
     }
 
     protected BaseWorldBean(Parcel in) {
         super(in);
         this.newPrompt = in.readInt();
-        if (title instanceof Parcelable)
-            this.title = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (title instanceof Serializable)
-            this.title = (CharSequence) in.readSerializable();
-        else
-            this.title = in.readString();
-        if (content instanceof Parcelable)
-            this.content = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (content instanceof Serializable)
-            this.content = (CharSequence) in.readSerializable();
-        else
-            this.content = in.readString();
+        this.title = (CharSequence) readObject(in);
+        this.content = (CharSequence) readObject(in);
         this.number = (Number) in.readSerializable();
-        this.imageRes = in.readInt();
         this.imageUrl = in.readString();
+        this.imageDrawable = readDrawable(in);
         this.list = (List) in.readSerializable();
         this.link = in.readString();
         this.x = in.readDouble();
@@ -567,44 +494,19 @@ public class BaseWorldBean<T extends BaseWorldBean> extends BaseBean<T> implemen
         this.startPosition = in.readInt();
         this.endPosition = in.readInt();
         this.fraction = in.readFloat();
-        if (fractionDescriptor instanceof Parcelable)
-            this.fractionDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (fractionDescriptor instanceof Serializable)
-            this.fractionDescriptor = (CharSequence) in.readSerializable();
-        else
-            this.fractionDescriptor = in.readString();
+        this.fractionDescriptor = (CharSequence) readObject(in);
         this.isSuccess = in.readByte() != 0;
         this.state = in.readInt();
-        if (stateDescriptor instanceof Parcelable)
-            this.stateDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (stateDescriptor instanceof Serializable)
-            this.stateDescriptor = (CharSequence) in.readSerializable();
-        else
-            this.stateDescriptor = in.readString();
+        this.stateDescriptor = (CharSequence) readObject(in);
         this.type = in.readInt();
-        if (typeDescriptor instanceof Parcelable)
-            this.typeDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (typeDescriptor instanceof Serializable)
-            this.typeDescriptor = (CharSequence) in.readSerializable();
-        else
-            this.typeDescriptor = in.readString();
+        this.typeDescriptor = (CharSequence) readObject(in);
         this.width = in.readDouble();
         this.height = in.readDouble();
         this.size = in.readDouble();
         this.code = in.readInt();
-        if (codeDescriptor instanceof Parcelable)
-            this.codeDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (codeDescriptor instanceof Serializable)
-            this.codeDescriptor = (CharSequence) in.readSerializable();
-        else
-            this.codeDescriptor = in.readString();
+        this.codeDescriptor = (CharSequence) readObject(in);
         this.level = in.readInt();
-        if (levelDescriptor instanceof Parcelable)
-            this.levelDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (levelDescriptor instanceof Serializable)
-            this.levelDescriptor = (CharSequence) in.readSerializable();
-        else
-            this.levelDescriptor = in.readString();
+        this.levelDescriptor = (CharSequence) readObject(in);
     }
 
     public static final Creator<BaseWorldBean> CREATOR = new Creator<BaseWorldBean>() {

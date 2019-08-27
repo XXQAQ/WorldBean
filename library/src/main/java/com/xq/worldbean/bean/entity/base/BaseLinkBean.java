@@ -3,7 +3,7 @@ package com.xq.worldbean.bean.entity.base;
 import android.os.Parcel;
 import com.xq.worldbean.bean.behavior.LinkBehavior;
 
-public class BaseLinkBean<T extends BaseLinkBean> extends BaseBean<T> implements LinkBehavior<T> {
+public class BaseLinkBean extends BaseBean implements LinkBehavior {
 
     protected String link;
 
@@ -22,9 +22,8 @@ public class BaseLinkBean<T extends BaseLinkBean> extends BaseBean<T> implements
     }
 
     @Override
-    public T setLink(String link) {
+    public void setLink(String link) {
         this.link = link;
-        return (T) this;
     }
 
     @Override

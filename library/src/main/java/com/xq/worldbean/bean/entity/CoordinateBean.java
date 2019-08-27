@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.entity;
 
 import com.xq.worldbean.bean.entity.base.BaseCoordinateBean;
 
-public class CoordinateBean extends BaseCoordinateBean<CoordinateBean> {
+public class CoordinateBean extends BaseCoordinateBean {
     public CoordinateBean() {
     }
 

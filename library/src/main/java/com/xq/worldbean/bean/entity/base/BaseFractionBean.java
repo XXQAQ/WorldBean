@@ -1,11 +1,9 @@
 package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.FractionBehavior;
-import java.io.Serializable;
 
-public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> implements FractionBehavior<T> {
+public class BaseFractionBean extends BaseBean implements FractionBehavior {
 
     protected float fraction;
     protected CharSequence fractionDescriptor;
@@ -56,9 +54,8 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> im
     }
 
     @Override
-    public T setFraction(float fraction) {
+    public void setFraction(float fraction) {
         this.fraction = fraction;
-        return (T) this;
     }
 
     @Override
@@ -67,9 +64,8 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> im
     }
 
     @Override
-    public T setFractionDescriptor(CharSequence fractionDescriptor) {
+    public void setFractionDescriptor(CharSequence fractionDescriptor) {
         this.fractionDescriptor = fractionDescriptor;
-        return (T) this;
     }
 
     @Override
@@ -81,23 +77,13 @@ public class BaseFractionBean<T extends BaseFractionBean> extends BaseBean<T> im
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeFloat(this.fraction);
-        if (fractionDescriptor instanceof Parcelable)
-            dest.writeParcelable((Parcelable) fractionDescriptor, flags);
-        else    if (fractionDescriptor instanceof Serializable)
-            dest.writeSerializable((Serializable) fractionDescriptor);
-        else
-            dest.writeString(fractionDescriptor == null?null: fractionDescriptor.toString());
+        writeObject(dest,flags,fractionDescriptor);
     }
 
     protected BaseFractionBean(Parcel in) {
         super(in);
         this.fraction = in.readFloat();
-        if (fractionDescriptor instanceof Parcelable)
-            this.fractionDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (fractionDescriptor instanceof Serializable)
-            this.fractionDescriptor = (CharSequence) in.readSerializable();
-        else
-            this.fractionDescriptor = in.readString();
+        this.fractionDescriptor = (CharSequence) readObject(in);
     }
 
     public static final Creator<BaseFractionBean> CREATOR = new Creator<BaseFractionBean>() {

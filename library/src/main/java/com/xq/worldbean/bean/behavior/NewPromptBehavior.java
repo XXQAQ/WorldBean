@@ -1,10 +1,10 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface NewPromptBehavior<T extends NewPromptBehavior> extends BaseBehavior<T>{
+public interface NewPromptBehavior extends BaseBehavior{
 
     public int getNewPrompt();
 
-    public T setNewPrompt(int newPrompt);
+    public void setNewPrompt(int newPrompt);
 
 }

@@ -1,18 +1,24 @@
 package com.xq.worldbean.bean.entity.base;
 
+import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import com.xq.worldbean.bean.behavior.ImageBehavior;
+import com.xq.worldbean.util.ImageResourceConverter;
 
-public class BaseImageBean<T extends BaseImageBean> extends BaseBean<T> implements ImageBehavior<T> {
+public class BaseImageBean extends BaseBean implements ImageBehavior {
 
-    protected int imageRes;
+    protected Drawable imageDrawable;
     protected String imageUrl;
 
     public BaseImageBean() {
     }
 
     public BaseImageBean(int imageRes) {
-        this.imageRes = imageRes;
+        this.imageDrawable = ImageResourceConverter.getInstance().convert(imageRes);
+    }
+
+    public BaseImageBean(Drawable imageDrawable) {
+        this.imageDrawable = imageDrawable;
     }
 
     public BaseImageBean(String imageUrl) {
@@ -22,7 +28,7 @@ public class BaseImageBean<T extends BaseImageBean> extends BaseBean<T> implemen
     @Override
     public String toString() {
         return "BaseImageBean{" +
-                "imageRes=" + imageRes +
+                "imageDrawable=" + imageDrawable +
                 ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
@@ -35,27 +41,26 @@ public class BaseImageBean<T extends BaseImageBean> extends BaseBean<T> implemen
 
         BaseImageBean that = (BaseImageBean) o;
 
-        if (imageRes != that.imageRes) return false;
+        if (imageDrawable != null ? !imageDrawable.equals(that.imageDrawable) : that.imageDrawable != null) return false;
         return imageUrl != null ? imageUrl.equals(that.imageUrl) : that.imageUrl == null;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + imageRes;
+        result = 31 * result + (imageDrawable != null ? imageDrawable.hashCode() : 0);
         result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
         return result;
     }
 
     @Override
-    public int getImageRes() {
-        return imageRes;
+    public void setImageDrawable(Drawable imageDrawable) {
+        this.imageDrawable = imageDrawable;
     }
 
     @Override
-    public T setImageRes(int imageRes) {
-        this.imageRes = imageRes;
-        return (T) this;
+    public Drawable getImageDrawable() {
+        return imageDrawable;
     }
 
     @Override
@@ -64,9 +69,8 @@ public class BaseImageBean<T extends BaseImageBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setImageUrl(String imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
-        return (T) this;
     }
 
     @Override
@@ -77,14 +81,14 @@ public class BaseImageBean<T extends BaseImageBean> extends BaseBean<T> implemen
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
-        dest.writeInt(this.imageRes);
         dest.writeString(this.imageUrl);
+        writeDrawable(dest,imageDrawable);
     }
 
     protected BaseImageBean(Parcel in) {
         super(in);
-        this.imageRes = in.readInt();
         this.imageUrl = in.readString();
+        this.imageDrawable = readDrawable(in);
     }
 
     public static final Creator<BaseImageBean> CREATOR = new Creator<BaseImageBean>() {

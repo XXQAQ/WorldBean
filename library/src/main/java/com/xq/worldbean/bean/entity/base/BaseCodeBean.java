@@ -1,11 +1,9 @@
 package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.CodeBehavior;
-import java.io.Serializable;
 
-public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements CodeBehavior<T> {
+public class BaseCodeBean extends BaseBean implements CodeBehavior {
 
     protected int code;
     protected CharSequence codeDescriptor;
@@ -56,9 +54,8 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements
     }
 
     @Override
-    public T setCode(int code) {
+    public void setCode(int code) {
         this.code = code;
-        return (T) this;
     }
 
     @Override
@@ -67,9 +64,8 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements
     }
 
     @Override
-    public T setCodeDescriptor(CharSequence codeDescriptor) {
+    public void setCodeDescriptor(CharSequence codeDescriptor) {
         this.codeDescriptor = codeDescriptor;
-        return (T) this;
     }
 
     @Override
@@ -81,23 +77,13 @@ public class BaseCodeBean<T extends BaseCodeBean> extends BaseBean<T> implements
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeInt(this.code);
-        if (codeDescriptor instanceof Parcelable)
-            dest.writeParcelable((Parcelable) codeDescriptor, flags);
-        else    if (codeDescriptor instanceof Serializable)
-            dest.writeSerializable((Serializable) codeDescriptor);
-        else
-            dest.writeString(codeDescriptor == null?null:codeDescriptor.toString());
+        writeObject(dest,flags,codeDescriptor);
     }
 
     protected BaseCodeBean(Parcel in) {
         super(in);
         this.code = in.readInt();
-        if (codeDescriptor instanceof Parcelable)
-            this.codeDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (codeDescriptor instanceof Serializable)
-            this.codeDescriptor = (CharSequence) in.readSerializable();
-        else
-            this.codeDescriptor = in.readString();
+        this.codeDescriptor = (CharSequence) readObject(in);
     }
 
     public static final Creator<BaseCodeBean> CREATOR = new Creator<BaseCodeBean>() {

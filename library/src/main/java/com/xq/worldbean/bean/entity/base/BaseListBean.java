@@ -5,7 +5,7 @@ import com.xq.worldbean.bean.behavior.ListBehavior;
 import java.io.Serializable;
 import java.util.List;
 
-public class BaseListBean<T extends BaseListBean> extends BaseBean<T> implements ListBehavior<T> {
+public class BaseListBean extends BaseBean implements ListBehavior {
 
     protected List list;
 
@@ -47,9 +47,8 @@ public class BaseListBean<T extends BaseListBean> extends BaseBean<T> implements
     }
 
     @Override
-    public T setList(List list) {
+    public void setList(List list) {
         this.list = list;
-        return (T) this;
     }
 
     @Override
@@ -60,7 +59,7 @@ public class BaseListBean<T extends BaseListBean> extends BaseBean<T> implements
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
-        dest.writeSerializable((Serializable) this.list);
+        dest.writeSerializable((Serializable) list);
     }
 
     protected BaseListBean(Parcel in) {

@@ -1,13 +1,10 @@
 package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.xq.worldbean.bean.behavior.StateBehavior;
 
-import java.io.Serializable;
 
-public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implements StateBehavior<T> {
+public class BaseStateBean extends BaseBean implements StateBehavior {
 
     protected int state;
     protected CharSequence stateDescriptor;
@@ -58,9 +55,8 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setState(int state) {
+    public void setState(int state) {
         this.state = state;
-        return (T) this;
     }
 
     @Override
@@ -69,9 +65,8 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setStateDescriptor(CharSequence stateDescriptor) {
+    public void setStateDescriptor(CharSequence stateDescriptor) {
         this.stateDescriptor = stateDescriptor;
-        return (T) this;
     }
 
     @Override
@@ -83,23 +78,13 @@ public class BaseStateBean<T extends BaseStateBean> extends BaseBean<T> implemen
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeInt(this.state);
-        if (stateDescriptor instanceof Parcelable)
-            dest.writeParcelable((Parcelable) stateDescriptor, flags);
-        else    if (stateDescriptor instanceof Serializable)
-            dest.writeSerializable((Serializable) stateDescriptor);
-        else
-            dest.writeString(stateDescriptor == null?null:stateDescriptor.toString());
+        writeObject(dest,flags,stateDescriptor);
     }
 
     protected BaseStateBean(Parcel in) {
         super(in);
         this.state = in.readInt();
-        if (stateDescriptor instanceof Parcelable)
-            this.stateDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (stateDescriptor instanceof Serializable)
-            this.stateDescriptor = (CharSequence) in.readSerializable();
-        else
-            this.stateDescriptor = in.readString();
+        this.stateDescriptor = (CharSequence) readObject(in);
     }
 
     public static final Creator<BaseStateBean> CREATOR = new Creator<BaseStateBean>() {

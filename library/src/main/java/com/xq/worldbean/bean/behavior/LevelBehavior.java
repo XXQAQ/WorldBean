@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface LevelBehavior<T extends LevelBehavior> extends BaseBehavior<T>{
+public interface LevelBehavior extends BaseBehavior{
 
     public int getLevel();
 
@@ -9,12 +9,11 @@ public interface LevelBehavior<T extends LevelBehavior> extends BaseBehavior<T>{
         return getLevel();
     }
 
-    default T setLevel(int level){
-        return (T) this;
+    default void setLevel(int level){
     }
 
-    default T setLevel(int level,String role){
-        return setLevel(level);
+    default void setLevel(int level,String role){
+        setLevel(level);
     }
 
     //对等级的描述
@@ -26,12 +25,11 @@ public interface LevelBehavior<T extends LevelBehavior> extends BaseBehavior<T>{
         return getLevelDescriptor();
     }
 
-    default T setLevelDescriptor(CharSequence descriptor){
-        return (T) this;
+    default void setLevelDescriptor(CharSequence descriptor){
     }
 
-    default T setLevelDescriptor(CharSequence descriptor,String role){
-        return setLevelDescriptor(descriptor);
+    default void setLevelDescriptor(CharSequence descriptor,String role){
+        setLevelDescriptor(descriptor);
     }
 
 }

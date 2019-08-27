@@ -4,7 +4,7 @@ import com.xq.worldbean.bean.entity.base.BaseListBean;
 
 import java.util.List;
 
-public class ListBean extends BaseListBean<ListBean> {
+public class ListBean extends BaseListBean {
     public ListBean() {
     }
 

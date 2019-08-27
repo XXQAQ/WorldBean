@@ -2,7 +2,7 @@ package com.xq.worldbean.util.callback;
 
 public abstract class TClassCallback<T> implements TCallback<T> {
 
-    private Class dataClass;
+    private Class<T> dataClass;
 
     public TClassCallback(Class<T> dataClass) {
         this.dataClass = dataClass;

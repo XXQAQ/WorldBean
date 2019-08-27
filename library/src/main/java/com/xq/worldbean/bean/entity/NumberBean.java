@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.entity;
 
 import com.xq.worldbean.bean.entity.base.BaseNumberBean;
 
-public class NumberBean extends BaseNumberBean<NumberBean> {
+public class NumberBean extends BaseNumberBean {
     public NumberBean() {
     }
 

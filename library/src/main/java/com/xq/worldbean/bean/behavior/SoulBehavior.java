@@ -1,17 +1,14 @@
 package com.xq.worldbean.bean.behavior;
 
 import com.xq.worldbean.util.callback.TCallback;
-
 import java.io.Serializable;
 
-public interface SoulBehavior<T> extends Serializable {
+public interface SoulBehavior extends Serializable {
 
-    default TCallback<T> getCallback(){
-        return null;
-    }
+    public TCallback getCallback();
 
-    default T setCallback(TCallback<T> callback) {
-        return (T) this;
+    default void setCallback(TCallback callback) {
+
     }
 
 }

@@ -1,11 +1,9 @@
 package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.LevelBehavior;
-import java.io.Serializable;
 
-public class BaseLevel<T extends BaseLevel> extends BaseBean<T> implements LevelBehavior<T> {
+public class BaseLevel extends BaseBean implements LevelBehavior {
 
     protected int level;
     protected CharSequence levelDescriptor;
@@ -56,9 +54,8 @@ public class BaseLevel<T extends BaseLevel> extends BaseBean<T> implements Level
     }
 
     @Override
-    public T setLevel(int level) {
+    public void setLevel(int level) {
         this.level = level;
-        return (T) this;
     }
 
     @Override
@@ -67,9 +64,8 @@ public class BaseLevel<T extends BaseLevel> extends BaseBean<T> implements Level
     }
 
     @Override
-    public T setLevelDescriptor(CharSequence levelDescriptor) {
+    public void setLevelDescriptor(CharSequence levelDescriptor) {
         this.levelDescriptor = levelDescriptor;
-        return (T) this;
     }
 
     @Override
@@ -81,23 +77,13 @@ public class BaseLevel<T extends BaseLevel> extends BaseBean<T> implements Level
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeInt(this.level);
-        if (levelDescriptor instanceof Parcelable)
-            dest.writeParcelable((Parcelable) levelDescriptor, flags);
-        else    if (levelDescriptor instanceof Serializable)
-            dest.writeSerializable((Serializable) levelDescriptor);
-        else
-            dest.writeString(levelDescriptor == null?null:levelDescriptor.toString());
+        writeObject(dest,flags,levelDescriptor);
     }
 
     protected BaseLevel(Parcel in) {
         super(in);
         this.level = in.readInt();
-        if (levelDescriptor instanceof Parcelable)
-            this.levelDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (levelDescriptor instanceof Serializable)
-            this.levelDescriptor = (CharSequence) in.readSerializable();
-        else
-            this.levelDescriptor = in.readString();
+        this.levelDescriptor = (CharSequence) readObject(in);
     }
 
     public static final Creator<BaseLevel> CREATOR = new Creator<BaseLevel>() {

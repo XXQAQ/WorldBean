@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.entity;
 
 import com.xq.worldbean.bean.entity.base.BaseCodeBean;
 
-public class CodeBean extends BaseCodeBean<CodeBean> {
+public class CodeBean extends BaseCodeBean {
     public CodeBean() {
     }
 

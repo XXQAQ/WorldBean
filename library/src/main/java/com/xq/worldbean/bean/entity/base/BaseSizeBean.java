@@ -4,7 +4,7 @@ import android.os.Parcel;
 
 import com.xq.worldbean.bean.behavior.SizeBehavior;
 
-public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements SizeBehavior<T> {
+public class BaseSizeBean extends BaseBean implements SizeBehavior {
 
     protected double width;
     protected double height;
@@ -64,9 +64,8 @@ public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements
     }
 
     @Override
-    public T setWidth(double width) {
+    public void setWidth(double width) {
         this.width = width;
-        return (T) this;
     }
 
     @Override
@@ -75,9 +74,8 @@ public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements
     }
 
     @Override
-    public T setHeight(double height) {
+    public void setHeight(double height) {
         this.height = height;
-        return (T) this;
     }
 
     @Override
@@ -86,9 +84,8 @@ public class BaseSizeBean<T extends BaseSizeBean> extends BaseBean<T> implements
     }
 
     @Override
-    public T setSize(double size) {
+    public void setSize(double size) {
         this.size = size;
-        return (T) this;
     }
 
     @Override

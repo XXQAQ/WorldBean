@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.entity;
 
 import com.xq.worldbean.bean.entity.base.BaseFractionBean;
 
-public class FractionBean extends BaseFractionBean<FractionBean> {
+public class FractionBean extends BaseFractionBean {
     public FractionBean() {
     }
 

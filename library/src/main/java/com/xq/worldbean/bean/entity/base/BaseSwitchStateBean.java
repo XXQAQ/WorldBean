@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.entity.base;
 
 import com.xq.worldbean.bean.behavior.SwitchStateBehavior;
 
-public class BaseSwitchStateBean<T extends BaseSwitchStateBean> extends BaseStateBean<T> implements SwitchStateBehavior<T> {
+public class BaseSwitchStateBean extends BaseStateBean implements SwitchStateBehavior {
 
     public BaseSwitchStateBean() {
     }

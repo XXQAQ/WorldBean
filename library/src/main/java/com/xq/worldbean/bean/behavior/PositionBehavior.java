@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface PositionBehavior<T extends PositionBehavior> extends BaseBehavior<T> {
+public interface PositionBehavior extends BaseBehavior{
 
     public int getPosition();
 
@@ -9,12 +9,11 @@ public interface PositionBehavior<T extends PositionBehavior> extends BaseBehavi
         return getPosition();
     }
 
-    default T setPosition(int position){
-        return (T)this;
+    default void setPosition(int position){
     }
 
-    default T setPosition(int position,String role){
-        return setPosition(position);
+    default void setPosition(int position,String role){
+        setPosition(position);
     }
 
     default int getStartPosition() {
@@ -25,12 +24,11 @@ public interface PositionBehavior<T extends PositionBehavior> extends BaseBehavi
         return getStartPosition();
     }
 
-    default T setStartPosition(int startPosition){
-        return (T) this;
+    default void setStartPosition(int startPosition){
     }
 
-    default T setStartPosition(int startPosition,String role){
-        return setStartPosition(startPosition);
+    default void setStartPosition(int startPosition,String role){
+        setStartPosition(startPosition);
     }
 
     default int getEndPosition() {
@@ -41,12 +39,11 @@ public interface PositionBehavior<T extends PositionBehavior> extends BaseBehavi
         return getEndPosition();
     }
 
-    default T setEndPosition(int endPosition){
-        return (T) this;
+    default void setEndPosition(int endPosition){
     }
 
-    default T setEndPosition(int endPosition,String role){
-        return setEndPosition(endPosition);
+    default void setEndPosition(int endPosition,String role){
+        setEndPosition(endPosition);
     }
 
 }

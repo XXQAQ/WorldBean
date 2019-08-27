@@ -1,6 +1,8 @@
 package com.xq.worldbean.bean.behavior;
 
-public interface TagBehavior<T extends TagBehavior> extends SoulBehavior<T>{
+import java.io.Serializable;
+
+public interface TagBehavior extends Serializable {
 
     public Object getTag();
 
@@ -8,12 +10,11 @@ public interface TagBehavior<T extends TagBehavior> extends SoulBehavior<T>{
         return getTag();
     }
 
-    default T setTag(Object tag) {
-        return (T) this;
+    default void setTag(Object tag) {
     }
 
-    default T setTag(Object tag,String role) {
-        return setTag(tag);
+    default void setTag(Object tag,String role) {
+        setTag(tag);
     }
 
 }

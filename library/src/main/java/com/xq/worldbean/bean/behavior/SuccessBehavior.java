@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface SuccessBehavior<T extends SuccessBehavior> extends BaseBehavior<T> {
+public interface SuccessBehavior extends BaseBehavior{
 
     public boolean isSuccess();
 
@@ -18,12 +18,11 @@ public interface SuccessBehavior<T extends SuccessBehavior> extends BaseBehavior
         return isSuccess(role);
     }
 
-    default T setSuccess(boolean isSuccess){
-        return (T)this;
+    default void setSuccess(boolean isSuccess){
     }
 
-    default T setSuccess(boolean isSuccess,String role){
-        return setSuccess(isSuccess);
+    default void setSuccess(boolean isSuccess,String role){
+        setSuccess(isSuccess);
     }
 
 }

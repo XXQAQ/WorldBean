@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.behavior;
 
 import java.util.List;
 
-public interface WorldBehavior<T extends WorldBehavior> extends NewPromptBehavior<T>,TitleBehavior<T>,ContentBehavior<T>,NumberBehavior<T>,ImageBehavior<T>,ListBehavior<T>, LinkBehavior<T>,CoordinateBehavior<T>,PositionBehavior<T>,FractionBehavior<T>,SuccessBehavior<T>,SwitchStateBehavior<T>,TypeBehavior<T>,SizeBehavior<T>,CodeBehavior<T>,LevelBehavior<T>{
+public interface WorldBehavior extends NewPromptBehavior,TitleBehavior,ContentBehavior,NumberBehavior,ImageBehavior,ListBehavior, LinkBehavior,CoordinateBehavior,PositionBehavior,FractionBehavior,SuccessBehavior,SwitchStateBehavior,TypeBehavior,SizeBehavior,CodeBehavior,LevelBehavior{
 
     @Override
     default int getNewPrompt() {
@@ -10,8 +10,8 @@ public interface WorldBehavior<T extends WorldBehavior> extends NewPromptBehavio
     }
 
     @Override
-    default T setNewPrompt(int newPrompt) {
-        return (T) this;
+    default void setNewPrompt(int newPrompt) {
+
     }
 
     @Override
@@ -25,7 +25,7 @@ public interface WorldBehavior<T extends WorldBehavior> extends NewPromptBehavio
     }
 
     @Override
-    default List getList() {
+    default List<?> getList() {
         return null;
     }
 

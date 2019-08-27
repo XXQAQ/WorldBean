@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.TitleBehavior;
 import java.io.Serializable;
 
-public class BaseTitleBean<T extends BaseTitleBean> extends BaseBean<T> implements TitleBehavior<T> {
+public class BaseTitleBean extends BaseBean implements TitleBehavior {
 
     protected CharSequence title;
 
@@ -47,9 +47,8 @@ public class BaseTitleBean<T extends BaseTitleBean> extends BaseBean<T> implemen
     }
 
     @Override
-    public T setTitle(CharSequence title) {
+    public void setTitle(CharSequence title) {
         this.title = title;
-        return (T) this;
     }
 
     @Override
@@ -60,22 +59,12 @@ public class BaseTitleBean<T extends BaseTitleBean> extends BaseBean<T> implemen
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
-        if (title instanceof Parcelable)
-            dest.writeParcelable((Parcelable) title, flags);
-        else    if (title instanceof Serializable)
-            dest.writeSerializable((Serializable) title);
-        else
-            dest.writeString(title == null?null:title.toString());
+        writeObject(dest,flags,title);
     }
 
     protected BaseTitleBean(Parcel in) {
         super(in);
-        if (title instanceof Parcelable)
-            this.title = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (title instanceof Serializable)
-            this.title = (CharSequence) in.readSerializable();
-        else
-            this.title = in.readString();
+        this.title = (CharSequence) readObject(in);
     }
 
     public static final Parcelable.Creator<BaseTitleBean> CREATOR = new Parcelable.Creator<BaseTitleBean>() {

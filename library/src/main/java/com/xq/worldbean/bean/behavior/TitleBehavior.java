@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface TitleBehavior<T extends TitleBehavior> extends BaseBehavior<T> {
+public interface TitleBehavior extends BaseBehavior{
 
     public CharSequence getTitle();
 
@@ -9,12 +9,11 @@ public interface TitleBehavior<T extends TitleBehavior> extends BaseBehavior<T> 
         return getTitle();
     }
 
-    default T setTitle(CharSequence title) {
-        return (T) this;
+    default void setTitle(CharSequence title) {
     }
 
-    default T setTitle(CharSequence title,String role) {
-        return setTitle(title);
+    default void setTitle(CharSequence title,String role) {
+        setTitle(title);
     }
 
 }

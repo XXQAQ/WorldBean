@@ -1,11 +1,9 @@
 package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.TypeBehavior;
-import java.io.Serializable;
 
-public class BaseTypeBean<T extends BaseTypeBean> extends BaseBean<T> implements TypeBehavior<T> {
+public class BaseTypeBean extends BaseBean implements TypeBehavior {
 
     protected int type;
     protected CharSequence typeDescriptor;
@@ -56,9 +54,8 @@ public class BaseTypeBean<T extends BaseTypeBean> extends BaseBean<T> implements
     }
 
     @Override
-    public T setType(int type) {
+    public void setType(int type) {
         this.type = type;
-        return (T) this;
     }
 
     @Override
@@ -67,9 +64,8 @@ public class BaseTypeBean<T extends BaseTypeBean> extends BaseBean<T> implements
     }
 
     @Override
-    public T setTypeDescriptor(CharSequence typeDescriptor) {
+    public void setTypeDescriptor(CharSequence typeDescriptor) {
         this.typeDescriptor = typeDescriptor;
-        return (T) this;
     }
 
     @Override
@@ -81,23 +77,13 @@ public class BaseTypeBean<T extends BaseTypeBean> extends BaseBean<T> implements
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeInt(this.type);
-        if (typeDescriptor instanceof Parcelable)
-            dest.writeParcelable((Parcelable) typeDescriptor, flags);
-        else    if (typeDescriptor instanceof Serializable)
-            dest.writeSerializable((Serializable) typeDescriptor);
-        else
-            dest.writeString(typeDescriptor == null?null:typeDescriptor.toString());
+        writeObject(dest,flags,typeDescriptor);
     }
 
     protected BaseTypeBean(Parcel in) {
         super(in);
         this.type = in.readInt();
-        if (typeDescriptor instanceof Parcelable)
-            this.typeDescriptor = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (typeDescriptor instanceof Serializable)
-            this.typeDescriptor = (CharSequence) in.readSerializable();
-        else
-            this.typeDescriptor = in.readString();
+        this.typeDescriptor = (CharSequence) readObject(in);
     }
 
     public static final Creator<BaseTypeBean> CREATOR = new Creator<BaseTypeBean>() {

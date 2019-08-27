@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface SwitchStateBehavior<T extends SwitchStateBehavior> extends StateBehavior<T>{
+public interface SwitchStateBehavior extends StateBehavior{
 
     //默认 state>0 的情况下标识为on，如果判断逻辑不同或需要变量单独处理则请重写此方法
     default boolean isOn() {
@@ -21,12 +21,12 @@ public interface SwitchStateBehavior<T extends SwitchStateBehavior> extends Stat
         return isOn(role);
     }
 
-    default T setOn(boolean isOn){
-        return setState(isOn?1:0);
+    default void setOn(boolean isOn){
+        setState(isOn?1:0);
     }
 
-    default T setOn(boolean isOn,String role){
-        return setOn(isOn);
+    default void setOn(boolean isOn,String role){
+        setOn(isOn);
     }
 
 }

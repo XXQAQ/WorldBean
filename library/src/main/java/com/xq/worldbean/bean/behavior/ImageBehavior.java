@@ -1,20 +1,31 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface ImageBehavior<T extends ImageBehavior> extends BaseBehavior<T> {
+import android.graphics.drawable.Drawable;
 
-    public int getImageRes();
+import com.xq.worldbean.util.ImageResourceConverter;
 
-    default int getImageRes(String role) {
-        return getImageRes();
+public interface ImageBehavior extends BaseBehavior {
+
+    public Drawable getImageDrawable();
+
+    default Drawable getImageDrawable(String role) {
+        return getImageDrawable();
     }
 
-    default T setImageRes(int imageRes){
-        return (T)this;
+    default void setImageDrawable(Drawable imageDrawable){
     }
 
-    default T setImageRes(int imageRes,String role){
-        return setImageRes(imageRes);
+    default void setImageDrawable(Drawable imageDrawable,String role){
+        setImageDrawable(imageDrawable);
+    }
+
+    default void setImageRes(int imageRes){
+        setImageDrawable(ImageResourceConverter.getInstance().convert(imageRes));
+    }
+
+    default void setImageRes(int imageRes,String role){
+        setImageDrawable(ImageResourceConverter.getInstance().convert(imageRes),role);
     }
 
     public String getImageUrl();
@@ -23,12 +34,11 @@ public interface ImageBehavior<T extends ImageBehavior> extends BaseBehavior<T> 
         return getImageUrl();
     }
 
-    default T setImageUrl(String imageUrl){
-        return (T)this;
+    default void setImageUrl(String imageUrl){
     }
 
-    default T setImageUrl(String imageUrl,String role){
-        return setImageUrl(imageUrl);
+    default void setImageUrl(String imageUrl,String role){
+        setImageUrl(imageUrl);
     }
 
 }

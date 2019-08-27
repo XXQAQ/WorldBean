@@ -3,7 +3,7 @@ package com.xq.worldbean.bean.entity.base;
 import android.os.Parcel;
 import com.xq.worldbean.bean.behavior.CoordinateBehavior;
 
-public class BaseCoordinateBean<T extends BaseCoordinateBean> extends BaseBean<T> implements CoordinateBehavior<T> {
+public class BaseCoordinateBean extends BaseBean implements CoordinateBehavior {
 
     protected double x;
     protected double y;
@@ -59,9 +59,8 @@ public class BaseCoordinateBean<T extends BaseCoordinateBean> extends BaseBean<T
     }
 
     @Override
-    public T setX(double x) {
+    public void setX(double x) {
         this.x = x;
-        return (T) this;
     }
 
     @Override
@@ -70,9 +69,8 @@ public class BaseCoordinateBean<T extends BaseCoordinateBean> extends BaseBean<T
     }
 
     @Override
-    public T setY(double y) {
+    public void setY(double y) {
         this.y = y;
-        return (T) this;
     }
 
     @Override
@@ -81,9 +79,8 @@ public class BaseCoordinateBean<T extends BaseCoordinateBean> extends BaseBean<T
     }
 
     @Override
-    public T setZ(double z) {
+    public void setZ(double z) {
         this.z = z;
-        return (T) this;
     }
 
     @Override

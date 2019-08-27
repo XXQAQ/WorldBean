@@ -1,11 +1,9 @@
 package com.xq.worldbean.bean.entity.base;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 import com.xq.worldbean.bean.behavior.ContentBehavior;
-import java.io.Serializable;
 
-public class BaseContentBean<T extends BaseContentBean> extends BaseBean<T> implements ContentBehavior<T> {
+public class BaseContentBean extends BaseBean implements ContentBehavior {
 
     protected CharSequence content;
 
@@ -47,9 +45,8 @@ public class BaseContentBean<T extends BaseContentBean> extends BaseBean<T> impl
     }
 
     @Override
-    public T setContent(CharSequence content) {
+    public void setContent(CharSequence content) {
         this.content = content;
-        return (T) this;
     }
 
     @Override
@@ -60,22 +57,12 @@ public class BaseContentBean<T extends BaseContentBean> extends BaseBean<T> impl
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
-        if (content instanceof Parcelable)
-            dest.writeParcelable((Parcelable) content, flags);
-        else    if (content instanceof Serializable)
-            dest.writeSerializable((Serializable) content);
-        else
-            dest.writeString(content == null?null:content.toString());
+        writeObject(dest,flags,content);
     }
 
     protected BaseContentBean(Parcel in) {
         super(in);
-        if (content instanceof Parcelable)
-            this.content = in.readParcelable(CharSequence.class.getClassLoader());
-        else    if (content instanceof Serializable)
-            this.content = (CharSequence) in.readSerializable();
-        else
-            this.content = in.readString();
+        this.content = (CharSequence) readObject(in);
     }
 
     public static final Creator<BaseContentBean> CREATOR = new Creator<BaseContentBean>() {

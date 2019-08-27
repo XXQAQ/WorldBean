@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface CoordinateBehavior<T extends CoordinateBehavior> extends BaseBehavior<T> {
+public interface CoordinateBehavior extends BaseBehavior {
 
     public double getX();
 
@@ -9,12 +9,11 @@ public interface CoordinateBehavior<T extends CoordinateBehavior> extends BaseBe
         return getX();
     }
 
-    default T setX(double x){
-        return (T)this;
+    default void setX(double x){
     }
 
-    default T setX(double x,String role){
-        return setX(x);
+    default void setX(double x,String role){
+        setX(x);
     }
 
     public double getY();
@@ -23,12 +22,11 @@ public interface CoordinateBehavior<T extends CoordinateBehavior> extends BaseBe
         return getY();
     }
 
-    default T setY(double y){
-        return (T)this;
+    default void setY(double y){
     }
 
-    default T setY(double y,String role){
-        return setY(y);
+    default void setY(double y,String role){
+        setY(y);
     }
 
     public double getZ();
@@ -37,12 +35,11 @@ public interface CoordinateBehavior<T extends CoordinateBehavior> extends BaseBe
         return getZ();
     }
 
-    default T setZ(double z){
-        return (T)this;
+    default void setZ(double z){
     }
 
-    default T setZ(double z,String role){
-        return setZ(z);
+    default void setZ(double z,String role){
+        setZ(z);
     }
 
 }

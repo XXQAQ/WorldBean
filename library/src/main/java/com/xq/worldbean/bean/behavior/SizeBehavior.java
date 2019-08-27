@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface SizeBehavior<T extends SizeBehavior> extends BaseBehavior<T> {
+public interface SizeBehavior extends BaseBehavior{
 
     public double getWidth();
 
@@ -9,12 +9,11 @@ public interface SizeBehavior<T extends SizeBehavior> extends BaseBehavior<T> {
         return getWidth();
     }
 
-    default T setWidth(double width){
-        return (T)this;
+    default void setWidth(double width){
     }
 
-    default T setWidth(double width,String role){
-        return setWidth(width);
+    default void setWidth(double width,String role){
+        setWidth(width);
     }
 
     public double getHeight();
@@ -23,12 +22,11 @@ public interface SizeBehavior<T extends SizeBehavior> extends BaseBehavior<T> {
         return getHeight();
     }
 
-    default T setHeight(double height){
-        return (T)this;
+    default void setHeight(double height){
     }
 
-    default T setHeight(double height,String role){
-        return setHeight(height);
+    default void setHeight(double height,String role){
+        setHeight(height);
     }
 
     public double getSize();
@@ -37,13 +35,11 @@ public interface SizeBehavior<T extends SizeBehavior> extends BaseBehavior<T> {
         return getSize();
     }
 
-    default T setSize(double size) {
-        return (T) this;
+    default void setSize(double size) {
     }
 
-    default T setSize(double size, String role) {
+    default void setSize(double size, String role) {
         setSize(size);
-        return (T) this;
     }
 
 }

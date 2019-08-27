@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.xq.worldbean.bean.entity.base.BaseFragmentBean;
 
-public class FragmentBean extends BaseFragmentBean<FragmentBean> {
+public class FragmentBean extends BaseFragmentBean {
     public FragmentBean() {
     }
 

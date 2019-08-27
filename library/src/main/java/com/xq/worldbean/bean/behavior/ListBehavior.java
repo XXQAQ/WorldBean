@@ -2,20 +2,19 @@ package com.xq.worldbean.bean.behavior;
 
 import java.util.List;
 
-public interface ListBehavior<T extends ListBehavior> extends BaseBehavior<T>{
+public interface ListBehavior<T> extends BaseBehavior{
 
-    public List getList();
+    public List<T> getList();
 
     default List getList(String role) {
         return getList();
     }
 
-    default T setList(List list){
-        return (T)this;
+    default void setList(List<T> list){
     }
 
-    default T setList(List list, String role){
-        return setList(list);
+    default void setList(List list, String role){
+        setList(list);
     }
 
 }

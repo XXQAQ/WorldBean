@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface CodeBehavior<T extends CodeBehavior> extends BaseBehavior<T> {
+public interface CodeBehavior extends BaseBehavior {
 
     public int getCode();
 
@@ -9,12 +9,11 @@ public interface CodeBehavior<T extends CodeBehavior> extends BaseBehavior<T> {
         return getCode();
     }
 
-    default T setCode(int code){
-        return (T)this;
+    default void setCode(int code){
     }
 
-    default T setCode(int code,String role){
-        return setCode(code);
+    default void setCode(int code,String role){
+        setCode(code);
     }
 
     //对Code的描述
@@ -26,11 +25,10 @@ public interface CodeBehavior<T extends CodeBehavior> extends BaseBehavior<T> {
         return getCodeDescriptor();
     }
 
-    default T setCodeDescriptor(CharSequence descriptor){
-        return (T)this;
+    default void setCodeDescriptor(CharSequence descriptor){
     }
 
-    default T setCodeDescriptor(CharSequence descriptor,String role){
-        return setCodeDescriptor(descriptor);
+    default void setCodeDescriptor(CharSequence descriptor,String role){
+        setCodeDescriptor(descriptor);
     }
 }

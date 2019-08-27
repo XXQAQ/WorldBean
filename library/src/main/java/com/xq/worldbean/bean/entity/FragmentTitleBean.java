@@ -3,7 +3,7 @@ package com.xq.worldbean.bean.entity;
 import android.os.Bundle;
 import com.xq.worldbean.bean.entity.base.BaseFragmentTitleBean;
 
-public class FragmentTitleBean extends BaseFragmentTitleBean<FragmentTitleBean> {
+public class FragmentTitleBean extends BaseFragmentTitleBean {
     public FragmentTitleBean() {
     }
 

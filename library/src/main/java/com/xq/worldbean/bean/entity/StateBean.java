@@ -2,7 +2,7 @@ package com.xq.worldbean.bean.entity;
 
 import com.xq.worldbean.bean.entity.base.BaseStateBean;
 
-public class StateBean extends BaseStateBean<StateBean> {
+public class StateBean extends BaseStateBean {
     public StateBean() {
     }
 

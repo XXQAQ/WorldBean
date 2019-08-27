@@ -1,6 +1,8 @@
 package com.xq.worldbean.bean.behavior;
 
-public interface IdBehavior<T extends IdBehavior> extends SoulBehavior<T>{
+import java.io.Serializable;
+
+public interface IdBehavior extends Serializable {
 
     public String getId();
 
@@ -8,12 +10,11 @@ public interface IdBehavior<T extends IdBehavior> extends SoulBehavior<T>{
         return getId();
     }
 
-    default T setId(String id){
-        return (T) this;
+    default void setId(String id){
     }
 
-    default T setId(String id,String role){
-        return setId(id);
+    default void setId(String id,String role){
+        setId(id);
     }
 
     //外键Id
@@ -25,12 +26,11 @@ public interface IdBehavior<T extends IdBehavior> extends SoulBehavior<T>{
         return getForeignId();
     }
 
-    default T setForeignId(String id){
-        return (T) this;
+    default void setForeignId(String id){
     }
 
-    default T setForeignId(String id,String role){
-        return setForeignId(id);
+    default void setForeignId(String id,String role){
+        setForeignId(id);
     }
 
 }

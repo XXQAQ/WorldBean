@@ -1,7 +1,7 @@
 package com.xq.worldbean.bean.behavior;
 
 
-public interface TypeBehavior<T extends TypeBehavior> extends BaseBehavior<T> {
+public interface TypeBehavior extends BaseBehavior{
 
     public int getType();
 
@@ -9,12 +9,11 @@ public interface TypeBehavior<T extends TypeBehavior> extends BaseBehavior<T> {
         return getType();
     }
 
-    default T setType(int type){
-        return (T)this;
+    default void setType(int type){
     }
 
-    default T setType(int type,String role){
-        return setType(type);
+    default void setType(int type,String role){
+        setType(type);
     }
 
     //对类型的描述
@@ -26,12 +25,11 @@ public interface TypeBehavior<T extends TypeBehavior> extends BaseBehavior<T> {
         return getTypeDescriptor();
     }
 
-    default T setTypeDescriptor(CharSequence descriptor){
-        return (T)this;
+    default void setTypeDescriptor(CharSequence descriptor){
     }
 
-    default T setTypeDescriptor(CharSequence descriptor,String role){
-        return setTypeDescriptor(descriptor);
+    default void setTypeDescriptor(CharSequence descriptor,String role){
+        setTypeDescriptor(descriptor);
     }
 
 }
