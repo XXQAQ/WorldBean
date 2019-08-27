@@ -15,6 +15,11 @@ public class BaseNumberBean extends BaseBean implements NumberBehavior {
         this.number = number;
     }
 
+    public BaseNumberBean(String id, Number number) {
+        super(id);
+        this.number = number;
+    }
+
     @Override
     public String toString() {
         return "BaseNumberBean{" +

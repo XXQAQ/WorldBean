@@ -9,4 +9,8 @@ public class CoordinateBean extends BaseCoordinateBean {
     public CoordinateBean(double x, double y, double z) {
         super(x, y, z);
     }
+
+    public CoordinateBean(String id, double x, double y, double z) {
+        super(id, x, y, z);
+    }
 }

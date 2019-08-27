@@ -18,6 +18,13 @@ public class BaseCoordinateBean extends BaseBean implements CoordinateBehavior {
         this.z = z;
     }
 
+    public BaseCoordinateBean(String id, double x, double y, double z) {
+        super(id);
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
     @Override
     public String toString() {
         return "BaseCoordinateBean{" +

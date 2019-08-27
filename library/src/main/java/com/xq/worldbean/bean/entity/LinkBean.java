@@ -9,4 +9,8 @@ public class LinkBean extends BaseLinkBean {
     public LinkBean(String link) {
         super(link);
     }
+
+    public LinkBean(String id, String link) {
+        super(id, link);
+    }
 }

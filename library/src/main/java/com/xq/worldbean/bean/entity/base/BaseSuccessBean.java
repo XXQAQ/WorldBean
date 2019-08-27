@@ -16,6 +16,11 @@ public class BaseSuccessBean extends BaseBean implements SuccessBehavior {
         this.isSuccess = isSuccess;
     }
 
+    public BaseSuccessBean(String id, boolean isSuccess) {
+        super(id);
+        this.isSuccess = isSuccess;
+    }
+
     @Override
     public String toString() {
         return "BaseSuccessBean{" +

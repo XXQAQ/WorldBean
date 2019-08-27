@@ -14,7 +14,10 @@ public class BaseLinkBean extends BaseBean implements LinkBehavior {
         this.link = link;
     }
 
-
+    public BaseLinkBean(String id, String link) {
+        super(id);
+        this.link = link;
+    }
 
     @Override
     public String getLink() {

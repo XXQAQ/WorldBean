@@ -13,4 +13,13 @@ public class CodeBean extends BaseCodeBean {
     public CodeBean(int code, CharSequence codeDescriptor) {
         super(code, codeDescriptor);
     }
+
+    public CodeBean(String id, int code) {
+        super(id, code);
+    }
+
+    public CodeBean(String id, int code, CharSequence codeDescriptor) {
+        super(id, code, codeDescriptor);
+    }
+
 }

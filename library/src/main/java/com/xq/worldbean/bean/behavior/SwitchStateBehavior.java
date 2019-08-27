@@ -26,7 +26,7 @@ public interface SwitchStateBehavior extends StateBehavior{
     }
 
     default void setOn(boolean isOn,String role){
-        setOn(isOn);
+        setState(isOn?1:0,role);
     }
 
 }

@@ -9,4 +9,8 @@ public class NumberBean extends BaseNumberBean {
     public NumberBean(Number number) {
         super(number);
     }
+
+    public NumberBean(String id, Number number) {
+        super(id, number);
+    }
 }

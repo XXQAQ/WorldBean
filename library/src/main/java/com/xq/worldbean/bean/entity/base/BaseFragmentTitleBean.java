@@ -23,6 +23,17 @@ public class BaseFragmentTitleBean extends BaseTitleBean implements FragmentBeha
         this.fragmentArguments = fragmentArguments;
     }
 
+    public BaseFragmentTitleBean(String id, CharSequence title, String fragmentName) {
+        super(id, title);
+        this.fragmentName = fragmentName;
+    }
+
+    public BaseFragmentTitleBean(String id, CharSequence title, String fragmentName, Bundle fragmentArguments) {
+        super(id, title);
+        this.fragmentName = fragmentName;
+        this.fragmentArguments = fragmentArguments;
+    }
+
     @Override
     public String toString() {
         return "BaseFragmentTitleBean{" +

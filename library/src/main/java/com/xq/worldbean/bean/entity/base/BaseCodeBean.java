@@ -20,6 +20,17 @@ public class BaseCodeBean extends BaseBean implements CodeBehavior {
         this.codeDescriptor = codeDescriptor;
     }
 
+    public BaseCodeBean(String id, int code) {
+        super(id);
+        this.code = code;
+    }
+
+    public BaseCodeBean(String id, int code, CharSequence codeDescriptor) {
+        super(id);
+        this.code = code;
+        this.codeDescriptor = codeDescriptor;
+    }
+
     @Override
     public String toString() {
         return "BaseCodeBean{" +

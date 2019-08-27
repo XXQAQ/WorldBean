@@ -16,6 +16,11 @@ public class BaseTitleBean extends BaseBean implements TitleBehavior {
         this.title = title;
     }
 
+    public BaseTitleBean(String id, CharSequence title) {
+        super(id);
+        this.title = title;
+    }
+
     @Override
     public String toString() {
         return "BaseTitleBean{" +

@@ -21,6 +21,17 @@ public class BaseFragmentBean extends BaseBean implements FragmentBehavior {
         this.fragmentArguments = fragmentArguments;
     }
 
+    public BaseFragmentBean(String id, String fragmentName) {
+        super(id);
+        this.fragmentName = fragmentName;
+    }
+
+    public BaseFragmentBean(String id, String fragmentName, Bundle fragmentArguments) {
+        super(id);
+        this.fragmentName = fragmentName;
+        this.fragmentArguments = fragmentArguments;
+    }
+
     @Override
     public String toString() {
         return "BaseFragmentBean{" +

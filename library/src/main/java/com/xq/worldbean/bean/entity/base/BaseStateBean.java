@@ -21,6 +21,17 @@ public class BaseStateBean extends BaseBean implements StateBehavior {
         this.stateDescriptor = stateDescriptor;
     }
 
+    public BaseStateBean(String id, int state) {
+        super(id);
+        this.state = state;
+    }
+
+    public BaseStateBean(String id, int state, CharSequence stateDescriptor) {
+        super(id);
+        this.state = state;
+        this.stateDescriptor = stateDescriptor;
+    }
+
     @Override
     public String toString() {
         return "BaseStateBean{" +

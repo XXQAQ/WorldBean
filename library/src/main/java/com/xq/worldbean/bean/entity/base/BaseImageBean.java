@@ -21,6 +21,21 @@ public class BaseImageBean extends BaseBean implements ImageBehavior {
         this.imageDrawable = imageDrawable;
     }
 
+    public BaseImageBean(String id, int imageRes) {
+        super(id);
+        this.imageDrawable = ImageResourceConverter.getInstance().convert(imageRes);
+    }
+
+    public BaseImageBean(String id, Drawable imageDrawable) {
+        super(id);
+        this.imageDrawable = imageDrawable;
+    }
+
+    public BaseImageBean(String id, String imageUrl) {
+        super(id);
+        this.imageUrl = imageUrl;
+    }
+
     public BaseImageBean(String imageUrl) {
         this.imageUrl = imageUrl;
     }

@@ -23,6 +23,17 @@ public class BaseSizeBean extends BaseBean implements SizeBehavior {
         this.size = size;
     }
 
+    public BaseSizeBean(String id, double width, double height) {
+        super(id);
+        this.width = width;
+        this.height = height;
+    }
+
+    public BaseSizeBean(String id, double size) {
+        super(id);
+        this.size = size;
+    }
+
     @Override
     public String toString() {
         return "BaseSizeBean{" +

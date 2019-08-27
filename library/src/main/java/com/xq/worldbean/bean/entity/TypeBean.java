@@ -13,4 +13,12 @@ public class TypeBean extends BaseTypeBean {
     public TypeBean(int type, CharSequence typeDescriptor) {
         super(type, typeDescriptor);
     }
+
+    public TypeBean(String id, int type) {
+        super(id, type);
+    }
+
+    public TypeBean(String id, int type, CharSequence typeDescriptor) {
+        super(id, type, typeDescriptor);
+    }
 }

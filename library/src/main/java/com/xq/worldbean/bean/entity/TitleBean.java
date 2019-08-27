@@ -9,4 +9,8 @@ public class TitleBean extends BaseTitleBean {
     public TitleBean(CharSequence title) {
         super(title);
     }
+
+    public TitleBean(String id, CharSequence title) {
+        super(id, title);
+    }
 }

@@ -14,4 +14,12 @@ public class FragmentTitleBean extends BaseFragmentTitleBean {
     public FragmentTitleBean(CharSequence title, String fragmentName, Bundle fragmentArguments) {
         super(title, fragmentName, fragmentArguments);
     }
+
+    public FragmentTitleBean(String id, CharSequence title, String fragmentName) {
+        super(id, title, fragmentName);
+    }
+
+    public FragmentTitleBean(String id, CharSequence title, String fragmentName, Bundle fragmentArguments) {
+        super(id, title, fragmentName, fragmentArguments);
+    }
 }

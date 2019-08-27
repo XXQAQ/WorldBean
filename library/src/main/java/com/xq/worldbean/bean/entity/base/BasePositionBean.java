@@ -17,6 +17,11 @@ public class BasePositionBean extends BaseBean implements PositionBehavior {
         this.position = position;
     }
 
+    public BasePositionBean(String id, int position) {
+        super(id);
+        this.position = position;
+    }
+
     @Override
     public String toString() {
         return "BasePositionBean{" +

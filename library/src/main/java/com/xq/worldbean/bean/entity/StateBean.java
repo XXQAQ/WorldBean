@@ -13,4 +13,12 @@ public class StateBean extends BaseStateBean {
     public StateBean(int state, CharSequence stateDescriptor) {
         super(state, stateDescriptor);
     }
+
+    public StateBean(String id, int state) {
+        super(id, state);
+    }
+
+    public StateBean(String id, int state, CharSequence stateDescriptor) {
+        super(id, state, stateDescriptor);
+    }
 }

@@ -9,4 +9,8 @@ public class SuccessBean extends BaseSuccessBean {
     public SuccessBean(boolean isSuccess) {
         super(isSuccess);
     }
+
+    public SuccessBean(String id, boolean isSuccess) {
+        super(id, isSuccess);
+    }
 }

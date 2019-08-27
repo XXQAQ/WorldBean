@@ -7,14 +7,6 @@ public class BaseSwitchStateBean extends BaseStateBean implements SwitchStateBeh
     public BaseSwitchStateBean() {
     }
 
-    public BaseSwitchStateBean(int state) {
-        super(state);
-    }
-
-    public BaseSwitchStateBean(int state, CharSequence stateDescriptor) {
-        super(state, stateDescriptor);
-    }
-
     public BaseSwitchStateBean(boolean isOn) {
         super(isOn?1:0);
     }
@@ -23,4 +15,11 @@ public class BaseSwitchStateBean extends BaseStateBean implements SwitchStateBeh
         super(isOn?1:0, stateDescriptor);
     }
 
+    public BaseSwitchStateBean(String id, boolean isOn) {
+        super(id, isOn?1:0);
+    }
+
+    public BaseSwitchStateBean(String id, boolean isOn, CharSequence stateDescriptor) {
+        super(id, isOn?1:0, stateDescriptor);
+    }
 }

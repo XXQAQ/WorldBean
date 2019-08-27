@@ -16,6 +16,11 @@ public class BaseListBean extends BaseBean implements ListBehavior {
         this.list = list;
     }
 
+    public BaseListBean(String id, List list) {
+        super(id);
+        this.list = list;
+    }
+
     @Override
     public String toString() {
         return "BaseListBean{" +

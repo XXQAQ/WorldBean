@@ -13,4 +13,12 @@ public class FractionBean extends BaseFractionBean {
     public FractionBean(float fraction, CharSequence fractionDescriptor) {
         super(fraction, fractionDescriptor);
     }
+
+    public FractionBean(String id, float fraction) {
+        super(id, fraction);
+    }
+
+    public FractionBean(String id, float fraction, CharSequence fractionDescriptor) {
+        super(id, fraction, fractionDescriptor);
+    }
 }

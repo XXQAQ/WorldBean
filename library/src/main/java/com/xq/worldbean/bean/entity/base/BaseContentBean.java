@@ -14,6 +14,11 @@ public class BaseContentBean extends BaseBean implements ContentBehavior {
         this.content = content;
     }
 
+    public BaseContentBean(String id, CharSequence content) {
+        super(id);
+        this.content = content;
+    }
+
     @Override
     public String toString() {
         return "BaseContentBean{" +

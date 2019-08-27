@@ -20,6 +20,17 @@ public class BaseLevel extends BaseBean implements LevelBehavior {
         this.levelDescriptor = levelDescriptor;
     }
 
+    public BaseLevel(String id, int level) {
+        super(id);
+        this.level = level;
+    }
+
+    public BaseLevel(String id, int level, CharSequence levelDescriptor) {
+        super(id);
+        this.level = level;
+        this.levelDescriptor = levelDescriptor;
+    }
+
     @Override
     public String toString() {
         return "BaseLevel{" +

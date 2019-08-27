@@ -18,4 +18,16 @@ public class ImageBean extends BaseImageBean {
     public ImageBean(String imageUrl) {
         super(imageUrl);
     }
+
+    public ImageBean(String id, int imageRes) {
+        super(id, imageRes);
+    }
+
+    public ImageBean(String id, Drawable imageDrawable) {
+        super(id, imageDrawable);
+    }
+
+    public ImageBean(String id, String imageUrl) {
+        super(id, imageUrl);
+    }
 }

@@ -23,6 +23,10 @@ public class BaseBean implements BaseBehavior,Parcelable {
     public BaseBean() {
     }
 
+    public BaseBean(String id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "BaseBean{" +

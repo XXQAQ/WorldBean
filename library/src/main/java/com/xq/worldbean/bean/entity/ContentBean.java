@@ -9,4 +9,8 @@ public class ContentBean extends BaseContentBean {
     public ContentBean(CharSequence content) {
         super(content);
     }
+
+    public ContentBean(String id, CharSequence content) {
+        super(id, content);
+    }
 }

@@ -20,6 +20,17 @@ public class BaseTypeBean extends BaseBean implements TypeBehavior {
         this.typeDescriptor = typeDescriptor;
     }
 
+    public BaseTypeBean(String id, int type) {
+        super(id);
+        this.type = type;
+    }
+
+    public BaseTypeBean(String id, int type, CharSequence typeDescriptor) {
+        super(id);
+        this.type = type;
+        this.typeDescriptor = typeDescriptor;
+    }
+
     @Override
     public String toString() {
         return "BaseTypeBean{" +
