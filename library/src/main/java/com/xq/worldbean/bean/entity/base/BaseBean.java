@@ -15,9 +15,9 @@ import java.io.Serializable;
 
 public class BaseBean implements BaseBehavior,Parcelable {
 
-    protected Object tag;
     protected String id;
     protected String foreignId;
+    protected Object tag;
     protected TCallback callback;
 
     public BaseBean() {
@@ -30,9 +30,9 @@ public class BaseBean implements BaseBehavior,Parcelable {
     @Override
     public String toString() {
         return "BaseBean{" +
-                "tag=" + tag +
-                ", id='" + id + '\'' +
+                "id='" + id + '\'' +
                 ", foreignId='" + foreignId + '\'' +
+                ", tag=" + tag +
                 '}';
     }
 
@@ -41,27 +41,17 @@ public class BaseBean implements BaseBehavior,Parcelable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BaseBean that = (BaseBean) o;
+        BaseBean baseBean = (BaseBean) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        return foreignId != null ? foreignId.equals(that.foreignId) : that.foreignId == null;
+        if (id != null ? !id.equals(baseBean.id) : baseBean.id != null) return false;
+        return tag != null ? tag.equals(baseBean.tag) : baseBean.tag == null;
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (foreignId != null ? foreignId.hashCode() : 0);
+        result = 31 * result + (tag != null ? tag.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public Object getTag() {
-        return tag;
-    }
-
-    @Override
-    public void setTag(Object tag) {
-        this.tag = tag;
     }
 
     @Override
@@ -82,6 +72,16 @@ public class BaseBean implements BaseBehavior,Parcelable {
     @Override
     public void setForeignId(String foreignId) {
         this.foreignId = foreignId;
+    }
+
+    @Override
+    public Object getTag() {
+        return tag;
+    }
+
+    @Override
+    public void setTag(Object tag) {
+        this.tag = tag;
     }
 
     @Override
