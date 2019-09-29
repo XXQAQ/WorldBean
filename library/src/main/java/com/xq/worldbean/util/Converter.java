@@ -1,7 +1,7 @@
 package com.xq.worldbean.util;
 
-public interface Converter<T1,T2> {
+public interface Converter<T,R> {
 
-    public T2 convert(T1 t);
+    public R convert(T t);
 
 }
